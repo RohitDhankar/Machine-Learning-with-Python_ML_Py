@@ -20,11 +20,15 @@ Quick intro to - Numpy , Pandas , MatplotLib , Seaborn and [SciKitLearn.](http:/
 
 #
 1. Introduction to Regression - Theory and Excel workbook examples
+
    Regression in Python - the very basics . 
+   
    Case Study -1 - Linear Regression within Python
+   
    Choosing "the Best" Regression Model. 
 #
 2. Classification Tasks - the k-Nearest Neighbour 
+
    Related case study and examples . 
 #
 Questions and Answers. 
@@ -35,6 +39,7 @@ Questions and Answers.
 #
 
 1. Decision Trees from Scratch - Source - [Book - Programming Collective Intelligence.](https://github.com/RohitDhankar/Decision_Tree_____FROM-____Programming_Collective_Intelligence-) 
+
 Related case study and examples . 
 #
 Questions and Answers. 
@@ -45,6 +50,7 @@ Questions and Answers.
 #
 
 1. Logistic Regression with Python. 
+
 Related case study and examples . 
 #
 Questions and Answers. 
@@ -56,6 +62,7 @@ Questions and Answers.
 #
 
 1. k-Means clustering with Python. 
+
 Related case study and examples . 
 #
 Questions and Answers. 
@@ -66,8 +73,11 @@ Questions and Answers.
 #
 
 1. Visualizing data with Python. 
-   Intro to MatPlotLib , Seaborn and JavaScript Lib - D3.js.
+
+   Intro to MatPlotLib , Seaborn and [JavaScript Lib - D3.js.](https://github.com/d3/d3/wiki/Gallery)
+   
    Related case study and examples . 
+   
 #
 Questions and Answers. 
 #
@@ -77,7 +87,9 @@ Questions and Answers.
 #
 
 1. Intro to [NLP [ Natural Language Processing ] - NLTK](http://www.nltk.org/) 
-   Web Scraping - Bs4 etc . 
+
+   Web Scraping - [Beautiful Soup - BS4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) , stack 
+   
    Related case study and examples . 
 #
 Questions and Answers. 
