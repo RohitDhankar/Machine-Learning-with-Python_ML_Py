@@ -16,7 +16,7 @@ Do note basis feedback from students - the content and flow of the sessions keep
 #
 Whats ML ? Why Python ? some bits of theory before the Code :) 
 
-Quick intro to - Numpy , Pandas , MatplotLib , Seaborn and SciKitLearn. 
+Quick intro to - Numpy , Pandas , MatplotLib , Seaborn and [SciKitLearn.](http://scikit-learn.org/stable/about.html#citing-scikit-learn)
 
 #
 1. Introduction to Regression - Theory and Excel workbook examples
@@ -87,6 +87,20 @@ Questions and Answers.
 [ANACONDA - Silent Install](https://conda.io/docs/help/silent.html)
 
 [ANACONDA - Official Page](https://docs.continuum.io/anaconda/install/)
+
+ScikitLearn - Installation - After  installing ANACONDA - ```pip install -U scikit-learn```
+
+### Scikitlearn - Official Tutorials :-
+
+[Scikitlearn -Regression](http://scikit-learn.org/stable/) 
+
+[Scikitlearn -Classification](http://scikit-learn.org/stable/)
+
+[Scikitlearn -Clustering](http://scikit-learn.org/stable/)
+
+[Scikitlearn -Model Selection etc](http://scikit-learn.org/stable/) 
+
+
 
 [Numpy - Basics Official Tutorial](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html)
 
