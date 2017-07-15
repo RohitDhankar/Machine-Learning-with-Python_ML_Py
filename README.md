@@ -49,9 +49,20 @@ Questions and Answers.
 [ Duration : @60 Minutes ] 
 #
 
-1. Logistic Regression with Python. 
+1. Logistic Regression with Python. - ``` from sklearn.linear_model import LogisticRegression ```
+
+2. Gradient Boosting Classifier - ```    ```
+Using sample code from  [Own - Titanic Dataset - Kaggle attempt](https://github.com/RohitDhankar/KAGGLE_Titanic_initial/blob/master/Titanic_2_OwnCode.ipynb). 
+
+3. Random Forest Classifer - ```     ```
+Using sample code from  [Own - Titanic Dataset - Kaggle attempt](https://github.com/RohitDhankar/KAGGLE_Titanic_initial/blob/master/Titanic_2_OwnCode.ipynb). 
+
+
+
 
 Related case study and examples . 
+
+1. Using the Titanic - [Kaggle Data Set](https://www.kaggle.com/c/titanic) -will build this Classification problem with using sample code from  [Own Kaggle attempt](https://github.com/RohitDhankar/KAGGLE_Titanic_initial/blob/master/Titanic_2_OwnCode.ipynb). 
 #
 Questions and Answers. 
 #
