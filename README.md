@@ -82,5 +82,9 @@ Questions and Answers.
 # 
 ### Recap of earlier Modules and Important External Links :- 
 [MatPlotLib - PyPlot](https://matplotlib.org/api/pyplot_summary.html)
+
 [Seaborn - Seaborn is a Python visualization library based on matplotlib](https://seaborn.pydata.org/)
+
 [Installing Seaborn - Getting Started Official Guide](https://seaborn.pydata.org/installing.html)
+#
+
