@@ -90,7 +90,10 @@ Questions and Answers.
 
    Web Scraping - [Beautiful Soup - BS4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) , stack 
    
-   Related case study and examples . 
+   Related case study and examples :- 
+   
+   1. The internal workings of a Basic Chat Bot - ELISA Code and functionality. 
+   2. Creating your own [Facebook Messenger (WebHook) ChatBot](https://github.com/RohitDhankar/Heroku_Django_ChatBot_FacebookMessenger) and hosting the same on Heroku - https://github.com/RohitDhankar/Heroku_Django_ChatBot_FacebookMessenger
 #
 Questions and Answers. 
 # 
