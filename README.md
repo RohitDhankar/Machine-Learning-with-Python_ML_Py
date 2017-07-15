@@ -15,7 +15,9 @@ Do note basis feedback from students - the content and flow of the sessions keep
 [ Duration : @60 Minutes ] 
 #
 Whats ML ? Why Python ? some bits of theory before the Code :) 
-Quick intro to - Numpy , Pandas , MatplotLib and SciKitLearn. 
+
+Quick intro to - Numpy , Pandas , MatplotLib , Seaborn and SciKitLearn. 
+
 #
 1. Introduction to Regression - Theory and Excel workbook examples
    Regression in Python - the very basics . 
@@ -81,6 +83,19 @@ Questions and Answers.
 Questions and Answers. 
 # 
 ### Recap of earlier Modules and Important External Links :- 
+
+[ANACONDA - Silent Install](https://conda.io/docs/help/silent.html)
+
+[ANACONDA - Official Page](https://docs.continuum.io/anaconda/install/)
+
+[Numpy - Basics Official Tutorial](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html)
+
+[Installing -for LINUX and Mac -  Numpy + Scipy Stack](https://www.scipy.org/install.html#installing-via-pip)
+
+[Installing -for Windows -  Numpy + Scipy Stack](https://www.scipy.org/install.html)
+
+[Pandas - Basics Official Tutorial](https://conda.io/docs/help/silent.html)
+
 [MatPlotLib - PyPlot](https://matplotlib.org/api/pyplot_summary.html)
 
 [Seaborn - Seaborn is a Python visualization library based on matplotlib](https://seaborn.pydata.org/)
