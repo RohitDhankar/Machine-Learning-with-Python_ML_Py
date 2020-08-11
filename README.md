@@ -1,22 +1,41 @@
-### Machine-Learning-with-Python [ML_Py]
+##### Learning the very Basics of Python and moving on to very basic Machine Learning with Python 
 
-### Register Here :- [SIGNUP LINK](https://goo.gl/forms/JvVPYbaaN4SAj8aJ2)
-
-The Git Repo for content and code for the - Data Science India - Machine-Learning-with-Python [ML_Py]. 
-Students / Corporate Learners who have been through earlier online sessions with me , may also benefit from this updated repository . As usual in case of any challenges reach out to me for further discussions . 
-
-Do note basis feedback from students - the content and flow of the sessions keeps changing . 
 #
 
+<h1 align="center">Machine-Learning-with-Python - </h1>
 
-### Learning Index :- 
+> This repository will contain both code and additional reading material refrences for analytics and Machine-Learning-with-Python **- Machine-Learning-with-Python**
+ 
+> If you are reading this and can code very basic Python - you are Welcome to contribute. 
 
-### Module -1 :- 
-[ Duration : @60 Minutes ] 
+
+<br/>
+
+
+### Table of Contents of this repository
+
+- [X] `A-- Intro to Python(Mostly Python-3)...` 
+- [X] `B-- Download and Preprocess various kinds of Data` 
+- [X] `C-- Further explorations EDA with Data` 
+- [X] `D-- Visualizations for EDA ` 
+- [X] `Work in Progress` 
+- [X] `Work in Progress` 
+- [X] `Work in Progress` 
+
+
+<br/>
+
+##### References - Always an ongoing effort - Work in Progress
+
+
+##### Learning Index :- 
+
+##### Module -1 :- 
+
 #
 Whats ML ? Why Python ? some bits of theory before the Code :) 
 
-Quick intro to - Numpy , Pandas , MatplotLib , Seaborn and [SciKitLearn.](http://scikit-learn.org/stable/about.html#citing-scikit-learn)
+Quick intro to - Numpy , Pandas , MatplotLib , Bokeh , Seaborn and [SciKitLearn.](http://scikit-learn.org/stable/about.html#citing-scikit-learn)
 
 #
 1. Introduction to Regression - Theory and Excel workbook examples
@@ -34,8 +53,8 @@ Quick intro to - Numpy , Pandas , MatplotLib , Seaborn and [SciKitLearn.](http:/
 Questions and Answers. 
 #
 
-### Module -2 :- 
-[ Duration : @60 Minutes ] 
+##### Module -2 :- 
+
 #
 
 1. Decision Trees from Scratch - Source - [Book - Programming Collective Intelligence.](https://github.com/RohitDhankar/Decision_Tree_____FROM-____Programming_Collective_Intelligence-) 
@@ -45,8 +64,8 @@ Related case study and examples .
 Questions and Answers. 
 #
 
-### Module -3 :- 
-[ Duration : @60 Minutes ] 
+##### Module -3 :- 
+
 #
 
 1. Logistic Regression with Python. - ``` from sklearn.linear_model import LogisticRegression ```
@@ -68,8 +87,8 @@ Questions and Answers.
 #
 
 
-### Module -4 :- 
-[ Duration : @60 Minutes ] 
+##### Module -4 :- 
+
 #
 
 1. k-Means clustering with Python. 
@@ -79,22 +98,22 @@ Related case study and examples .
 Questions and Answers. 
 #
 
-### Module -5 :- 
-[ Duration : @60 Minutes ] 
+##### Module -5 :- 
+
 #
 
 1. Visualizing data with Python. 
 
-   Intro to MatPlotLib , Seaborn and [JavaScript Lib - D3.js.](https://github.com/d3/d3/wiki/Gallery)
+   Intermediate - MatPlotLib ,Bokeh  Seaborn and [JavaScript Lib - D3.js.](https://github.com/d3/d3/wiki/Gallery)
    
    Related case study and examples . 
    
 #
-Questions and Answers. 
+Hands on Exercises - Questions and Answers. 
 #
 
-### Module -6 :- 
-[ Duration : @60 Minutes ] 
+##### Module -6 :- 
+
 #
 
 1. Intro to [NLP [ Natural Language Processing ] - NLTK](http://www.nltk.org/) 
@@ -106,9 +125,11 @@ Questions and Answers.
    1. The internal workings of a Basic Chat Bot - ELISA Code and functionality. 
    2. Creating your own [Facebook Messenger (WebHook) ChatBot](https://github.com/RohitDhankar/Heroku_Django_ChatBot_FacebookMessenger) and hosting the same on Heroku - https://github.com/RohitDhankar/Heroku_Django_ChatBot_FacebookMessenger
 #
-Questions and Answers. 
+Hands on Exercises -  Questions and Answers. 
 # 
-### Recap of earlier Modules and Important External Links :- 
+
+
+##### Recap of earlier Modules and Important External Links :- 
 
 [ANACONDA - Silent Install](https://conda.io/docs/help/silent.html)
 
@@ -116,7 +137,7 @@ Questions and Answers.
 
 ScikitLearn - Installation - After  installing ANACONDA - ```pip install -U scikit-learn```
 
-### Scikitlearn - Official Tutorials :-
+##### Scikitlearn - Official Tutorials :-
 
 [Scikitlearn -Regression](http://scikit-learn.org/stable/) 
 
