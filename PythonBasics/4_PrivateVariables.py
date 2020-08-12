@@ -19,6 +19,17 @@ xObj = A()
 print(type(xObj))
 xObj.printVar()
 
+# below fails as the PRIVATE VARIABLE == __var1 is Not Known , 
+# when called from OutSide the class A
+
+
+print(xObj.__var1)
+"""
+Traceback (most recent call last):
+  File "4_PrivateVariables.py", line 24, in <module>
+    print(xObj.__var1)
+AttributeError: 'A' object has no attribute '__var1'
+"""
 
 """
 https://docs.python.org/3/tutorial/classes.html
