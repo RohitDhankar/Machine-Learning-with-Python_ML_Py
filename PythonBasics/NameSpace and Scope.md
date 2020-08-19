@@ -14,3 +14,17 @@
  The important thing to know about namespaces is that there is absolutely no relation    
  between names in different namespaces; for instance, ```two different modules```         
  may both define a function maximize without confusion — users of the modules must ```prefix it with the module name.```
+
+ #
+ - Source - https://docs.python.org/3/tutorial/classes.html
+
+ > Namespaces are ```created at different moments``` and have ```different lifetimes```. The namespace containing the built-in names is created when the ```Python interpreter starts up```, and is never deleted. The ```global namespace``` for a module is created when the module definition is read in; normally, module namespaces also last until the ```interpreter quits```.
+
+#
+
+- Source - https://www.python-course.eu/namespaces.php
+
+ > Generally speaking, ```a namespace (sometimes also called a context)``` is a naming system for making names unique to avoid ambiguity. Everybody knows a namespacing system from daily life, i.e. the naming of people in firstname and familiy name (surname). Another example is a ```network: each network device (workstation, server, printer, ...) needs a unique name and address.``` Yet another example is the directory structure of ```file systems```. The same file name can be used in different directories, the files can be uniquely accessed via the pathnames. 
+
+ #
+
