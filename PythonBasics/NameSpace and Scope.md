@@ -28,3 +28,8 @@
 
  #
 
+#
+- Source - https://realpython.com/python-namespaces-scope/
+
+> Enclosing NameSpace - When the main program calls f(), Python creates a new namespace for f(). Similarly, when f() calls g(), g() gets its own separate namespace. The namespace created for g() is the local namespace, and the namespace created for f() is the ```enclosing namespace.```
+
