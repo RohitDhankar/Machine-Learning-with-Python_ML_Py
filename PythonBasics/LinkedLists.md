@@ -31,3 +31,4 @@ graph_dict_adj_list = {
 
 #
 
+> Python, lists are dynamic arrays. That means that the ```memory usage of both lists and linked lists``` is very similar.
