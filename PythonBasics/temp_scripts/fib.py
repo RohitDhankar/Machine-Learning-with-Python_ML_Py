@@ -24,3 +24,13 @@ def fib1(tCnt):
 
 fibls = fib1(tCnt)
 print(fibls)
+
+#
+
+def fib2():
+    a, b = 0,1
+    while b < 10:
+        print(b) # Fib Series 
+        a, b = b, a+b # Switch Places and Sum 
+
+fib2()
