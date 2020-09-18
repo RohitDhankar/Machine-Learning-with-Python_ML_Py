@@ -75,8 +75,10 @@ ls2 = ["ele3 " , "ele4 "]
 print(ls1+ls2)
 # 
 """
-To understand how we can speed up Python code - we need to understand the speed-up advantages we get from STATIC TYPING
-In a language which is STATIC TYPED in-place of DYANMIC TYPED - at runtime there need not be TYPE CHECKS and thus the code is excuted faster
+To understand how we can speed up Python code - we need to understand the speed-up advantages 
+we get from STATIC TYPING
+In a language which is STATIC TYPED in-place of DYANMIC TYPED - at runtime there need not 
+be TYPE CHECKS and thus the code is excuted faster
 
 CyThon - https://cython.readthedocs.io/en/latest/src/userguide/language_basics.html
 
