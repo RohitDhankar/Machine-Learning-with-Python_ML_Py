@@ -1,4 +1,6 @@
 # Source - Real Python blog - 
+# Official PANDAS - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.set_option.html
+# https://github.com/pydata/bottleneck
 
 def start():
     """
