@@ -17,7 +17,7 @@ coursera-dl==0.11.5
 cryptography==2.9.2
 cycler==0.10.0
 Cython==0.29.21
-dask==2.27.0
+dask==2021.10.0
 decorator==4.4.2
 defusedxml==0.6.0
 entrypoints==0.3
