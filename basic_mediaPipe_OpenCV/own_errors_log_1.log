@@ -1,0 +1,35 @@
+
+https://stackoverflow.com/questions/59371075/opencv-error-cant-open-camera-through-video-capture
+
+2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ 
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ python test_hand.py 
+[ WARN:0@2.498] global cap_v4l.cpp:982 open VIDEOIO(V4L2:/dev/video0): can't open camera by index
+[ERROR:0@2.498] global obsensor_uvc_stream_channel.cpp:156 getStreamChannelGroup Camera index out of range
+--type--- < cv2.VideoCapture 0x7f612fe10430>
+Traceback (most recent call last):
+  File "/home/dhankar/temp/08_23/opencv_sep_23/test_hand.py", line 22, in <module>
+    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+cv2.error: OpenCV(4.8.0) /io/opencv/modules/imgproc/src/color.cpp:182: error: (-215:Assertion failed) !_src.empty() in function 'cvtColor'
+
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ 
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ 
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ python test_hand.py 
+[ WARN:0@2.504] global cap_v4l.cpp:982 open VIDEOIO(V4L2:/dev/video0): can't open camera by index
+[ERROR:0@2.504] global obsensor_uvc_stream_channel.cpp:156 getStreamChannelGroup Camera index out of range
+--type--- < cv2.VideoCapture 0x7f4f6f8ef450>
+Traceback (most recent call last):
+  File "/home/dhankar/temp/08_23/opencv_sep_23/test_hand.py", line 22, in <module>
+    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+cv2.error: OpenCV(4.8.0) /io/opencv/modules/imgproc/src/color.cpp:182: error: (-215:Assertion failed) !_src.empty() in function 'cvtColor'
+
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ 
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ 
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ python test_hand.py 
+[ WARN:0@2.489] global cap_v4l.cpp:982 open VIDEOIO(V4L2:/dev/video0): can't open camera by index
+[ERROR:0@2.490] global obsensor_uvc_stream_channel.cpp:156 getStreamChannelGroup Camera index out of range
+--type--- < cv2.VideoCapture 0x7fbc0a1a6470>
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ 
+(env2_det2) dhankar@dhankar-1:~/.../opencv_sep_23$ 
