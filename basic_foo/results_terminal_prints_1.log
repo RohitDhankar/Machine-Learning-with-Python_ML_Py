@@ -1,10 +1,10 @@
-23/08/28 17:11:52 WARN Utils: Your hostname, dhankar-1 resolves to a loopback address: 127.0.1.1; using 192.168.1.2 instead (on interface enp2s0)
-23/08/28 17:11:52 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
-23/08/28 17:11:52 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+23/08/28 17:49:10 WARN Utils: Your hostname, dhankar-1 resolves to a loopback address: 127.0.1.1; using 192.168.1.2 instead (on interface enp2s0)
+23/08/28 17:49:10 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+23/08/28 17:49:11 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
---type--spark-- <pyspark.sql.session.SparkSession object at 0x7f5207d92ee0>
+--type--spark-- <pyspark.sql.session.SparkSession object at 0x7fb051353ac0>
 +---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+
 |InvoiceNo|StockCode|Description                        |Quantity|InvoiceDate        |UnitPrice|CustomerID|Country       |
 +---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+
@@ -33,15 +33,15 @@ only showing top 5 rows
 |        Finland|           12|
 |        Austria|           11|
 |         Norway|           10|
-|    Netherlands|            9|
-|        Denmark|            9|
 |Channel Islands|            9|
 |      Australia|            9|
-|         Cyprus|            8|
+|    Netherlands|            9|
+|        Denmark|            9|
 |         Sweden|            8|
 |          Japan|            8|
+|         Cyprus|            8|
 |         Poland|            6|
-|         Canada|            4|
+|            USA|            4|
 +---------------+-------------+
 only showing top 20 rows
 
@@ -60,24 +60,24 @@ only showing top 20 rows
 |Finland             |12           |
 |Austria             |11           |
 |Norway              |10           |
-|Netherlands         |9            |
 |Channel Islands     |9            |
+|Netherlands         |9            |
 |Australia           |9            |
 |Denmark             |9            |
 |Cyprus              |8            |
-|Japan               |8            |
 |Sweden              |8            |
+|Japan               |8            |
 |Poland              |6            |
-|Unspecified         |4            |
-|USA                 |4            |
 |Israel              |4            |
-|Greece              |4            |
+|USA                 |4            |
 |Canada              |4            |
+|Unspecified         |4            |
+|Greece              |4            |
 |EIRE                |3            |
-|United Arab Emirates|2            |
 |Malta               |2            |
+|United Arab Emirates|2            |
 |Bahrain             |2            |
-|Brazil              |1            |
+|RSA                 |1            |
 |Lebanon             |1            |
 +--------------------+-------------+
 only showing top 30 rows
@@ -107,4 +107,40 @@ only showing top 10 rows
 +-------------------+
 |2011-12-09 12:50:00|
 +-------------------+
+
+                                                            
++-------------------+
+|          min(date)|
++-------------------+
+|2010-12-01 08:26:00|
++-------------------+
+
++---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
+|InvoiceNo|StockCode|Description                        |Quantity|InvoiceDate        |UnitPrice|CustomerID|Country       |date               |
++---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
+|536365   |85123A   |WHITE HANGING HEART T-LIGHT HOLDER |6       |2010-12-01 08:26:00|2.55     |17850.0   |United Kingdom|2010-12-01 08:26:00|
+|536365   |71053    |WHITE METAL LANTERN                |6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
+|536365   |84406B   |CREAM CUPID HEARTS COAT HANGER     |8       |2010-12-01 08:26:00|2.75     |17850.0   |United Kingdom|2010-12-01 08:26:00|
+|536365   |84029G   |KNITTED UNION FLAG HOT WATER BOTTLE|6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
+|536365   |84029E   |RED WOOLLY HOTTIE WHITE HEART.     |6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
+|536365   |22752    |SET 7 BABUSHKA NESTING BOXES       |2       |2010-12-01 08:26:00|7.65     |17850.0   |United Kingdom|2010-12-01 08:26:00|
+|536365   |21730    |GLASS STAR FROSTED T-LIGHT HOLDER  |6       |2010-12-01 08:26:00|4.25     |17850.0   |United Kingdom|2010-12-01 08:26:00|
+|536366   |22633    |HAND WARMER UNION JACK             |6       |2010-12-01 08:28:00|1.85     |17850.0   |United Kingdom|2010-12-01 08:28:00|
+|536366   |22632    |HAND WARMER RED POLKA DOT          |6       |2010-12-01 08:28:00|1.85     |17850.0   |United Kingdom|2010-12-01 08:28:00|
+|536367   |84879    |ASSORTED COLOUR BIRD ORNAMENT      |32      |2010-12-01 08:34:00|1.69     |13047.0   |United Kingdom|2010-12-01 08:34:00|
++---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
+only showing top 10 rows
+
+----df_2--->/n None
+Filename: spark_1.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    72     82.8 MiB     82.8 MiB           1   @profile
+    73                                         def run_analysis():
+    74                                           """
+    75                                           """
+    76     83.7 MiB      0.9 MiB           1     df_rtl , spark = read_data()
+    77     84.0 MiB      0.3 MiB           1     retail_analysis(df_rtl , spark)
+
 
