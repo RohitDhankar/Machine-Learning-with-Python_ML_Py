@@ -1,0 +1,46 @@
+23/08/28 14:08:26 WARN Utils: Your hostname, dhankar-1 resolves to a loopback address: 127.0.1.1; using 192.168.1.2 instead (on interface enp2s0)
+23/08/28 14:08:26 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+23/08/28 14:08:27 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+--type--spark-- <pyspark.sql.session.SparkSession object at 0x7fb3909cdf70>
++---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+
+|InvoiceNo|StockCode|Description                        |Quantity|InvoiceDate        |UnitPrice|CustomerID|Country       |
++---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+
+|536365   |85123A   |WHITE HANGING HEART T-LIGHT HOLDER |6       |2010-12-01 08:26:00|2.55     |17850.0   |United Kingdom|
+|536365   |71053    |WHITE METAL LANTERN                |6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|
+|536365   |84406B   |CREAM CUPID HEARTS COAT HANGER     |8       |2010-12-01 08:26:00|2.75     |17850.0   |United Kingdom|
+|536365   |84029G   |KNITTED UNION FLAG HOT WATER BOTTLE|6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|
+|536365   |84029E   |RED WOOLLY HOTTIE WHITE HEART.     |6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|
++---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+
+only showing top 5 rows
+
+-[INFO]-df_rtl.count()- 541909
+-[INFO]-df_rtl--CustomerID').distinct().count(---> 4373
++------------------+-------------+
+|           Country|country_count|
++------------------+-------------+
+|            Sweden|            8|
+|         Singapore|            1|
+|           Germany|           95|
+|               RSA|            1|
+|            France|           87|
+|            Greece|            4|
+|European Community|            1|
+|           Belgium|           25|
+|           Finland|           12|
+|             Malta|            2|
+|       Unspecified|            4|
+|             Italy|           15|
+|              EIRE|            3|
+|         Lithuania|            1|
+|            Norway|           10|
+|             Spain|           31|
+|           Denmark|            9|
+|         Hong Kong|            0|
+|            Israel|            4|
+|           Iceland|            1|
++------------------+-------------+
+only showing top 20 rows
+

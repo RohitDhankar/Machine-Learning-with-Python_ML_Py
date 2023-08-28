@@ -1,4 +1,5 @@
 
+# See the Terminal Prints Log Files ---> results_terminal_prints_1.log 
 ## DATA SOURCE -- https://archive.ics.uci.edu/dataset/352/online+retail
 
 
@@ -82,28 +83,42 @@ from pyspark.sql import SparkSession
 from pyspark.sql import SparkSession
 #import pyspark.pandas as ps #TODO -- Upgrade Spark to 3.2
 import pandas as pd
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
 
-xlsx_path = "./data_dir/online_retail.xlsx"
-df_xlsx = pd.read_excel(xlsx_path, index_col=0) 
-print(df_xlsx.info(verbose=True))
-df_xlsx.to_csv("./data_dir/retail_data.csv")
+## TEMP -- Dont Repeat 
+# xlsx_path = "./data_dir/online_retail.xlsx"
+# df_xlsx = pd.read_excel(xlsx_path, index_col=0) 
+# print(df_xlsx.info(verbose=True))
+# df_xlsx.to_csv("./data_dir/retail_data.csv")
 
+# See the Terminal Prints Log Files ---> results_terminal_prints_1.log 
 
-def retail_analysis():
+def read_data():
   """
-  https://www.databricks.com/blog/2021/10/04/pandas-api-on-upcoming-apache-spark-3-2.html
   """
   spark = SparkSession.builder.appName("app_retail_analysis_1").config("spark.memory.offHeap.enabled","true").config("spark.memory.offHeap.size","5g").getOrCreate()
   print("--type--spark--",spark)
-  #pyspark.pandas.read_excel(
-  df_xlsx = ps.read_excel(xlsx_path)
-  print("--type--df_xlsx-",df_xlsx)
+  #pyspark.pandas.read_excel(   #df_xlsx = ps.read_excel(xlsx_path)
+  df_rtl = spark.read.csv("./data_dir/retail_data.csv",header=True,escape="\"")
+  #print("--type--df_xlsx-",type(df_rtl)) # <class 'pyspark.sql.dataframe.DataFrame'>
+  df_rtl.show(5,0)
+  print("-[INFO]-df_rtl.count()-",df_rtl.count()) # 541909
+  return df_rtl
+
+
+def retail_analysis(df_rtl):
+  """
+  https://www.databricks.com/blog/2021/10/04/pandas-api-on-upcoming-apache-spark-3-2.html
+  """
+  print("-[INFO]-df_rtl--CustomerID').distinct().count(--->",df_rtl.select('CustomerID').distinct().count()) # 4373
+  df_rtl.groupBy('Country').agg(countDistinct('CustomerID').alias('country_count')).show()
 
 
 
-
-# if __name__ == "__main__":
-#     retail_analysis()
+if __name__ == "__main__":
+    df_rtl = read_data()
+    retail_analysis(df_rtl)
     
 
 
