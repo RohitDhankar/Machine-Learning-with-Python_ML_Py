@@ -20,6 +20,11 @@ from pyspark.sql.types import *
 from pyspark.sql.functions import monotonically_increasing_id
 from memory_profiler import profile
 
+import matplotlib.pyplot as plt
+# TODO --> pyspark.pandas/api
+# https://spark.apache.org/docs/latest/api/python/reference/pyspark.pandas/api/pyspark.pandas.DataFrame.plot.bar.html
+
+
 ## TEMP -- Dont Repeat 
 # xlsx_path = "./data_dir/online_retail.xlsx"
 # df_xlsx = pd.read_excel(xlsx_path, index_col=0) 
@@ -136,6 +141,7 @@ def retail_analysis(df_rtl , spark):
 def retail_analysis_1(df_temp1 , spark):
   """
   """
+  print("---type---df_temp1---",type(df_temp1))
 
   print("-[INFO]---UnitPrice > 500--->") # get data with -- UnitPrice > 500 
 
@@ -155,6 +161,13 @@ def retail_analysis_1(df_temp1 , spark):
   # Whats Frequency of -- 100_plus_purchase -- Grouped By Country
   df_temp3_frq = df_temp3.groupBy('Country').agg(count('InvoiceNo').alias('freq_100_plus_purchase'))
   df_temp3_frq.orderBy(desc('freq_100_plus_purchase')).show()
+  df_pd = df_temp3_frq.toPandas()
+  plt.figure()
+  ax = df_pd.plot("Country","freq_100_plus_purchase")
+  ax.set_ylabel('--Y AXIS -- freq_100_plus_purchase'); ax.set_xlabel('--X AXIS -- Country')
+  plt.legend(loc='best')
+  plt.show();plt.pause(1);plt.close()
+  #plt.savefig('plots_dir/_'+str(plot_name_ses)+"_.png", bbox_inches='tight')
   print("  "*30)
   # Whats Frequency of -- 100_plus_purchase -- Grouped By - Country + Description
   df_temp3_frq1 = df_temp3.groupBy(["Country","Description"]).agg(count('InvoiceNo').alias('freq_100_plus_purchase'))
@@ -162,8 +175,22 @@ def retail_analysis_1(df_temp1 , spark):
   df_temp3_frq1.orderBy(["Country","freq_100_plus_purchase"],ascending=False).show()
   print("  "*30)
 
+  #TODO -- df_temp3_frq1.plot.bar(x='lab', y='val') 
+  # print("  "*30)
+
+  df_pd1 = df_temp3_frq1.toPandas()
+  plt.figure(); 
+  ay = df_pd1.plot("Country","freq_100_plus_purchase")
+  ay.set_ylabel('--Y AXIS -- freq_100_plus_purchase'); ay.set_xlabel('--X AXIS -- Country')
+  plt.legend(loc='best')
+  plt.show()
+  #plt.savefig('plots_dir/_'+str(plot_name_ses)+"_.png", bbox_inches='tight')
+
+
+
 
   return df_temp2
+
 
 
 
