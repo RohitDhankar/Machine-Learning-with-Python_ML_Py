@@ -1,10 +1,14 @@
-23/08/28 17:49:10 WARN Utils: Your hostname, dhankar-1 resolves to a loopback address: 127.0.1.1; using 192.168.1.2 instead (on interface enp2s0)
-23/08/28 17:49:10 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
-23/08/28 17:49:11 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+23/08/28 21:54:38 WARN Utils: Your hostname, dhankar-1 resolves to a loopback address: 127.0.1.1; using 192.168.1.2 instead (on interface enp2s0)
+23/08/28 21:54:38 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+23/08/28 21:54:38 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
---type--spark-- <pyspark.sql.session.SparkSession object at 0x7fb051353ac0>
+
+[Stage 18:====================================>                     (5 + 3) / 8]
+
+                                                                                
+--type--spark-- <pyspark.sql.session.SparkSession object at 0x7fd27420fac0>
 +---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+
 |InvoiceNo|StockCode|Description                        |Quantity|InvoiceDate        |UnitPrice|CustomerID|Country       |
 +---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+
@@ -33,15 +37,15 @@ only showing top 5 rows
 |        Finland|           12|
 |        Austria|           11|
 |         Norway|           10|
-|Channel Islands|            9|
 |      Australia|            9|
-|    Netherlands|            9|
 |        Denmark|            9|
-|         Sweden|            8|
+|    Netherlands|            9|
+|Channel Islands|            9|
 |          Japan|            8|
+|         Sweden|            8|
 |         Cyprus|            8|
 |         Poland|            6|
-|            USA|            4|
+|         Greece|            4|
 +---------------+-------------+
 only showing top 20 rows
 
@@ -60,47 +64,30 @@ only showing top 20 rows
 |Finland             |12           |
 |Austria             |11           |
 |Norway              |10           |
-|Channel Islands     |9            |
 |Netherlands         |9            |
-|Australia           |9            |
 |Denmark             |9            |
-|Cyprus              |8            |
+|Channel Islands     |9            |
+|Australia           |9            |
 |Sweden              |8            |
+|Cyprus              |8            |
 |Japan               |8            |
 |Poland              |6            |
 |Israel              |4            |
-|USA                 |4            |
-|Canada              |4            |
-|Unspecified         |4            |
 |Greece              |4            |
+|USA                 |4            |
+|Unspecified         |4            |
+|Canada              |4            |
 |EIRE                |3            |
-|Malta               |2            |
 |United Arab Emirates|2            |
+|Malta               |2            |
 |Bahrain             |2            |
-|RSA                 |1            |
+|European Community  |1            |
 |Lebanon             |1            |
 +--------------------+-------------+
 only showing top 30 rows
 
 ----df_1--->/n None
                                                                                                                                                                                     
-+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
-|InvoiceNo|StockCode|Description                        |Quantity|InvoiceDate        |UnitPrice|CustomerID|Country       |date               |
-+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
-|536365   |85123A   |WHITE HANGING HEART T-LIGHT HOLDER |6       |2010-12-01 08:26:00|2.55     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |71053    |WHITE METAL LANTERN                |6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |84406B   |CREAM CUPID HEARTS COAT HANGER     |8       |2010-12-01 08:26:00|2.75     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |84029G   |KNITTED UNION FLAG HOT WATER BOTTLE|6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |84029E   |RED WOOLLY HOTTIE WHITE HEART.     |6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |22752    |SET 7 BABUSHKA NESTING BOXES       |2       |2010-12-01 08:26:00|7.65     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |21730    |GLASS STAR FROSTED T-LIGHT HOLDER  |6       |2010-12-01 08:26:00|4.25     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536366   |22633    |HAND WARMER UNION JACK             |6       |2010-12-01 08:28:00|1.85     |17850.0   |United Kingdom|2010-12-01 08:28:00|
-|536366   |22632    |HAND WARMER RED POLKA DOT          |6       |2010-12-01 08:28:00|1.85     |17850.0   |United Kingdom|2010-12-01 08:28:00|
-|536367   |84879    |ASSORTED COLOUR BIRD ORNAMENT      |32      |2010-12-01 08:34:00|1.69     |13047.0   |United Kingdom|2010-12-01 08:34:00|
-+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
-only showing top 10 rows
-
-----df_2--->/n None
                                                                                                                                                                                     
 +-------------------+
 |          max(date)|
@@ -115,32 +102,118 @@ only showing top 10 rows
 |2010-12-01 08:26:00|
 +-------------------+
 
-+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
-|InvoiceNo|StockCode|Description                        |Quantity|InvoiceDate        |UnitPrice|CustomerID|Country       |date               |
-+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
-|536365   |85123A   |WHITE HANGING HEART T-LIGHT HOLDER |6       |2010-12-01 08:26:00|2.55     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |71053    |WHITE METAL LANTERN                |6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |84406B   |CREAM CUPID HEARTS COAT HANGER     |8       |2010-12-01 08:26:00|2.75     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |84029G   |KNITTED UNION FLAG HOT WATER BOTTLE|6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |84029E   |RED WOOLLY HOTTIE WHITE HEART.     |6       |2010-12-01 08:26:00|3.39     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |22752    |SET 7 BABUSHKA NESTING BOXES       |2       |2010-12-01 08:26:00|7.65     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536365   |21730    |GLASS STAR FROSTED T-LIGHT HOLDER  |6       |2010-12-01 08:26:00|4.25     |17850.0   |United Kingdom|2010-12-01 08:26:00|
-|536366   |22633    |HAND WARMER UNION JACK             |6       |2010-12-01 08:28:00|1.85     |17850.0   |United Kingdom|2010-12-01 08:28:00|
-|536366   |22632    |HAND WARMER RED POLKA DOT          |6       |2010-12-01 08:28:00|1.85     |17850.0   |United Kingdom|2010-12-01 08:28:00|
-|536367   |84879    |ASSORTED COLOUR BIRD ORNAMENT      |32      |2010-12-01 08:34:00|1.69     |13047.0   |United Kingdom|2010-12-01 08:34:00|
-+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+
+                                                            
++-------------------+---------+
+|from_date          |recency  |
++-------------------+---------+
+|2012-01-10 08:26:00|-34992000|
+|2012-01-10 08:26:00|-34992000|
+|2012-01-10 08:26:00|-34992000|
+|2012-01-10 08:26:00|-34992000|
+|2012-01-10 08:26:00|-34992000|
++-------------------+---------+
+only showing top 5 rows
+
+                                                            
++-------+--------------------+
+|summary|             recency|
++-------+--------------------+
+|  count|              541909|
+|   mean|-1.63974628436139...|
+| stddev|1.0011907004935374E7|
+|    min|           -34992000|
+|    25%|           -24871800|
+|    50%|           -15088140|
+|    75%|            -7160340|
+|    max|            -2748960|
++-------+--------------------+
+
+                                                            
+                                                            
++----------+-----------+
+|CustomerID|max_recency|
++----------+-----------+
+|15039.0   |-3531300   |
+|16553.0   |-16821840  |
+|13178.0   |-4983120   |
+|17786.0   |-10092900  |
+|12891.0   |-18734100  |
+|16917.0   |-26598660  |
+|17966.0   |-5954400   |
+|15891.0   |-22276260  |
+|17955.0   |-19859160  |
+|12535.0   |-10625880  |
++----------+-----------+
 only showing top 10 rows
 
-----df_2--->/n None
+--df_temp-->/n None
+                                                            
+
+[Stage 27:>                                                         (0 + 8) / 8]
+
+[Stage 27:=============================>                            (4 + 4) / 8]
+
+[Stage 27:===========================================>              (6 + 2) / 8]
+
+[Stage 27:==================================================>       (7 + 1) / 8]
+
+                                                                                
++---------+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+-------------------+
+|recency  |InvoiceNo|StockCode|Description                        |Quantity|InvoiceDate        |UnitPrice|CustomerID|Country       |date               |from_date          |
++---------+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+-------------------+
+|-34986780|536384   |82484    |WOOD BLACK BOARD ANT WHITE FINISH  |3       |2010-12-01 09:53:00|6.45     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |84755    |COLOUR GLASS T-LIGHT HOLDER HANGING|48      |2010-12-01 09:53:00|0.65     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |22464    |HANGING METAL HEART LANTERN        |12      |2010-12-01 09:53:00|1.65     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |21324    |HANGING MEDINA LANTERN SMALL       |6       |2010-12-01 09:53:00|2.95     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |22457    |NATURAL SLATE HEART CHALKBOARD     |12      |2010-12-01 09:53:00|2.95     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |22469    |HEART OF WICKER SMALL              |40      |2010-12-01 09:53:00|1.45     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |22470    |HEART OF WICKER LARGE              |40      |2010-12-01 09:53:00|2.55     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |22224    |WHITE LOVEBIRD LANTERN             |6       |2010-12-01 09:53:00|2.95     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |21340    |CLASSIC METAL BIRDCAGE PLANT HOLDER|2       |2010-12-01 09:53:00|12.75    |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
+|-34986780|536384   |22189    |CREAM HEART CARD HOLDER            |4       |2010-12-01 09:53:00|3.95     |18074.0   |United Kingdom|2010-12-01 09:53:00|2012-01-10 08:26:00|
++---------+---------+---------+-----------------------------------+--------+-------------------+---------+----------+--------------+-------------------+-------------------+
+only showing top 10 rows
+
+--df_temp1-->/n None
+                                                            
+ Something Not Correct Above ??  .... cant seem to see the GroupBy ??  .... 
+root
+ |-- recency: long (nullable = true)
+ |-- InvoiceNo: string (nullable = true)
+ |-- StockCode: string (nullable = true)
+ |-- Description: string (nullable = true)
+ |-- Quantity: string (nullable = true)
+ |-- InvoiceDate: string (nullable = true)
+ |-- UnitPrice: string (nullable = true)
+ |-- CustomerID: string (nullable = true)
+ |-- Country: string (nullable = true)
+ |-- date: timestamp (nullable = true)
+ |-- from_date: timestamp (nullable = true)
+
+                                                            
++-------+------------------+------------------+------------------+--------------------+-----------------+-------------------+-----------------+------------------+-----------+
+|summary|           recency|         InvoiceNo|         StockCode|         Description|         Quantity|        InvoiceDate|        UnitPrice|        CustomerID|    Country|
++-------+------------------+------------------+------------------+--------------------+-----------------+-------------------+-----------------+------------------+-----------+
+|  count|             94014|             94014|             94014|               93994|            94014|              94014|            94014|             91389|      c|
+|   mean|-9699289.210543111| 569544.9766467001|26865.789096555294|                null|8.218733380134873|               null|3.417466143340229|15354.287014848614|       null|
+| stddev| 8212544.622902459|11670.936123143952|15419.854685152568|                null|362.6427630384355|               null|37.83584352630087| 1696.686273444772|       null|
+|    min|         -34986780|            536384|             10002| 4 PURPLE FLOCK D...|               -1|2010-12-01 09:53:00|              0.0|           12346.0|  Australia|
+|    25%|         -11986380|          564378.0|           22084.0|                null|              2.0|               null|             1.25|           13991.0|       null|
+|    50%|          -6197580|          573415.0|           22669.0|                null|              4.0|               null|             1.95|           15408.0|       null|
+|    75%|          -4057500|          578344.0|           23254.0|                null|             12.0|               null|             3.75|           16795.0|       null|
+|    max|          -2748960|           C581569|              POST| wrongly coded 23343|               97|2011-12-09 12:50:00|            929.9|           18287.0|Unspecified|
++-------+------------------+------------------+------------------+--------------------+-----------------+-------------------+-----------------+------------------+-----------+
+
+                                                            
 Filename: spark_1.py
 
 Line #    Mem usage    Increment  Occurrences   Line Contents
 =============================================================
-    72     82.8 MiB     82.8 MiB           1   @profile
-    73                                         def run_analysis():
-    74                                           """
-    75                                           """
-    76     83.7 MiB      0.9 MiB           1     df_rtl , spark = read_data()
-    77     84.0 MiB      0.3 MiB           1     retail_analysis(df_rtl , spark)
+   105     82.7 MiB     82.7 MiB           1   @profile
+   106                                         def run_analysis():
+   107                                           """
+   108                                           """
+   109     83.7 MiB      1.0 MiB           1     df_rtl , spark = read_data()
+   110     83.8 MiB      0.0 MiB           1     retail_analysis(df_rtl , spark)
 
 

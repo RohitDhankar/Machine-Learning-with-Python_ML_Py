@@ -57,17 +57,52 @@ def retail_analysis(df_rtl , spark):
   #df_2 = df_rtl.withColumn('date',to_timestamp("InvoiceDate", 'yy/MM/dd HH:mm'))
   df_2 = df_rtl.withColumn('date',to_timestamp("InvoiceDate", 'yyyy-MM-dd HH:mm:ss')) #
   #'yyyy-MM-dd HH:mm:ss' --- https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.to_timestamp.html
-  print("----df_2--->/n",df_2.show(10,0))
+  #print("----df_2--->/n",df_2.show(10,0))
   print("  "*90)
   df_2.select(max("date")).show()
   print("  "*30)
   df_2.select(min("date")).show()
   #
-  #df_2 = df_2.withColumn('
-  df_2.select(lit(5).alias('height')).withColumn('spark_user', lit(True)).take(1)
   # Add LITERAL VAlue Columns -- Non Calculated - HardCoded Values 
   # https://spark.apache.org/docs/3.1.3/api/python/reference/api/pyspark.sql.functions.lit.html
-  print("----df_2--->/n",df_2.show(10,0))
+
+  df_2 = df_2.withColumn("from_date", lit("12/1/10 08:26"))
+  df_2 = df_2.withColumn('from_date',to_timestamp("from_date", 'yy/MM/dd HH:mm'))
+
+  df_2 = df_2.withColumn('from_date',to_timestamp(col('from_date'))).withColumn('recency',col("date").cast("long") - col('from_date').cast("long"))
+  
+  #print("----df_2--->/n",df_2.show(10,0))
+  #print("----df_2--->/n",df_2.take(10))
+  #print("----df_2--->/n",df_2.tail(10))
+  print("  "*30)
+  df_2.select("from_date",'recency').show(5,0)
+  print("  "*30)
+  df_2.select("from_date", "recency").summary().show()
+  print("  "*30)
+  df_temp = df_2.groupBy('CustomerID').agg(max('recency').alias('max_recency'))
+  print("  "*30)
+  print("--df_temp-->/n",df_temp.show(10,0))
+  print("  "*30)
+
+  df_temp1 = df_2.join(df_2.groupBy('CustomerID').agg(max('recency').alias('recency')),on='recency',how='leftsemi')
+  print("--df_temp1-->/n",df_temp1.show(10,0))
+  print("  "*30)
+  print(" Something Not Correct Above ??  .... cant seem to see the GroupBy ??  .... ")
+
+  df_temp1.printSchema()
+  print("  "*30)
+  df_temp1.summary().show()
+  print("  "*30)
+
+  """
+  Some observations -- df_temp1.summary()
+  1/ Why is Quantity -- NEGATIVE --> [-1]
+  2/ There are NULL Values in --> Description , InvoiceDate and Country 
+  3/ How Many Repeat Customers --> CustomerID --> 91389 - 91389 == num_repeat_customers
+  
+  """
+
+
 
 @profile
 def run_analysis():
