@@ -17,6 +17,7 @@ from pyspark.sql import SparkSession
 import pandas as pd
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
+from memory_profiler import profile
 
 ## TEMP -- Dont Repeat 
 # xlsx_path = "./data_dir/online_retail.xlsx"
@@ -59,13 +60,21 @@ def retail_analysis(df_rtl , spark):
   print("----df_2--->/n",df_2.show(10,0))
   print("  "*90)
   df_2.select(max("date")).show()
+  print("  "*30)
+  df_2.select(min("date")).show()
   #
+  #df_2 = df_2.withColumn('
+  df_2.select(lit(5).alias('height')).withColumn('spark_user', lit(True)).take(1)
+  # Add LITERAL VAlue Columns -- Non Calculated - HardCoded Values 
+  # https://spark.apache.org/docs/3.1.3/api/python/reference/api/pyspark.sql.functions.lit.html
+  print("----df_2--->/n",df_2.show(10,0))
 
-
+@profile
+def run_analysis():
+  """
+  """
+  df_rtl , spark = read_data()
+  retail_analysis(df_rtl , spark)
 
 if __name__ == "__main__":
-    df_rtl , spark = read_data()
-    retail_analysis(df_rtl , spark)
-    
-
-
+  run_analysis()
