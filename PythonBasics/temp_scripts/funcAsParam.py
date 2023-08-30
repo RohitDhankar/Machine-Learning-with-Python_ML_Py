@@ -1,3 +1,4 @@
+# TODO -- terminal log files 
 # Function as a Parameter for Another Func
 glob = "Global variable"
 def innerFunc():
@@ -37,6 +38,7 @@ def locGlob():
 'glob': 'Gloab vr', 
 'innerFunc': <function innerFunc at 0x7f1a589f81f0>, 
 'outerFunc': <function outerFunc at 0x7f1a575fa670>}
+
 """
 
 

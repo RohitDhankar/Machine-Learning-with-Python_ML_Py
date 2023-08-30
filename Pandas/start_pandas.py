@@ -36,4 +36,4 @@ def start():
 
     if __name__ == '__main__':
         start()
-        del start # Clean up namespace in the interpreter
+        #del start # Clean up namespace in the interpreter
