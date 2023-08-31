@@ -10,25 +10,29 @@
 
 ### Table of Contents
 
-- [1] `1- Python-3 basics , data transforms etc.` 
+- [1] `Python-3 basics , data transforms etc.` 
 - [PySpark](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
 - [pandas](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
-- [2] `2- Download and Preprocess various kinds of Data` 
+- [2] `Download and Preprocess various kinds of Data` 
 - [data_aggregations](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
-- [X] `3- Active Learning - mostly Lightly`
+- [3] `Active Learning - mostly Lightly`
 - [testing Lightly](https://github.com/RohitDhankar/test_lightly_1) 
-- [1-Lightly Active Learning -YouTube](https://www.youtube.com/watch?v=7cS5mf3PChE)
-- [2-Lightly Active Learning-SimSiam -YouTube](https://www.youtube.com/watch?v=QB1yiSGhc3M)
-- [3-Lightly Active Learning- -YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
-- [4-FeatureExtraction-Resnet50](https://www.youtube.com/watch?v=Bj1rux7btzA)
-- [X] `4-- Visualizations for EDA ` 
+- [3.1-Lightly Active Learning -YouTube](https://www.youtube.com/watch?v=7cS5mf3PChE)
+- [3.2-Lightly Active Learning-SimSiam -YouTube](https://www.youtube.com/watch?v=QB1yiSGhc3M)
+- [3.3-Lightly Active Learning- -YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
+- [3.4-FeatureExtraction-Resnet50](https://www.youtube.com/watch?v=Bj1rux7btzA)
+- [4] `Visualizations of Data for EDA and others` 
+- [EDA-Exploratory-Data-Analysis](https://www.youtube.com/watch?v=zydsrBWTbEA)
+- [Bokeh-plots-for-Tukeys-Five-Point-Summary](https://www.youtube.com/watch?v=zydsrBWTbEA)
+- [Bokeh-Box-plots-for-Tukeys-Five-Point-Summary](https://www.youtube.com/watch?v=zydsrBWTbEA)
 - [statsmodels]
 - [matplotlib-TimeSeries-Plots]
-- [X] `5-- detectron2 from Facebook AI Research- for Object Detection ` 
+- [5] `detectron2 from Facebook AI Research- for Object Detection ` 
 - [detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
-- [X] `6-- Tornado - async framework ` 
+- [6] `Tornado - async framework ` 
 - [Tornado] (https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/dev_tornado)
-- [X] `Work in Progress` 
+- [7] `Diffusers - Text to Image ` 
+- [7.1-Create-own-pipeline](https://www.youtube.com/watch?v=TVZLk7CPKcI)
 
 
 <br/>
