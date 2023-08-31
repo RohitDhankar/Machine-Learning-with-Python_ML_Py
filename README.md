@@ -27,8 +27,11 @@
 - [3] `detectron2 from Facebook AI Research- for Object Detection ` 
 - [3.1-detectron2-FAIR-Panoptic-Segmentation](https://www.youtube.com/watch?v=6maQvG_5fZM&t=165s)
 - [3.2-detectron2-faster_rcnn_R_50_FPN_3x](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py) 
-- [3.3-detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
-- [3.4-kaggle_sartorius-cell-instance-segmentation-GIT-Repo](https://github.com/RohitDhankar/kaggle_sartorius-cell-instance-segmentation/blob/main/originalCOCO_Code_mask.py) [3.2-kaggle_sartorius-YOuTube-Explainer](https://www.youtube.com/watch?v=jU2n0GRAq2o&t=407s)
+- [3.3-detectron2-config_explained](https://www.youtube.com/watch?v=NRred6RjWsU&t=1800s)
+- [3.3a-detectron2-LAUNCH_explained](https://www.youtube.com/watch?v=NRred6RjWsU&t=780s) [LAUNCH-detectron2](https://detectron2.readthedocs.io/en/stable/_modules/detectron2/engine/launch.html)
+-self.get_config.merge_from_file(model_zoo.get_config_file("COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"))
+- [3.4-detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
+- [3.5-kaggle_sartorius-cell-instance-segmentation-GIT-Repo](https://github.com/RohitDhankar/kaggle_sartorius-cell-instance-segmentation/blob/main/originalCOCO_Code_mask.py) [3.2-kaggle_sartorius-YOuTube-Explainer](https://www.youtube.com/watch?v=jU2n0GRAq2o&t=407s)
 - [4-OpenPCDet_Initial_Demo_MAYAVI_KITTI_LIDAR](https://www.youtube.com/watch?v=tLwHWVfl16A) 
 - [4.1-OpenPCDet_Git-Experiments_KITTI_LIDAR](https://github.com/RohitDhankar/OpenPCDet/blob/master/init_INSTALL_ERRORS_1.md)
 
@@ -57,10 +60,10 @@
 
 
 
-#### LLM Usage -- LangChain
+#### LLM Usage -- LangChain , ScikitLLM
 
-- [1] `Using Large Language Models - LangChain`
-- [TODO]
+- [1] `Using Large Language Models - LangChain , ScikitLLM`
+- [TODO] -ScikitLLM- https://github.com/iryna-kondr/scikit-llm
 - [TODO]
 - [TODO]
 
@@ -94,10 +97,11 @@
 #### OpenCV - OpenCV Projects
 
 - [1] `OpenCV Projects`
-- [1.1-Credit Card Digit Detection](https://www.youtube.com/watch?v=AvVVVMKJ9-U) 
-- [1.1a-Credit Card Digit Detection](https://www.youtube.com/watch?v=molL6qloLqU&t=16s)
-- [1.2-OpenCV_mask_blue - cv2.bitwise_and)](https://www.youtube.com/watch?v=_6wbV1OZnn4)
-- [1.3-OpenCV_SIFT_ORB_KeyPoints_Detection)](https://www.youtube.com/watch?v=i9gLvZ8OPtg&t=33s) 
+- [1.1-MediaPipe_OpenCV_Hand_Pose_Tracking](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/blob/master/basic_mediaPipe_OpenCV/test_mediaPipe_.py) 
+- [1.2-Credit Card Digit Detection](https://www.youtube.com/watch?v=AvVVVMKJ9-U) 
+- [1.2a-Credit Card Digit Detection](https://www.youtube.com/watch?v=molL6qloLqU&t=16s)
+- [1.3-OpenCV_mask_blue - cv2.bitwise_and)](https://www.youtube.com/watch?v=_6wbV1OZnn4)
+- [1.4-OpenCV_SIFT_ORB_KeyPoints_Detection)](https://www.youtube.com/watch?v=i9gLvZ8OPtg&t=33s) 
 
 <br/>
 
