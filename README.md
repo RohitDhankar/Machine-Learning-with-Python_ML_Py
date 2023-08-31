@@ -1,38 +1,79 @@
-##### Learning the very Basics of Python and moving on to very basic Machine Learning with Python 
-
 #
 
 <h1 align="center">Machine-Learning-with-Python - </h1>
 
-> This repository will contain both code and additional reading material refrences for analytics and Machine-Learning-with-Python **- Machine-Learning-with-Python**
+> This repository will contain both code and additional links to code / reading material refrences for  Machine-Learning-with-Python **- Machine-Learning-with-Python**
  
-> If you are reading this and can code very basic Python - you are Welcome to contribute. 
-
 
 <br/>
 
 
-### Table of Contents of this repository
+### Table of Contents
 
-- [X] `A-- Python-3 basics , data transforms etc.` 
+<br/>
+
+#### PyTorch
+
+- [1 PyTorch-SimpleNet](https://www.youtube.com/watch?v=bYsgVe53o9A)
+- [1.1-PyTorch-Layers-Conv2d-Architecture](https://www.youtube.com/watch?v=bYsgVe53o9A&t=365s)
+- [1.2-PyTorch-transforms.Compose](https://www.youtube.com/watch?v=bYsgVe53o9A&t=990s)
+- [1.3-PyTorch-freezingLayers-torch.no_grad()](https://www.youtube.com/watch?v=bYsgVe53o9A&t=780s)
+- [2] `Diffusers - Text to Image ` 
+- [2.1-Create-own-pipeline](https://www.youtube.com/watch?v=TVZLk7CPKcI)
+- [3] `detectron2 from Facebook AI Research- for Object Detection ` 
+- [3.1-detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
+- [3.2-kaggle_sartorius-cell-instance-segmentation](https://github.com/RohitDhankar/kaggle_sartorius-cell-instance-segmentation/blob/main/originalCOCO_Code_mask.py) [3.2-kaggle_sartorius-YOuTube-Explainer](https://www.youtube.com/watch?v=jU2n0GRAq2o&t=407s)
+<br/>
+
+#### Active Learning
+
+- [1] `Active Learning - mostly Lightly`
+- [testing Lightly](https://github.com/RohitDhankar/test_lightly_1) 
+- [1.1-Lightly Active Learning -YouTube](https://www.youtube.com/watch?v=7cS5mf3PChE)
+- [1.2-Lightly Active Learning-SimSiam -YouTube](https://www.youtube.com/watch?v=QB1yiSGhc3M)
+- [1.3-Lightly Active Learning- -YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
+- [1.4-FeatureExtraction-Resnet50](https://www.youtube.com/watch?v=Bj1rux7btzA)
+
+<br/>
+
+#### Generic Core Python
+
+- [1] `Python-3 basics , data transforms etc.` 
 - [PySpark](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
 - [pandas](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
-- [X] `B-- Download and Preprocess various kinds of Data` 
+- [2] `Download and Preprocess various kinds of Data` 
 - [data_aggregations](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
-- [X] `C-- Further explorations EDA with Data` 
-- [X] `D-- Visualizations for EDA ` 
-- [X] `E-- detectron2 from Facebook AI Research- for Object Detection ` 
-- [detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
-- [X] `Work in Progress` 
-- [X] `Work in Progress` 
+
+- [3] `Visualizations of Data for EDA and others` 
+- [3.1-EDA-Exploratory-Data-Analysis](https://www.youtube.com/watch?v=zydsrBWTbEA)
+- [3.2-Bokeh-plots-for-Tukeys-Five-Point-Summary](https://www.youtube.com/watch?v=zydsrBWTbEA)
+- [3.3-Bokeh-Box-plots-for-Tukeys-Five-Point-Summary](https://www.youtube.com/watch?v=zydsrBWTbEA)
+- [3.4-statsmodels] -- TODO 
+- [3.5-matplotlib-TimeSeries-Plots] -- TODO 
+- [3.6-Levenshtein-distance](https://www.youtube.com/watch?v=DTAgjm3VOjQ&t=581s)
+
+
 
 
 <br/>
 
-##### References - Always an ongoing effort - Work in Progress
+##### Not Core Machine Learning [Full Stack Machine Learning]
+
+- [1] `Software Development - Data Focused App Development` 
+- [1.1-ChatGPT-FlaskApp](https://www.youtube.com/watch?v=kQs1h3fIKvo&t=75s)
+- [1.1a-ChatGPT-FlaskApp-VariationAPI](https://www.youtube.com/watch?v=Ul2DUVqA2Fs&t=33s)
+- [1.2-Django-jQuery-Bokeh-Exploratory-Data-Analysis](https://www.youtube.com/watch?v=zydsrBWTbEA)
+- [1.2-uWSGI](https://github.com/RohitDhankar/digitalCognition/blob/master/uwsgi_launch.sh)
+- Django-wsgi - https://github.com/RohitDhankar/digitalCognition/blob/master/dc_dash_proj/wsgi.py
+- [1.3-NGINX](https://www.youtube.com/watch?v=UDpdAC9rFrI&t=156s)
+- [1.3-Nginx_uWsgi_Django_Registration_Redux](https://www.youtube.com/watch?v=Z0bAUu7n3w0&t=249s)
+- [] -- TODO 
+
+- [2] `Tornado - async framework ` 
+- [2.1-Tornado] (https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/dev_tornado)
 
 
-##### Learning Index :- 
+<br/>
 
 ##### Module -1 :- 
 
