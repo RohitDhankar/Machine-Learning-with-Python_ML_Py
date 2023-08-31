@@ -18,11 +18,17 @@
 - [1.1-PyTorch-Layers-Conv2d-Architecture](https://www.youtube.com/watch?v=bYsgVe53o9A&t=365s)
 - [1.2-PyTorch-transforms.Compose](https://www.youtube.com/watch?v=bYsgVe53o9A&t=990s)
 - [1.3-PyTorch-freezingLayers-torch.no_grad()](https://www.youtube.com/watch?v=bYsgVe53o9A&t=780s)
+- [1.4-PyTorch-Initial-ObjectDetection-YouTube](https://www.youtube.com/watch?v=qcpLU5K8j4E&t=407s)
+- [1.4a-PyTorch-Initial-ObjectDetection-Git](https://github.com/RohitDhankar/obj_det/tree/dev_rohit/_taco_1)
 - [2] `Diffusers - Text to Image ` 
 - [2.1-Create-own-pipeline](https://www.youtube.com/watch?v=TVZLk7CPKcI)
 - [3] `detectron2 from Facebook AI Research- for Object Detection ` 
 - [3.1-detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
 - [3.2-kaggle_sartorius-cell-instance-segmentation](https://github.com/RohitDhankar/kaggle_sartorius-cell-instance-segmentation/blob/main/originalCOCO_Code_mask.py) [3.2-kaggle_sartorius-YOuTube-Explainer](https://www.youtube.com/watch?v=jU2n0GRAq2o&t=407s)
+- [4-OpenPCDet_Initial_Demo_MAYAVI_KITTI_LIDAR](https://www.youtube.com/watch?v=tLwHWVfl16A) 
+- [4.1-OpenPCDet_Git-Experiments_KITTI_LIDAR](https://github.com/RohitDhankar/OpenPCDet/blob/master/init_INSTALL_ERRORS_1.md)
+
+
 <br/>
 
 #### Active Learning
@@ -33,6 +39,55 @@
 - [1.2-Lightly Active Learning-SimSiam -YouTube](https://www.youtube.com/watch?v=QB1yiSGhc3M)
 - [1.3-Lightly Active Learning- -YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
 - [1.4-FeatureExtraction-Resnet50](https://www.youtube.com/watch?v=Bj1rux7btzA)
+
+<br/>
+
+#### Object Detection  -- Yolov4
+
+- [1] `Yolov4`
+- [1.1-Initial-Experiments-Yolov4](https://www.youtube.com/watch?v=CEcLBgIsG40&t=840s)
+- [1.2-Initial-Experiments-Yolov4](https://www.youtube.com/watch?v=CEcLBgIsG40&t=840s)
+
+
+<br/>
+
+
+
+#### LLM Usage -- LangChain
+
+- [1] `Using Large Language Models - LangChain`
+- [TODO]
+- [TODO]
+- [TODO]
+
+<br/>
+
+#### Classic Legacy NLP -- NLTK 
+
+- [FaceBook-WebHooks-ChatBot]
+- [TODO]
+- [TODO]
+
+
+
+<br/>
+
+#### GEO GIS - Deep Learning for Geography
+
+- [1] `raster-vision`
+- [raster-vision](https://github.com/RohitDhankar/raster-vision) 
+- [1.1-raster-vision](https://www.youtube.com/watch?v=7NOSnXwbxAk)
+
+<br/>
+
+
+
+#### OpenCV - OpenCV Projects
+
+- [1] `OpenCV Projects`
+- [1.1-Credit Card Digit Detection](https://www.youtube.com/watch?v=AvVVVMKJ9-U) 
+- [1.1a-Credit Card Digit Detection](https://www.youtube.com/watch?v=molL6qloLqU&t=16s)
+- [1.2-OpenCV_mask_blue - cv2.bitwise_and)](https://www.youtube.com/watch?v=_6wbV1OZnn4)
 
 <br/>
 
