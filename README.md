@@ -18,11 +18,21 @@
 - [1.1-PyTorch-Layers-Conv2d-Architecture](https://www.youtube.com/watch?v=bYsgVe53o9A&t=365s)
 - [1.2-PyTorch-transforms.Compose](https://www.youtube.com/watch?v=bYsgVe53o9A&t=990s)
 - [1.3-PyTorch-freezingLayers-torch.no_grad()](https://www.youtube.com/watch?v=bYsgVe53o9A&t=780s)
+- [1.4-PyTorch-Initial-ObjectDetection-YouTube](https://www.youtube.com/watch?v=qcpLU5K8j4E&t=407s)
+- [1.4a-PyTorch-Initial-ObjectDetection-Git](https://github.com/RohitDhankar/obj_det/tree/dev_rohit/_taco_1)
+- [1.5-PyTorch--SimpleNet-Airplane-Classifier](https://www.youtube.com/watch?v=tSdNa_oPHLg)
+
 - [2] `Diffusers - Text to Image ` 
 - [2.1-Create-own-pipeline](https://www.youtube.com/watch?v=TVZLk7CPKcI)
 - [3] `detectron2 from Facebook AI Research- for Object Detection ` 
-- [3.1-detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
-- [3.2-kaggle_sartorius-cell-instance-segmentation](https://github.com/RohitDhankar/kaggle_sartorius-cell-instance-segmentation/blob/main/originalCOCO_Code_mask.py) [3.2-kaggle_sartorius-YOuTube-Explainer](https://www.youtube.com/watch?v=jU2n0GRAq2o&t=407s)
+- [3.1-detectron2-FAIR-Panoptic-Segmentation](https://www.youtube.com/watch?v=6maQvG_5fZM&t=165s)
+- [3.2-detectron2-faster_rcnn_R_50_FPN_3x](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py) 
+- [3.3-detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
+- [3.4-kaggle_sartorius-cell-instance-segmentation-GIT-Repo](https://github.com/RohitDhankar/kaggle_sartorius-cell-instance-segmentation/blob/main/originalCOCO_Code_mask.py) [3.2-kaggle_sartorius-YOuTube-Explainer](https://www.youtube.com/watch?v=jU2n0GRAq2o&t=407s)
+- [4-OpenPCDet_Initial_Demo_MAYAVI_KITTI_LIDAR](https://www.youtube.com/watch?v=tLwHWVfl16A) 
+- [4.1-OpenPCDet_Git-Experiments_KITTI_LIDAR](https://github.com/RohitDhankar/OpenPCDet/blob/master/init_INSTALL_ERRORS_1.md)
+
+
 <br/>
 
 #### Active Learning
@@ -33,6 +43,61 @@
 - [1.2-Lightly Active Learning-SimSiam -YouTube](https://www.youtube.com/watch?v=QB1yiSGhc3M)
 - [1.3-Lightly Active Learning- -YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
 - [1.4-FeatureExtraction-Resnet50](https://www.youtube.com/watch?v=Bj1rux7btzA)
+
+<br/>
+
+#### Object Detection  -- Yolov4
+
+- [1] `Yolov4`
+- [1.1-Initial-Experiments-Yolov4](https://www.youtube.com/watch?v=CEcLBgIsG40&t=840s)
+- [1.2-Initial-Experiments-Yolov4](https://www.youtube.com/watch?v=CEcLBgIsG40&t=840s)
+
+
+<br/>
+
+
+
+#### LLM Usage -- LangChain
+
+- [1] `Using Large Language Models - LangChain`
+- [TODO]
+- [TODO]
+- [TODO]
+
+<br/>
+
+#### Classic Legacy NLP -- NLTK 
+
+- [FaceBook-WebHooks-ChatBot]
+- [TODO]
+- [TODO]
+
+
+
+<br/>
+
+#### [GEO-GIS-DeepLearning-for-Geography](https://github.com/DigitalCognition-GIS/py_qgis_2020)
+
+- [1] `raster-vision`
+- [raster-vision](https://github.com/RohitDhankar/raster-vision) 
+- [1.1-raster-vision](https://www.youtube.com/watch?v=7NOSnXwbxAk)
+- [1.2-QGIS-SpaceNet](https://www.youtube.com/watch?v=M7m36cpM04g)
+- [1.2a-QGIS-SpaceNet](https://github.com/DigitalCognition-GIS/spaceNet/blob/master/README_ROUGH_NOTES.md)
+- [1.3-QGIS-LAStools_LIDAR_1](https://www.youtube.com/watch?v=nDfsqQRY7E8&t=48s)
+- [1.3-QGIS-LAStools_LIDAR](https://www.youtube.com/watch?v=Y5SASRfdIHI&t=6s)
+
+
+<br/>
+
+
+
+#### OpenCV - OpenCV Projects
+
+- [1] `OpenCV Projects`
+- [1.1-Credit Card Digit Detection](https://www.youtube.com/watch?v=AvVVVMKJ9-U) 
+- [1.1a-Credit Card Digit Detection](https://www.youtube.com/watch?v=molL6qloLqU&t=16s)
+- [1.2-OpenCV_mask_blue - cv2.bitwise_and)](https://www.youtube.com/watch?v=_6wbV1OZnn4)
+- [1.3-OpenCV_SIFT_ORB_KeyPoints_Detection)](https://www.youtube.com/watch?v=i9gLvZ8OPtg&t=33s) 
 
 <br/>
 
@@ -51,6 +116,9 @@
 - [3.4-statsmodels] -- TODO 
 - [3.5-matplotlib-TimeSeries-Plots] -- TODO 
 - [3.6-Levenshtein-distance](https://www.youtube.com/watch?v=DTAgjm3VOjQ&t=581s)
+- [DataTables-DigitalCognition](https://www.youtube.com/watch?v=orFbj0yW8b0)
+- [Code-walkthrough-datatables.net-datatables.js](https://www.youtube.com/watch?v=orFbj0yW8b0)
+
 
 
 
