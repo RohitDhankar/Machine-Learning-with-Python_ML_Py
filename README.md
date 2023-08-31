@@ -1,44 +1,37 @@
-##### Learning the very Basics of Python and moving on to very basic Machine Learning with Python 
-
 #
 
 <h1 align="center">Machine-Learning-with-Python - </h1>
 
-> This repository will contain both code and additional reading material refrences for analytics and Machine-Learning-with-Python **- Machine-Learning-with-Python**
+> This repository will contain both code and additional links to code / reading material refrences for  Machine-Learning-with-Python **- Machine-Learning-with-Python**
  
-> If you are reading this and can code very basic Python - you are Welcome to contribute. 
-
 
 <br/>
 
 
-### Table of Contents of this repository
+### Table of Contents
 
-- [X] `A-- Python-3 basics , data transforms etc.` 
+- [1] `1- Python-3 basics , data transforms etc.` 
 - [PySpark](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
 - [pandas](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
-- [X] `B-- Download and Preprocess various kinds of Data` 
+- [2] `2- Download and Preprocess various kinds of Data` 
 - [data_aggregations](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
-- [X] `C-- Active Learning - mostly Lightly`
+- [X] `3- Active Learning - mostly Lightly`
 - [testing Lightly](https://github.com/RohitDhankar/test_lightly_1) 
 - [1-Lightly Active Learning -YouTube](https://www.youtube.com/watch?v=7cS5mf3PChE)
 - [2-Lightly Active Learning-SimSiam -YouTube](https://www.youtube.com/watch?v=QB1yiSGhc3M)
 - [3-Lightly Active Learning- -YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
-- [4-ActiveLearn-FeatureExtraction-Resnet50]((https://www.youtube.com/watch?v=Bj1rux7btzA))
-- [X] `D-- Visualizations for EDA ` 
-- [X] `E-- detectron2 from Facebook AI Research- for Object Detection ` 
+- [4-FeatureExtraction-Resnet50](https://www.youtube.com/watch?v=Bj1rux7btzA)
+- [X] `4-- Visualizations for EDA ` 
+- [statsmodels]
+- [matplotlib-TimeSeries-Plots]
+- [X] `5-- detectron2 from Facebook AI Research- for Object Detection ` 
 - [detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
-- [X] `F-- Tornado - async framework ` 
+- [X] `6-- Tornado - async framework ` 
 - [Tornado] (https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/dev_tornado)
 - [X] `Work in Progress` 
 
 
 <br/>
-
-##### References - Always an ongoing effort - Work in Progress
-
-
-##### Learning Index :- 
 
 ##### Module -1 :- 
 
