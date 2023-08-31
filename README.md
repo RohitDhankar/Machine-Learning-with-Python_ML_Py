@@ -14,11 +14,15 @@
 
 ### Table of Contents of this repository
 
-- [X] `A-- Intro to Python(Mostly Python-3)...` 
+- [X] `A-- Python-3 basics , data transforms etc.` 
+- [PySpark](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
+- [pandas](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
 - [X] `B-- Download and Preprocess various kinds of Data` 
+- [data_aggregations](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
 - [X] `C-- Further explorations EDA with Data` 
 - [X] `D-- Visualizations for EDA ` 
-- [X] `Work in Progress` 
+- [X] `E-- detectron2 from Facebook AI Research- for Object Detection ` 
+- [detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
 - [X] `Work in Progress` 
 - [X] `Work in Progress` 
 

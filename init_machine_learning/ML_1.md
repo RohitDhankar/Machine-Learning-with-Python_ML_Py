@@ -6,4 +6,6 @@ Scripts in this DIR will be sorted basis prominent libraries used and also basis
 - pytorch
 - keras
 - tensorflow
+- streamlit
+- langchain
 - others - TODO 
