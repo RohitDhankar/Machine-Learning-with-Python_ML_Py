@@ -74,7 +74,7 @@
 
 <br/>
 
-#### [GEO-GIS -DeepLearning-for-Geography](https://github.com/DigitalCognition-GIS/py_qgis_2020)
+#### [GEO-GIS-DeepLearning-for-Geography](https://github.com/DigitalCognition-GIS/py_qgis_2020)
 
 - [1] `raster-vision`
 - [raster-vision](https://github.com/RohitDhankar/raster-vision) 
