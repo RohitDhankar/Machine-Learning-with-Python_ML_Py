@@ -28,8 +28,13 @@
 - [3.1-detectron2-FAIR-Panoptic-Segmentation](https://www.youtube.com/watch?v=6maQvG_5fZM&t=165s)
 - [3.2-detectron2-faster_rcnn_R_50_FPN_3x](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py) 
 - [3.3-detectron2-config_explained](https://www.youtube.com/watch?v=NRred6RjWsU&t=1800s)
-- [3.3a-detectron2-LAUNCH_explained](https://www.youtube.com/watch?v=NRred6RjWsU&t=780s) [LAUNCH-detectron2](https://detectron2.readthedocs.io/en/stable/_modules/detectron2/engine/launch.html)
 -self.get_config.merge_from_file(model_zoo.get_config_file("COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"))
+- [3.3a-detectron2-LAUNCH_explained](https://www.youtube.com/watch?v=NRred6RjWsU&t=780s) [LAUNCH-detectron2](https://detectron2.readthedocs.io/en/stable/_modules/detectron2/engine/launch.html)
+- [3.3b-detectron2-model_zoo_explained](https://www.youtube.com/watch?v=9VmPq-kYB60&t=210s)
+- [3.3c-detectron2 , COCO API explained , pycocotools , training data set , validation set , categories of the COCO Dataset](https://www.youtube.com/watch?v=9VmPq-kYB60&t=270s) 
+- [pyCOCO-get-annotation-ID's]
+- ```annotation_ids = coco_obj.getAnnIds(imgIds=ls_image_ids_bikes[iter_image], catIds=[2])```(https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/950503a6f64783d8d54e50af49e3e9888a14b428/src/det2_1.py#L101C5-L101C91)
+
 - [3.4-detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
 - [3.5-kaggle_sartorius-cell-instance-segmentation-GIT-Repo](https://github.com/RohitDhankar/kaggle_sartorius-cell-instance-segmentation/blob/main/originalCOCO_Code_mask.py) [3.2-kaggle_sartorius-YOuTube-Explainer](https://www.youtube.com/watch?v=jU2n0GRAq2o&t=407s)
 - [4-OpenPCDet_Initial_Demo_MAYAVI_KITTI_LIDAR](https://www.youtube.com/watch?v=tLwHWVfl16A) 
