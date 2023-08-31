@@ -19,11 +19,17 @@
 - [pandas](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
 - [X] `B-- Download and Preprocess various kinds of Data` 
 - [data_aggregations](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
-- [X] `C-- Further explorations EDA with Data` 
+- [X] `C-- Active Learning - mostly Lightly`
+- [testing Lightly](https://github.com/RohitDhankar/test_lightly_1) 
+- [1-Lightly Active Learning -YouTube](https://www.youtube.com/watch?v=7cS5mf3PChE)
+- [2-Lightly Active Learning-SimSiam -YouTube](https://www.youtube.com/watch?v=QB1yiSGhc3M)
+- [3-Lightly Active Learning- -YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
+- [4-ActiveLearn-FeatureExtraction-Resnet50]((https://www.youtube.com/watch?v=Bj1rux7btzA))
 - [X] `D-- Visualizations for EDA ` 
 - [X] `E-- detectron2 from Facebook AI Research- for Object Detection ` 
 - [detectron2 from FAIR](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py)
-- [X] `Work in Progress` 
+- [X] `F-- Tornado - async framework ` 
+- [Tornado] (https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/dev_tornado)
 - [X] `Work in Progress` 
 
 
