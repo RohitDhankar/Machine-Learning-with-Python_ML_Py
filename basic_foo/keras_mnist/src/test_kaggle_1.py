@@ -1,0 +1,1 @@
+tf.keras.utils.plot_model(model, to_file="my_model2.png", show_shapes=False)
