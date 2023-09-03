@@ -24,8 +24,10 @@
 
 - [2] `Diffusers - Text to Image ` 
 - [2.1-Create-own-pipeline](https://www.youtube.com/watch?v=TVZLk7CPKcI)
-- [3] `detectron2 from Facebook AI Research- for Object Detection ` 
-- [3.1-detectron2-FAIR-Panoptic-Segmentation](https://www.youtube.com/watch?v=6maQvG_5fZM&t=165s)
+- [3] `detectron2 from Facebook AI Research- for Object Detection` 
+- [3.1-detectron2-FAIR-Panoptic-Segmentation-YouTube](https://www.youtube.com/watch?v=6maQvG_5fZM&t=165s)
+- [3.1a-detectron2-FAIR-Panoptic-Segmentation-GitRepo](https://github.com/RohitDhankar/detectron2_coco_panoptic_seg)
+- (https://github.com/RohitDhankar/detectron2_coco_panoptic_seg/blob/main/output_dir/__11_04_2022_23_50__/_dir_img_gt_bbox_/_11_04_2022_23_50_/000000000139_0.50_.png)
 - [3.2-detectron2-faster_rcnn_R_50_FPN_3x](https://github.com/RohitDhankar/Obj_Detect_Detectron2/blob/main/src/det2_2.py) 
 - [3.3-detectron2-config_explained](https://www.youtube.com/watch?v=NRred6RjWsU&t=1800s)
 -self.get_config.merge_from_file(model_zoo.get_config_file("COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"))
@@ -39,6 +41,20 @@
 - [3.5-kaggle_sartorius-cell-instance-segmentation-GIT-Repo](https://github.com/RohitDhankar/kaggle_sartorius-cell-instance-segmentation/blob/main/originalCOCO_Code_mask.py) [3.2-kaggle_sartorius-YOuTube-Explainer](https://www.youtube.com/watch?v=jU2n0GRAq2o&t=407s)
 - [4-OpenPCDet_Initial_Demo_MAYAVI_KITTI_LIDAR](https://www.youtube.com/watch?v=tLwHWVfl16A) 
 - [4.1-OpenPCDet_Git-Experiments_KITTI_LIDAR](https://github.com/RohitDhankar/OpenPCDet/blob/master/init_INSTALL_ERRORS_1.md)
+
+#### [TODO--List--detectron2]
+- [1-detectron2-DensePose-CSE-Continuous_Surface_Embeddings] (https://github.com/facebookresearch/detectron2/blob/main/projects/DensePose/doc/DENSEPOSE_CSE.md#animal-cse-models)
+- [1-detectron2-DensePose] 
+
+<br/>
+
+#### [neural-nets-basics]
+- [1-Book-1-Practical-Deep-Learning(Anirudh-Koul)] (https://github.com/PracticalDL/Practical-Deep-Learning-Book)
+- [1.1-Book-1-Practical-DL__Own-experiments-YouTube] (https://www.youtube.com/watch?v=Tn7spbLO3xQ)
+- [1.1a-Book-1-Practical-DL__Own-experiments-GitRepo] (https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
+- [1.1b-Book-1-->Image-Feature-Extraction-GitRepo] (https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
+
+
 
 
 <br/>
@@ -58,7 +74,7 @@
 
 - [1] `Yolov4`
 - [1.1-Initial-Experiments-Yolov4](https://www.youtube.com/watch?v=CEcLBgIsG40&t=840s)
-- [1.2-Initial-Experiments-Yolov4](https://www.youtube.com/watch?v=CEcLBgIsG40&t=840s)
+- [1.2-Yolov4-Git(DEPRECATED-theAIGuysCode)](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_15_yolo/yolo1/convert.py)
 
 
 <br/>
@@ -118,8 +134,8 @@
 - [3.1-EDA-Exploratory-Data-Analysis](https://www.youtube.com/watch?v=zydsrBWTbEA)
 - [3.2-Bokeh-plots-for-Tukeys-Five-Point-Summary](https://www.youtube.com/watch?v=zydsrBWTbEA)
 - [3.3-Bokeh-Box-plots-for-Tukeys-Five-Point-Summary](https://www.youtube.com/watch?v=zydsrBWTbEA)
-- [3.4-statsmodels] -- TODO 
-- [3.5-matplotlib-TimeSeries-Plots] -- TODO 
+- [3.4-statsmodels] --> TODO (https://github.com/RohitDhankar/time_series/blob/main/ts_1.ipynb)
+- [3.5-matplotlib-TimeSeries-Plots] --> TODO (https://github.com/RohitDhankar/time_series/blob/main/ts_1.ipynb)
 - [3.6-Levenshtein-distance](https://www.youtube.com/watch?v=DTAgjm3VOjQ&t=581s)
 - [DataTables-DigitalCognition](https://www.youtube.com/watch?v=orFbj0yW8b0)
 - [Code-walkthrough-datatables.net-datatables.js](https://www.youtube.com/watch?v=orFbj0yW8b0)
