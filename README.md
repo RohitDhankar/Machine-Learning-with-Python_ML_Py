@@ -64,14 +64,18 @@
 - [1.1c-Book-1-->Image-Feature-Extraction_for_ACTIVE_Learning_LIGHTLY-YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
 -[2-Book-2-->PyTorch-SimpleNet-AirplaneClassifier](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_2/logging_2_code_not_plane_4.log)
 <br/>
-```
+#
+
+```python
+
 -TRAIN----torch.cuda.memory_allocated---> 0.02 GB
 Epoch:10,TRAIN_Loss:0.00,VAL_Loss:0.00, Accuracy = 1.00
 ---labels[prediction]----
  not_plane
 ---labels[prediction]----
  not_plane
- ```
+```
+
 <br/>
 
 #
