@@ -43,17 +43,22 @@
 - [4.1-OpenPCDet_Git-Experiments_KITTI_LIDAR](https://github.com/RohitDhankar/OpenPCDet/blob/master/init_INSTALL_ERRORS_1.md)
 
 #### [TODO--List--detectron2]
-- [1-detectron2-DensePose-CSE-Continuous_Surface_Embeddings] (https://github.com/facebookresearch/detectron2/blob/main/projects/DensePose/doc/DENSEPOSE_CSE.md#animal-cse-models)
+
+- [1-detectron2-DensePose-CSE-Continuous_Surface_Embeddings](https://github.com/facebookresearch/detectron2/blob/main/projects/DensePose/doc/DENSEPOSE_CSE.md#animal-cse-models)
 - [1-detectron2-DensePose] 
 
 <br/>
 
 #### [neural-nets-basics]
-- [1-Book-1-Practical-Deep-Learning(Anirudh-Koul)] (https://github.com/PracticalDL/Practical-Deep-Learning-Book)
-- [1.1-Book-1-Practical-DL__Own-experiments-YouTube] (https://www.youtube.com/watch?v=Tn7spbLO3xQ)
-- [1.1a-Book-1-Practical-DL__Own-experiments-GitRepo] (https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
-- [1.1b-Book-1-->Image-Feature-Extraction-GitRepo] (https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
 
+- [1] `Neural Networks - mostly CNN for Image tasks`
+- [CNN-Layers_architecture_Explained-GITRepo](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_17/ownNotes_Layers_Architecture_1.log)
+
+- [1-Book-1-Practical-Deep-Learning(Anirudh-Koul)](https://github.com/PracticalDL/Practical-Deep-Learning-Book)
+- [1.1-Book-1-->Image_Similarity_Search_18March22-YouTube](https://www.youtube.com/watch?v=Tn7spbLO3xQ)
+- [1.1a-Book-1-->Image_Similarity_Search_18March22-GitRepo](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
+- [1.1b-Book-1-->Image-Feature-Extraction-GitRepo](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
+- [1.1c-Book-1-->Image-Feature-Extraction_for_ACTIVE_Learning_LIGHTLY-YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
 
 
 
