@@ -46,6 +46,15 @@
 - [1-detectron2-DensePose-CSE-Continuous_Surface_Embeddings] (https://github.com/facebookresearch/detectron2/blob/main/projects/DensePose/doc/DENSEPOSE_CSE.md#animal-cse-models)
 - [1-detectron2-DensePose] 
 
+<br/>
+
+#### [neural-nets-basics]
+- [1-Book-1-Practical-Deep-Learning(Anirudh-Koul)] (https://github.com/PracticalDL/Practical-Deep-Learning-Book)
+- [1.1-Book-1-Practical-DL__Own-experiments-YouTube] (https://www.youtube.com/watch?v=Tn7spbLO3xQ)
+- [1.1a-Book-1-Practical-DL__Own-experiments-GitRepo] (https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
+- [1.1b-Book-1-->Image-Feature-Extraction-GitRepo] (https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
+
+
 
 
 <br/>
@@ -65,7 +74,7 @@
 
 - [1] `Yolov4`
 - [1.1-Initial-Experiments-Yolov4](https://www.youtube.com/watch?v=CEcLBgIsG40&t=840s)
-- [1.2-Initial-Experiments-Yolov4](https://www.youtube.com/watch?v=CEcLBgIsG40&t=840s)
+- [1.2-Yolov4-Git(DEPRECATED-theAIGuysCode)](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_15_yolo/yolo1/convert.py)
 
 
 <br/>
