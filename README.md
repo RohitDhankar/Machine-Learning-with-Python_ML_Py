@@ -21,6 +21,9 @@
 - [1.4-PyTorch-Initial-ObjectDetection-YouTube](https://www.youtube.com/watch?v=qcpLU5K8j4E&t=407s)
 - [1.4a-PyTorch-Initial-ObjectDetection-Git](https://github.com/RohitDhankar/obj_det/tree/dev_rohit/_taco_1)
 - [1.5-PyTorch--SimpleNet-Airplane-Classifier](https://www.youtube.com/watch?v=tSdNa_oPHLg)
+- [1.5a-PyTorch_normalization_setting_from_Imagenet_Explained](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_17/ownNotes_PyTorch_transform.Normalize_NORMALIZE_1.log)
+- [1.5b-PyTorch_normalization_SOUMITH_CHINTALA_reply_for_transform.Normalize](https://github.com/RohitDhankar/obj_det/blob/e4042d8c88ec00c8df2f36f2bd7b61acd2d3bce0/_book_17/ownNotes_PyTorch_transform.Normalize_NORMALIZE_1.log#L265)
+- [SOUMITH_CHINTALA](https://www.youtube.com/watch?v=2wprKvXnErE)
 
 - [2] `Diffusers - Text to Image ` 
 - [2.1-Create-own-pipeline](https://www.youtube.com/watch?v=TVZLk7CPKcI)
@@ -59,6 +62,20 @@
 - [1.1a-Book-1-->Image_Similarity_Search_18March22-GitRepo](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
 - [1.1b-Book-1-->Image-Feature-Extraction-GitRepo](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_1/practl_dl/pract_dl_1.py)
 - [1.1c-Book-1-->Image-Feature-Extraction_for_ACTIVE_Learning_LIGHTLY-YouTube](https://www.youtube.com/watch?v=Bj1rux7btzA)
+-[2-Book-2-->PyTorch-SimpleNet-AirplaneClassifier](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_2/logging_2_code_not_plane_4.log)
+<br/>
+```
+-TRAIN----torch.cuda.memory_allocated---> 0.02 GB
+Epoch:10,TRAIN_Loss:0.00,VAL_Loss:0.00, Accuracy = 1.00
+---labels[prediction]----
+ not_plane
+---labels[prediction]----
+ not_plane
+ ```
+<br/>
+
+#
+
 
 
 
@@ -144,6 +161,7 @@
 - [3.6-Levenshtein-distance](https://www.youtube.com/watch?v=DTAgjm3VOjQ&t=581s)
 - [DataTables-DigitalCognition](https://www.youtube.com/watch?v=orFbj0yW8b0)
 - [Code-walkthrough-datatables.net-datatables.js](https://www.youtube.com/watch?v=orFbj0yW8b0)
+- [PCA-->INTRO-->cPCA-ContrastivePrincipleComponentsAnalysis](https://github.com/RohitDhankar/obj_det/blob/dev_rohit/_book_17/ownNotes_PCA_1.log)
 
 <br/>
 
