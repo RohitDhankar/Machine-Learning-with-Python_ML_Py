@@ -1,20 +1,17 @@
 #
 
 <p align="center">
-    <img src="https://github.com/RohitDhankar/detectron2_coco_panoptic_seg/blob/main/output_dir/__11_05_2022_00_20__/_dir_img_gt_bbox_/_11_05_2022_00_20_/FudanPed00047_0.50_.png" width= "850px">
+    <img src="https://github.com/RohitDhankar/detectron2_coco_panoptic_seg/blob/main/output_dir/__11_05_2022_00_20__/_dir_img_gt_bbox_/_11_05_2022_00_20_/FudanPed00047_0.50_.png" width= "650px">
 </p>
 
 #
 
-<h1 align="center">Machine-Learning-with-Python ...
+<h1 align="center">ML_DL_with_Python...
 </h1>
 
-> This repository will contain both code and additional links to code / reading material refrences for  Machine-Learning-with-Python **- Machine-Learning-with-Python**
- 
+> This repository will contain both code and additional links to code / reading material refrences for  ML and DL with Python **ML_DL_with_Python**
 
-<br/>
-
-
+#
 
 
 ### Table of Contents
@@ -118,25 +115,6 @@ Epoch:10,TRAIN_Loss:0.00,VAL_Loss:0.00, Accuracy = 1.00
 
 <br/>
 
-#### LLM Usage -- LangChain , ScikitLLM
-
-- [1] `Using Large Language Models - LangChain , ScikitLLM`
-- [TODO] -ScikitLLM- https://github.com/iryna-kondr/scikit-llm
-- [TODO]
-- [TODO]
-
-<br/>
-
-#### Classic Legacy NLP -- NLTK 
-
-- [FaceBook-WebHooks-ChatBot]
-- [TODO]
-- [TODO]
-
-
-
-<br/>
-
 #### [GEO-GIS-DeepLearning-for-Geography](https://github.com/DigitalCognition-GIS/py_qgis_2020)
 
 - [1] `raster-vision`
@@ -158,16 +136,18 @@ Epoch:10,TRAIN_Loss:0.00,VAL_Loss:0.00, Accuracy = 1.00
 - [1.2a-Credit Card Digit Detection](https://www.youtube.com/watch?v=molL6qloLqU&t=16s)
 - [1.3-OpenCV_mask_blue - cv2.bitwise_and)](https://www.youtube.com/watch?v=_6wbV1OZnn4)
 - [1.4-OpenCV_SIFT_ORB_KeyPoints_Detection)](https://www.youtube.com/watch?v=i9gLvZ8OPtg&t=33s) 
+- [Old_Code__needs_refactoring__CIFAR_kNN_Stanford](https://github.com/RohitDhankar/CIFAR_kNN_Stanford)
+- [Old_Code__needs_refactoring__OCR_Keras_TensorFlow](https://github.com/RohitDhankar/OCR_Keras_TensorFlow)
 
 <br/>
 
 #### Generic Core Python
 
 - [1] `Python-3 basics , data transforms etc.` 
-- [PySpark](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
-- [pandas](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
+- [PySpark](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/src/basic_foo)
+- [pandas](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/src/basic_foo)
 - [2] `Download and Preprocess various kinds of Data` 
-- [data_aggregations](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/basic_foo)
+- [data_aggregations](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/src/basic_foo)
 
 - [3] `Visualizations of Data for EDA and others` 
 - [3.1-EDA-Exploratory-Data-Analysis](https://www.youtube.com/watch?v=zydsrBWTbEA)
@@ -193,5 +173,27 @@ Epoch:10,TRAIN_Loss:0.00,VAL_Loss:0.00, Accuracy = 1.00
 - [1.3-NGINX](https://www.youtube.com/watch?v=UDpdAC9rFrI&t=156s)
 - [1.3-Nginx_uWsgi_Django_Registration_Redux](https://www.youtube.com/watch?v=Z0bAUu7n3w0&t=249s)
 - [2] `Tornado - async framework ` 
-- [2.1-Tornado] (https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/dev_tornado)
+- [2.1-Tornado] (https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/src/dev_tornado)
+
+
+
+<br/>
+
+#### Classic Legacy NLP -- NLTK 
+
+- [FaceBook-WebHooks-ChatBot]
+- [TODO]
+- [TODO]
+
+
+<br/>
+
+#### LLM Usage -- LangChain , ScikitLLM
+
+- [1] `Using Large Language Models - LangChain , ScikitLLM`
+- [TODO] -ScikitLLM- https://github.com/iryna-kondr/scikit-llm
+- [TODO]
+- [TODO]
+
+
 
