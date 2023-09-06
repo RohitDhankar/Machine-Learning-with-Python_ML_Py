@@ -119,6 +119,79 @@ def correct_skew(image_init,img_name):
     cv2.imwrite("./data_dir/output_dir/img_skew/rotated_"+str(img_name)+"_.png", rotated)
 
 
+def boundary_draw(img_init,img_name):
+    bound_pixels_count = 80
+
+    img_init[:bound_pixels_count, :] = 0
+    img_init[-bound_pixels_count:, :] = 0
+    img_init[:, :bound_pixels_count] = 0
+    img_init[:, -bound_pixels_count:] = 0
+    
+    cv2.imwrite("./data_dir/output_dir/img_skew/bound_bb_"+str(img_name)+"_.png", img_init)
+
+    return img_init
+
+
+def get_warped_img(img_init,img_name):
+    """
+    TODO -- https://pyimagesearch.com/2016/03/21/ordering-coordinates-clockwise-with-python-and-opencv/
+    TODO -- https://stackoverflow.com/questions/42262198/4-point-persective-transform-failure
+    TODO -- https://pyimagesearch.com/2014/08/25/4-point-opencv-getperspective-transform-example/
+
+    """
+    image_points = "[(100,150),(200,250),(250,280),(300,350)]"
+    image_points = "[(73, 239), (356, 117), (475, 265), (187, 443)]"
+    image_points = "[(0, 0), (400,0), (400, 400), (0,400)]"
+
+    ls_rect_coords = get_order_points(image_points)
+    # ls_rect_coords = top_left , top_right , bottom_right , bottom_left
+    (top_left, top_right, bottom_right, bottom_left) = ls_rect_coords
+
+    widthA = np.sqrt(((bottom_right[0] - bottom_left[0]) ** 2) + ((bottom_right[1] - bottom_left[1]) ** 2))
+    widthB = np.sqrt(((top_right[0] - top_left[0]) ** 2) + ((top_right[1] - top_left[1]) ** 2))
+    maxWidth = max(int(widthA), int(widthB))
+
+    heightA = np.sqrt(((top_right[0] - bottom_right[0]) ** 2) + ((top_right[1] - bottom_right[1]) ** 2))
+    heightB = np.sqrt(((top_left[0] - bottom_left[0]) ** 2) + ((top_left[1] - bottom_left[1]) ** 2))
+    maxHeight = max(int(heightA), int(heightB))    
+
+    destination = np.array([[0, 0], #top_left
+                [maxWidth - 1, 0],  #top_right
+                [maxWidth - 1, maxHeight - 1], #bottom_right
+                [0, maxHeight - 1]], #bottom_left
+                dtype="float32") 
+    matrix_persp = cv2.getPerspectiveTransform(ls_rect_coords, destination)
+    warped_img = cv2.warpPerspective(img_init, matrix_persp, (maxWidth, maxHeight))
+    cv2.imwrite("./data_dir/output_dir/img_skew/warped_img_"+str(img_name)+"_.png", warped_img)
+    
+    return warped_img
+
+
+def get_order_points(image_points):
+
+    # ls_rect_coords = top_left , top_right , bottom_right , bottom_left
+    ls_rect_coords = np.zeros((4, 2), dtype = "float32")
+    print("---1_ls_rect_coords--",ls_rect_coords)
+
+    # get Sum of the points
+    print("---image_points--",image_points) ## TODO -- Why String ? 
+    image_points = np.array(eval(image_points), dtype = "float32")
+    print("--TYPE-image_points-aaa-",type(image_points))
+    print("---image_points-aaa-",image_points)
+
+    sum_points = image_points.sum(axis = 1)
+    ls_rect_coords[0] = image_points[np.argmin(sum_points)] # top_left == smallest sum
+    ls_rect_coords[2] = image_points[np.argmax(sum_points)] # bottom_right == largest sum
+    print("---2_ls_rect_coords--",ls_rect_coords)
+
+    # get difference between the points
+    diff = np.diff(image_points, axis = 1)
+    ls_rect_coords[1] = image_points[np.argmin(diff)] #top_right == SMALLEST DIFF 
+    ls_rect_coords[3] = image_points[np.argmax(diff)] #bottom_left == LARGEST DIFF 
+
+    print("---3_ls_rect_coords--",ls_rect_coords)
+    return ls_rect_coords
+
 
 
 if __name__ == "__main__":
@@ -132,5 +205,11 @@ if __name__ == "__main__":
         img_name = str(ls_imgs[iter_img]).rsplit("/",1)[1]
         img_name = str(img_name).rsplit(".png",1)[0]
         print("--name ---",img_name)
-        image = cv2.imread(ls_imgs[iter_img])
-        correct_skew(image,img_name)     
+        image_init = cv2.imread(ls_imgs[iter_img])
+        correct_skew(image_init,img_name)   
+
+        img_init = boundary_draw(image_init,img_name)  
+        get_warped_img(img_init,img_name)
+
+        # get_warped_image_1()
+        # get_corners()

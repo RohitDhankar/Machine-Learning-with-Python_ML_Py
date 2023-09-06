@@ -1,0 +1,37 @@
+A transformer is a deep learning architecture -+---> 
+that relies on the parallel multi-head attention mechanism.[1] The modern transformer was proposed in the 2017 paper titled 'Attention Is All You Need' by Ashish Vaswani et al., Google Brain team. It is notable for requiring less training time than previous recurrent neural architectures, such as long short-term memory (LSTM),[2] and its later variation has been prevalently adopted for training large language models on large (language) datasets, such as the Wikipedia corpus and Common Crawl, by virtue of the parallelized processing of input sequence.[3] Input text is split into n-grams encoded as tokens and each token is converted into a vector via looking up from a word embedding table. At each layer, each token is then contextualized within the scope of the context window with other (unmasked) tokens via a parallel multi-head attention mechanism allowing the signal for key tokens to be amplified and less important tokens to be diminished. Though the transformer paper was published in 2017, the softmax-based attention mechanism was proposed earlier in 2014 by Bahdanau, Cho, and Bengio for machine translation,[4][5] and the Fast Weight Controller, similar to a transformer, was proposed in 1992 by Schmidhuber.[6][7][8]
+This architecture is now used not only in -+---> natural language processing and computer vision,[9] but also in audio[10] and multi-modal processing. It has also led to the development of pre-trained systems, such as generative pre-trained transformers (GPTs)[11] and BERT[12] (Bidirectional Encoder Representations from Transformers).
+Timeline of natural language processing models
+Timeline
+    In 1990, Elman network, using a -+---> recurrent network, encoded each word in a training set as a vector, called static "word embedding", and the whole vocabulary as a vector database, allowing it to perform such tasks as sequence-prediction that are beyond the power of a simple multilayer perceptron. Shortcoming of the static embeddings was that they didn't differentiate between multiple meanings of same-spelt words.[13]
+    In 1992, the Fast Weight Controller was published by Jürgen Schmidhuber[6] It learns to answer queries by programming the attention weights of another neural network through outer products of key vectors and value vectors called FROM and TO. The Fast Weight 
+
+
+Fine-tuning BERT for named-entity recognition
+
+In this notebook, we are going to use -+---> BertForTokenClassification which is included in the Transformers library by HuggingFace. This model has BERT as its base architecture, with a token classification head on top, allowing it to make predictions at the token level, rather than the sequence level. Named entity recognition is typically treated as a token classification problem, so that's what we are going to use it for.
+
+This tutorial uses the idea of -+---> transfer learning, i.e. first pretraining a large neural network in an unsupervised way, and then fine-tuning that neural network on a task of interest. In this case, BERT is a neural network pretrained on 2 tasks: masked language modeling and next sentence prediction. Now, we are going to fine-tune this network on a NER dataset. Fine-tuning is supervised learning, so this means we will need a labeled dataset.
+
+If you want to know more about -+---> BERT, I suggest the following resources:
+
+    the original paper
+    Jay Allamar's blog post as well as his tutorial
+    Chris Mccormick's Youtube channel
+    Abbishek Kumar Mishra's Youtube channel
+
+The following notebook largely follows the same structure as the tutorials by Abhishek Kumar Mishra. For his tutorials on the Transformers library, see his Github repository.
+
+NOTE: this notebook assumes basic knowledge about deep learning, BERT, and native PyTorch. If you want to learn more Python, deep learning and PyTorch, I highly recommend cs231n by Stanford University and the FastAI course by Jeremy Howard et al. Both are freely available on the web.
+
+Now, let's move on to the real stuff!
+Importing Python Libraries and preparing the environment
+
+This notebook assumes that you have the following libraries installed:
+
+    pandas
+    numpy
+    sklearn
+    pytorch
+    transformers
+    seqeval
