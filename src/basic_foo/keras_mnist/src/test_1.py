@@ -7,6 +7,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow import keras
 from tensorflow.keras.layers import Dense
 #from tensorflow.examples.tutorials.mnist import input_data
+from tensorflow.keras.datasets import mnist
+import matplotlib.pyplot as plt
+
 
 def get_init_config():
   """
@@ -60,6 +63,32 @@ def get_mnist():
   """
   mnist = tf.keras.datasets.mnist # print("--type(mnist---",type(mnist)) #<class 'module'>
   (x_train, y_train),(x_test, y_test) = mnist.load_data()
+  # count the number of unique train labels
+  unique, counts = np.unique(y_train, return_counts=True)
+  print("--type(unique)--",type(unique)) # ndArray
+  print("unique TRAIN DATA labels: ", dict(zip(unique, counts)))
+
+  unique, counts = np.unique(y_test, return_counts=True)
+  print("unique TEST DATA labels: ", dict(zip(unique, counts)))
+  #
+  print("--shape of the x_train and y_train--->",x_train.shape[0],y_train.shape[0])
+  # sample 25 mnist digits from train dataset
+  indexes = np.random.randint(0, x_train.shape[0], size=25)
+  images = x_train[indexes]
+  print("--type(images)--",type(images)) # ndArray
+  labels = y_train[indexes]
+  print("--type(labels)--",type(labels)) # ndArray
+  # plot the 25 mnist digits
+  # plt.figure(figsize=(5,5))
+  # for i in range(len(indexes)):
+  #   plt.subplot(5, 5, i + 1)
+  #   image = images[i]
+  #   plt.imshow(image, cmap='gray')
+  #   plt.axis('off')
+  #   plt.savefig("mnist-samples.png")
+  #   plt.show()
+  #   plt.close('all')
+
   #print("---type(x_train---",type(x_train)) #--type(x_train--- <class 'numpy.ndarray'>
   print("---type(x_test---np.shape(x_test)-",np.shape(x_test)) #(10000, 28, 28)
   print("---type(x_test---np.shape(x_train)-",np.shape(x_train)) #(60000, 28, 28)
@@ -82,9 +111,9 @@ def get_mnist():
   print("--type(img_1)-",type(img_1))
   print("--np.shape(img_1)---",np.shape(img_1))
 
-  cv2.imshow('First sample', x_train[0])
-  cv2.waitKey(5000)
-  cv2.destroyWindow('First sample')
+  # cv2.imshow('First sample', x_train[0])
+  # cv2.waitKey(5000)
+  # cv2.destroyWindow('First sample')
   # cv2.imshow("image", img_1)
   # cv2.waitKey()
 
@@ -97,12 +126,11 @@ def get_mnist():
   # y_train = tf.keras.utils.to_categorical(y_train, num_classes)
   # y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
-
   
   # mnist_data = input_data.read_data_sets('MNIST_data', one_hot=True)
   # print("--type(mnist---",type(mnist_data)) 
 
-  #return #mnist_data , input_shape
+  return x_train, y_train,x_test, y_test #mnist_data , input_shape
 
 def create_model_seq(mnist_data):
   """
@@ -133,10 +161,25 @@ def get_summary(model):
   tf.keras.utils.plot_model(model, to_file="model_2.png", show_shapes=True)
 
 
+def net_1(x_train, y_train,x_test, y_test):
+  """
+  """
+  from tensorflow.keras.models import Sequential
+  from tensorflow.keras.layers import Dense, Activation, Dropout
+  from tensorflow.keras.utils import to_categorical, plot_model
+  # compute the number of labels
+  num_labels = len(np.unique(y_train))
+  print("----num_labels---",num_labels)
+  # OneHot Encoding 
+  y_train = to_categorical(y_train)
+  y_test = to_categorical(y_test)
+  
+
 if __name__ == "__main__":
   #
   get_init_config()
-  get_mnist() #mnist_data = 
+  x_train, y_train,x_test, y_test = get_mnist() #mnist_data = 
+  net_1(x_train, y_train,x_test, y_test)
   # model = create_model_seq(mnist_data) #input_shape = (None, 32, 32, 3)
   # model.build() #model.build(input_shape)
   # get_summary(model)
