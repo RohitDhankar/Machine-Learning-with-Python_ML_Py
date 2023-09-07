@@ -51,10 +51,12 @@
 - [4-OpenPCDet_Initial_Demo_MAYAVI_KITTI_LIDAR](https://www.youtube.com/watch?v=tLwHWVfl16A) 
 - [4.1-OpenPCDet_Git-Experiments_KITTI_LIDAR](https://github.com/RohitDhankar/OpenPCDet/blob/master/init_INSTALL_ERRORS_1.md)
 
-#### [TODO--List--detectron2]
+#### [TODO--List]
 
 - [1-detectron2-DensePose-CSE-Continuous_Surface_Embeddings](https://github.com/facebookresearch/detectron2/blob/main/projects/DensePose/doc/DENSEPOSE_CSE.md#animal-cse-models)
 - [1-detectron2-DensePose] 
+- [TODO--> VAE_variational_autoencoder]()
+- [TODO--> VAE_variational_autoencoder]()
 
 <br/>
 
@@ -157,8 +159,9 @@ https://doi.org/10.48550/arXiv.1512.03385
 - [1.1-MediaPipe_OpenCV_Hand_Pose_Tracking](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/blob/master/basic_mediaPipe_OpenCV/test_mediaPipe_.py) 
 - [1.2-Credit Card Digit Detection](https://www.youtube.com/watch?v=AvVVVMKJ9-U) 
 - [1.2a-Credit Card Digit Detection](https://www.youtube.com/watch?v=molL6qloLqU&t=16s)
-- [1.3-OpenCV_mask_blue - cv2.bitwise_and)](https://www.youtube.com/watch?v=_6wbV1OZnn4)
+- [1.3-OpenCV_mask_blue-cv2.bitwise_and)](https://www.youtube.com/watch?v=_6wbV1OZnn4)
 - [1.4-OpenCV_SIFT_ORB_KeyPoints_Detection)](https://www.youtube.com/watch?v=i9gLvZ8OPtg&t=33s) 
+- [OCR_OpenCv_PyTesseract](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/src/ocr_opencv)
 - [Old_Code__needs_refactoring__CIFAR_kNN_Stanford](https://github.com/RohitDhankar/CIFAR_kNN_Stanford)
 - [Old_Code__needs_refactoring__OCR_Keras_TensorFlow](https://github.com/RohitDhankar/OCR_Keras_TensorFlow)
 
@@ -216,9 +219,9 @@ https://doi.org/10.48550/arXiv.1512.03385
 
 #### LLM Usage -- LangChain , ScikitLLM
 
-- [1] `Using Large Language Models - LangChain , ScikitLLM`
+- [1] `Using Large Language Models - LangChain , ScikitLLM , Gradio`
 - [TODO] -ScikitLLM- https://github.com/iryna-kondr/scikit-llm
-- [TODO]
+- [TODO] - Gradio web UI for Large Language Models. -  https://github.com/oobabooga/text-generation-webui
 - [TODO]
 
 
