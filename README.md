@@ -179,11 +179,13 @@ Epoch:10,TRAIN_Loss:0.00,VAL_Loss:0.00, Accuracy = 1.00
 
 <br/>
 
-#### Classic Legacy NLP -- NLTK 
+#### Classic Legacy NLP -- NLTK , Spacy , BERT 
 
-- [FaceBook-WebHooks-ChatBot]
-- [TODO]
-- [TODO]
+- [FaceBook-WebHooks-ChatBot]()
+- [spacy_init](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/tree/master/src/spacy_nlp)
+- [BERT--TODO]()
+- [BERT-Transformers-TODO](https://github.com/NielsRogge/Transformers-Tutorials/blob/master/BERT/Custom_Named_Entity_Recognition_with_BERT.ipynb)
+- [Back_Propagation_ChainRule](https://www.youtube.com/watch?v=XIpyEvLv93A)
 
 
 <br/>
