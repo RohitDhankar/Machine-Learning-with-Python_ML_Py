@@ -2,7 +2,27 @@
 #
 
 > CenterNet - point based Object detection 
+
+#
+
 > Doesnt mention - ANYWHERE - that you need not Label Images - before you implement a CenterNet based - Object detector ? OR DOES IT ? 
+
+#
+
+> below QUAOTED as is from -- LEARN OPENCV .COM -- https://learnopencv.com/centernet-anchor-free-object-detection-explained/
+
+- https://learnopencv.com/centernet-anchor-free-object-detection-explained/
+
+
+```
+Following are a few advantages of anchor free methods over anchor-based:
+
+    Finding suitable anchor boxes (in shape and size) is crucial in training an excellent anchor-based object detection model. Finding suitable anchors is a complex problem and may need hyper-parameter tuning. 
+
+    Using more anchors results in better accuracy in anchor-based object detection but using more anchors comes at a cost. The model needs more complex architecture, which leads to slower inference speed. 
+    
+    Anchor free object detection is more generalizable. It predicts objects as points that can easily be extended to key-points detection, 3D object detection, etc. However, the anchor-based object detection solution approach is limited to bounding box prediction.
+```
 
 [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 
