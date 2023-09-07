@@ -92,6 +92,26 @@ Epoch:10,TRAIN_Loss:0.00,VAL_Loss:0.00, Accuracy = 1.00
 
 #
 
+#### Important Papers and Readings
+
+
+
+> Deep Residual Learning for Image Recognition
+
+ [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+
+```
+AUTHORS -- Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. 
+
+PAPER CITED SOURCE -- 
+Subjects: 	Computer Vision and Pattern Recognition (cs.CV)
+Cite as: 	arXiv:1512.03385 [cs.CV]
+  	(or arXiv:1512.03385v1 [cs.CV] for this version)
+  	
+https://doi.org/10.48550/arXiv.1512.03385
+
+```
 
 <br/>
 
@@ -186,6 +206,7 @@ Epoch:10,TRAIN_Loss:0.00,VAL_Loss:0.00, Accuracy = 1.00
 - [BERT--TODO]()
 - [BERT-Transformers-TODO](https://github.com/NielsRogge/Transformers-Tutorials/blob/master/BERT/Custom_Named_Entity_Recognition_with_BERT.ipynb)
 - [Back_Propagation_ChainRule](https://www.youtube.com/watch?v=XIpyEvLv93A)
+- [ResNet-ShortCutConnection-Prevents-VanishingGradients](https://arxiv.org/abs/1512.03385)
 
 
 <br/>
