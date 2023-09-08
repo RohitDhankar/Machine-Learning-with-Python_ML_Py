@@ -51,14 +51,6 @@
 - [4-OpenPCDet_Initial_Demo_MAYAVI_KITTI_LIDAR](https://www.youtube.com/watch?v=tLwHWVfl16A) 
 - [4.1-OpenPCDet_Git-Experiments_KITTI_LIDAR](https://github.com/RohitDhankar/OpenPCDet/blob/master/init_INSTALL_ERRORS_1.md)
 
-#### [TODO--List]
-
-- [1-detectron2-DensePose-CSE-Continuous_Surface_Embeddings](https://github.com/facebookresearch/detectron2/blob/main/projects/DensePose/doc/DENSEPOSE_CSE.md#animal-cse-models)
-- [1-detectron2-DensePose] 
-- [TODO--> VAE_variational_autoencoder]()
-- [TODO--> VAE_variational_autoencoder]()
-
-<br/>
 
 #### [Neural_Networks-Basics]
 
@@ -224,5 +216,15 @@ https://doi.org/10.48550/arXiv.1512.03385
 - [TODO] - Gradio web UI for Large Language Models. -  https://github.com/oobabooga/text-generation-webui
 - [TODO]
 
+#
 
+<br/>
 
+#
+
+#### [TODO--List]
+
+- [todo_list_readme.md]()
+- [Education_Certificates]()
+
+<br/>
