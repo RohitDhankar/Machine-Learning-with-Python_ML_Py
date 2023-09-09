@@ -290,6 +290,8 @@ def get_contours(image_init,img_edged,img_name):
     """
     Contours extraction 
     # TODO - uses - imutils 
+
+    Wrapper Func for -- get_order_points_1()
     """
     # find contours in the edge map
     img_edged_1 = img_edged.copy()
@@ -300,7 +302,7 @@ def get_contours(image_init,img_edged,img_name):
     (cnts, _) = contours.sort_contours(cnts)
     colors = ((0, 0, 255), (240, 0, 159), (255, 0, 0), (255, 255, 0))
     # loop over the contours individually
-    for (i, c) in enumerate(cnts):
+    for (iter_k, c) in enumerate(cnts):
         # if the contour is not sufficiently large, ignore it
         if cv2.contourArea(c) < 100:
             continue
@@ -310,9 +312,56 @@ def get_contours(image_init,img_edged,img_name):
         box = np.array(box, dtype="int")
         cv2.drawContours(image_init, [box], -1, (0, 255, 0), 2)
         # show the original coordinates
-        print("Object #{}:".format(i + 1))
-        print(box)
+        print("Object #{}:".format(iter_k + 1))
+        print(box) ## BBOX Coordinates -- printed into the terminal Log Files
+        print(" ---box--Above ---  "*90)
+        # TODO -- get_cropped_mask( -->
+        # for the Number Plate images - get only CNTRS that are a CERTAIN DISTANCE from IMAGE TOP and BOTTOM  
         cv2.imwrite("./data_dir/output_dir/img_skew/img_contours_"+str(img_name)+"_.png", image_init)
+        get_order_points_1(image_init,img_name,box,iter_k)
+
+
+def get_order_points_1(image_init,img_name,box,iter_k):
+    """
+    How diff from -- ls_rect_coords = get_order_points(img_init,image_points)
+
+    #Ordering coordinates clockwise with Python and OpenCV
+    # order the points in the contour such that they appear
+    # in top-left, top-right, bottom-right, and bottom-left
+    # order, then draw the outline of the rotated bounding
+    # box
+
+    """
+    colors = ((0, 0, 255), (240, 0, 159), (255, 0, 0), (255, 255, 0))
+
+    #rect = order_points_old(box) ## OLd -- Deprecated 
+    # Dont check to see if the new method should be used for ordering the coordinates
+    # Use New here 
+    rect = perspective.order_points(box)
+    # show the re-ordered coordinates
+    print(rect.astype("int"))
+    print(" ---RECT--Above ---  "*90)
+    """
+    TODO -- for certain OBJECTS in the Images 
+    The 2 Vals are DIFF - 
+    The ndArray---> box 
+    is DIFF from 
+    The ndArray---> rect
+    Identify such OBJ's and print somewhere asto why this DIFF 
+    """
+    # loop over the original points and draw them
+    for ((x, y), color) in zip(rect, colors):
+        cv2.circle(image_init, (int(x), int(y)), 5, color, -1)
+    # draw the object num at the top-left corner
+    cv2.putText(image_init, "Object #{}".format(iter_k + 1),
+        (int(rect[0][0] - 15), int(rect[0][1] - 15)),
+        cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 2)
+    # # show the image
+    # cv2.imshow("Image", image_init)
+    # cv2.waitKey(0)
+    cv2.imwrite("./data_dir/output_dir/img_skew/img_cntr_pts_"+str(img_name)+"_.png", image_init)
+
+
 
 def get_img_blur():
     """
@@ -365,7 +414,11 @@ if __name__ == "__main__":
     # path_img2 = "./data_dir/input_dir/warped_img_img_skw_2_.png"
     # path_img3 = "./data_dir/input_dir/warped_img_img_skw_3_.png"
 
-    ls_imgs = [path_img1,path_img2,path_img3]
+    path_img2 = "./data_dir/input_dir/mh_0.png"
+    path_img3 = "./data_dir/input_dir/mh_1.png"
+
+    #ls_imgs = [path_img1,path_img2,path_img3]
+    ls_imgs = [path_img2,path_img3]
 
     for iter_img in range(len(ls_imgs)):
         img_name = str(ls_imgs[iter_img]).rsplit("/",1)[1]
