@@ -1,13 +1,15 @@
-
-# Source -- https://pyimagesearch.com/2017/07/10/using-tesseract-ocr-python/
-# https://pyimagesearch.com/2017/02/20/text-skew-correction-opencv-python/
-
 # conda activate env_tf2
+
+# SOURCE -- https://pyimagesearch.com/2016/03/21/ordering-coordinates-clockwise-with-python-and-opencv/
+# Source -- https://pyimagesearch.com/2017/07/10/using-tesseract-ocr-python/
+# SOURCE -- https://pyimagesearch.com/2017/02/20/text-skew-correction-opencv-python/
 
 from PIL import Image
 import pytesseract
 import argparse , cv2 , os 
 import numpy as np
+import imutils
+from imutils import perspective , contours
 
 # WRITE TEXT 
 dict_colors ={
@@ -163,8 +165,6 @@ def get_warped_img(img_init,img_name):
     https://stackoverflow.com/questions/42262198/4-point-persective-transform-failure
     https://stackoverflow.com/users/2393191/micka
 
-
-
     """
     height_init = image_init.shape[0] #print("-[INFO]--IMAGE_INIT__Height , Width--->",image_init.shape)
     width_init = image_init.shape[1]
@@ -261,6 +261,52 @@ def get_order_points(img_init,image_points):
 
     return ls_rect_coords
 
+def init_img_transforms(image_init,img_name):
+    """
+    initial image pre-process
+    # load our input image, convert it to grayscale, and blur it slightly
+    
+    # perform edge detection, then perform a dilation + erosion to
+    # close gaps in between object edges
+    """
+    
+    gray = cv2.cvtColor(image_init, cv2.COLOR_BGR2GRAY)
+    gray = cv2.GaussianBlur(gray, (7, 7), 0)
+
+    edged = cv2.Canny(gray, 50, 100) #edge detection
+    edged = cv2.dilate(edged, None, iterations=1)
+    edged = cv2.erode(edged, None, iterations=1)
+    cv2.imwrite("./data_dir/output_dir/img_skew/img_edged_"+str(img_name)+"_.png", edged)
+    return edged
+
+def get_contours(image_init,img_edged,img_name):
+    """
+    Contours extraction 
+    # TODO - uses - imutils 
+    """
+    # find contours in the edge map
+    img_edged_1 = img_edged.copy()
+    cnts = cv2.findContours(img_edged_1, cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    cnts = imutils.grab_contours(cnts)
+    # sort the contours from left-to-right and initialize the bounding box
+    # point colors
+    (cnts, _) = contours.sort_contours(cnts)
+    colors = ((0, 0, 255), (240, 0, 159), (255, 0, 0), (255, 255, 0))
+    # loop over the contours individually
+    for (i, c) in enumerate(cnts):
+        # if the contour is not sufficiently large, ignore it
+        if cv2.contourArea(c) < 100:
+            continue
+        # compute the rotated bounding box of the contour, then draw the contours
+        box = cv2.minAreaRect(c)
+        box = cv2.cv.BoxPoints(box) if imutils.is_cv2() else cv2.boxPoints(box)
+        box = np.array(box, dtype="int")
+        cv2.drawContours(image_init, [box], -1, (0, 255, 0), 2)
+        # show the original coordinates
+        print("Object #{}:".format(i + 1))
+        print(box)
+        cv2.imwrite("./data_dir/output_dir/img_skew/img_contours_"+str(img_name)+"_.png", image_init)
+
 
 
 if __name__ == "__main__":
@@ -280,8 +326,10 @@ if __name__ == "__main__":
         print("-[INFO]--INIT_IMAGE_NAME--->>",img_name)
         image_init = cv2.imread(ls_imgs[iter_img])
         # correct_skew(image_init,img_name)  #Image Angle Rotation 
-        # img_init = boundary_draw(image_init,img_name)  
-        get_warped_img(image_init,img_name)
+        # img_init = boundary_draw(image_init,img_name) 
+        img_edged = init_img_transforms(image_init,img_name)
+        get_contours(image_init,img_edged,img_name) 
+        #get_warped_img(image_init,img_name)
 
         # get_warped_image_1()
         # get_corners()
