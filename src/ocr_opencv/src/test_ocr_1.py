@@ -1,5 +1,12 @@
 # conda activate env_tf2
 
+# TODO -- get_img_blur( # get the VALUE of Image BLUR -- categorize as too_blurred ( reject ) or ok_blurred ( can be used in data)
+
+# DATA_1 -- https://www.inf.ufpr.br/vri/databases/vehicle-reid/data.tgz
+
+# TODO - https://pyimagesearch.com/2020/09/21/opencv-automatic-license-number-plate-recognition-anpr-with-python/
+# TODO - https://github.com/icarofua/vehicle-rear
+
 # SOURCE -- https://pyimagesearch.com/2016/03/21/ordering-coordinates-clockwise-with-python-and-opencv/
 # Source -- https://pyimagesearch.com/2017/07/10/using-tesseract-ocr-python/
 # SOURCE -- https://pyimagesearch.com/2017/02/20/text-skew-correction-opencv-python/
@@ -307,16 +314,56 @@ def get_contours(image_init,img_edged,img_name):
         print(box)
         cv2.imwrite("./data_dir/output_dir/img_skew/img_contours_"+str(img_name)+"_.png", image_init)
 
+def get_img_blur():
+    """
+    # TODO -- get_img_blur( # get the VALUE of Image BLUR -- 
+    # Compare against an IMAGE_BLUR_THRESH value
+    # categorize INIT_IMAGE - as too_blurred ( reject ) or ok_blurred ( can be used in data)
+    """
+    pass
 
+def get_img_hsv():
+    """
+    # TODO -- get_img_blur( # get the VALUE of Image BLUR -- 
+    # Compare against an IMAGE_BLUR_THRESH value
+    # categorize INIT_IMAGE - as too_blurred ( reject ) or ok_blurred ( can be used in data)
+    """
+    pass
+
+def plot_hsv_histograms():
+    """
+    # TODO -- get_img_blur( # get the VALUE of Image BLUR -- 
+    """
+    import matplotlib.gridspec as plt_gridspec  #print("---TYPE----",type(plt_gridspec))
+    img_hsv_h = img_hsv[:,:,0]
+    img_hsv_s = img_hsv[:,:,1]
+    img_hsv_v = img_hsv[:,:,2]
+    pass
+
+def get_color_hist(image_init,crop_coord,img_name):
+    """
+    # TODO -- get_img_blur( # get the VALUE of Image BLUR -- 
+    """
+    hist = cv2.calcHist([image_init],[i],None,[256],[0,256])
+    pass
+
+
+def get_cropped_mask(image_init,crop_coord,img_name):
+    """
+    # TODO -- get_img_blur( # get the VALUE of Image BLUR -- 
+    """
+    #init a mask 
+    mask_1 = np.zeros(image_init.shape[:2], np.uint8)
+    pass
 
 if __name__ == "__main__":
     # path_img1 = "./data_dir/input_dir/img_skw_1.png"
     # path_img2 = "./data_dir/input_dir/img_skw_2.png"
     # path_img3 = "./data_dir/input_dir/img_skw_3.png"
 
-    path_img1 = "./data_dir/input_dir/warped_img_img_skw_1_.png"
-    path_img2 = "./data_dir/input_dir/warped_img_img_skw_2_.png"
-    path_img3 = "./data_dir/input_dir/warped_img_img_skw_3_.png"
+    # path_img1 = "./data_dir/input_dir/warped_img_img_skw_1_.png"
+    # path_img2 = "./data_dir/input_dir/warped_img_img_skw_2_.png"
+    # path_img3 = "./data_dir/input_dir/warped_img_img_skw_3_.png"
 
     ls_imgs = [path_img1,path_img2,path_img3]
 
@@ -333,3 +380,4 @@ if __name__ == "__main__":
 
         # get_warped_image_1()
         # get_corners()
+        
