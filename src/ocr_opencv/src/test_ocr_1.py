@@ -1,11 +1,23 @@
 
-## Source -- https://pyimagesearch.com/2017/07/10/using-tesseract-ocr-python/
-## https://pyimagesearch.com/2017/02/20/text-skew-correction-opencv-python/
+# Source -- https://pyimagesearch.com/2017/07/10/using-tesseract-ocr-python/
+# https://pyimagesearch.com/2017/02/20/text-skew-correction-opencv-python/
+
+# conda activate env_tf2
 
 from PIL import Image
 import pytesseract
 import argparse , cv2 , os 
 import numpy as np
+
+# WRITE TEXT 
+dict_colors ={
+    "color_blue" : (255, 0, 0),
+    "color_green" : (0, 255, 0),
+    "color_yellow" : (0, 255, 255),
+    "color_red" : (0, 0, 255),
+    "color_white" : (255, 255, 255),
+    "color_pink" : (255,0,255)
+}
 
 def init_ocr():
     """
@@ -49,6 +61,8 @@ def init_ocr():
 
 def correct_skew(image_init,img_name):
     """
+    Image Angle Rotation 
+
     https://arxiv.org/pdf/1109.3317.pdf
     https://arxiv.org/pdf/1801.00824.pdf
     https://arxiv.org/pdf/2305.14672.pdf
@@ -67,8 +81,8 @@ def correct_skew(image_init,img_name):
     # threshold the image, setting all foreground pixels to 255 and all background pixels to 0
     img_thresh = cv2.threshold(gray, 0, 255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
     
-    # grab the (x, y) coordinates of all pixel values that     # are greater than zero, then use these coordinates to
-    # compute a rotated bounding box that contains all     # coordinates
+    # grab the (x, y) coordinates of all pixel values that  are greater than zero, 
+    # then use these coordinates to compute a rotated bounding box that contains all coordinates
     coords = np.column_stack(np.where(img_thresh > 0))
     print("---np.shape-Coordinates---",np.shape(coords))
     print("---np.shape-Coordinates---coords.dtype--",coords.shape, coords.dtype)
@@ -87,11 +101,13 @@ def correct_skew(image_init,img_name):
     # cv2.imshow('test_coords', image_coords)
     # cv2.waitKey(5000) # 5 Secs
     # cv2.destroyWindow('test_coords')
-    angle = cv2.minAreaRect(coords)[-1]
-    print("--Coordinates--Angle-",angle)
+
 
     # the `cv2.minAreaRect` function returns values in the     # range [-90, 0); as the rectangle rotates clockwise the
     # returned angle trends to 0 -- in this special case we     # need to add 90 degrees to the angle
+    angle = cv2.minAreaRect(coords)[-1]
+    print("--Coordinates--Angle-",angle)
+
     if angle < -45:
         angle = -(90 + angle)
     # otherwise, just take the inverse of the angle to make     # it positive
@@ -120,7 +136,12 @@ def correct_skew(image_init,img_name):
 
 
 def boundary_draw(img_init,img_name):
-    bound_pixels_count = 80
+    """
+    PARAM : bound_pixels_count  
+    defines Thickness of the BLACK or WHITE ( or any other COLOR )Border Padding
+
+    """
+    bound_pixels_count = 80 
 
     img_init[:bound_pixels_count, :] = 0
     img_init[-bound_pixels_count:, :] = 0
@@ -128,88 +149,139 @@ def boundary_draw(img_init,img_name):
     img_init[:, -bound_pixels_count:] = 0
     
     cv2.imwrite("./data_dir/output_dir/img_skew/bound_bb_"+str(img_name)+"_.png", img_init)
-
     return img_init
 
 
 def get_warped_img(img_init,img_name):
     """
+    perspective transform 
+    warp perspective  
+
     TODO -- https://pyimagesearch.com/2016/03/21/ordering-coordinates-clockwise-with-python-and-opencv/
     TODO -- https://stackoverflow.com/questions/42262198/4-point-persective-transform-failure
     TODO -- https://pyimagesearch.com/2014/08/25/4-point-opencv-getperspective-transform-example/
+    https://stackoverflow.com/questions/42262198/4-point-persective-transform-failure
+    https://stackoverflow.com/users/2393191/micka
+
+
 
     """
-    image_points = "[(100,150),(200,250),(250,280),(300,350)]"
-    image_points = "[(73, 239), (356, 117), (475, 265), (187, 443)]"
-    image_points = "[(0, 0), (400,0), (400, 400), (0,400)]"
+    height_init = image_init.shape[0] #print("-[INFO]--IMAGE_INIT__Height , Width--->",image_init.shape)
+    width_init = image_init.shape[1]
+    count_channels = image_init.shape[2]
+    print("---height_init,width_init,count_channels--->",height_init,width_init,count_channels)
+    
+    # image_points = "[(100,150),(200,250),(250,280),(300,350)]"
+    # image_points = "[(73, 239), (356, 117), (475, 265), (187, 443)]"
+    image_points = "[(0, 0), ("+str(width_init)+",0), ("+str(width_init)+", "+str(height_init)+"), (0,"+str(width_init)+")]"
 
-    ls_rect_coords = get_order_points(image_points)
-    # ls_rect_coords = top_left , top_right , bottom_right , bottom_left
-    (top_left, top_right, bottom_right, bottom_left) = ls_rect_coords
+    print("----get_warped_img-------TYPE-image_points-aaa-",type(image_points))
+    print("----get_warped_img-------TYPE-image_points-aaa-",image_points)
 
-    widthA = np.sqrt(((bottom_right[0] - bottom_left[0]) ** 2) + ((bottom_right[1] - bottom_left[1]) ** 2))
-    widthB = np.sqrt(((top_right[0] - top_left[0]) ** 2) + ((top_right[1] - top_left[1]) ** 2))
+    ls_rect_coords = get_order_points(img_init,image_points)
+    (top_L, top_R, bot_R, bot_L) = ls_rect_coords     #(top_left, top_right, bottom_right, bottom_left) = ls_rect_coords
+    #[(0, 0), (width, 0), (0, height), (width, height)] ## THIS IS ==  bot_L >> bot_R
+
+    # def get_euler_distance(pt1, pt2):
+    #     return ((pt1[0] - pt2[0])**2 + (pt1[1] - pt2[1])**2)**0.5
+
+    # calc the --  Euclidean Distance -- between which points ?
+    # 
+    print("---bot_R , bot_L---",bot_R ,bot_L)
+    print("---top_R , top_L---",top_R ,top_L)
+
+    print("---bot_R[0] , bot_L[0]----",bot_R[0] ,bot_L[0])
+    print("---bot_R[1] , bot_L[1]----",bot_R[1] ,bot_L[1])
+    #
+    widthA = np.sqrt(((bot_R[0] - bot_L[0]) ** 2) + ((bot_R[1] - bot_L[1]) ** 2)) 
+    widthB = np.sqrt(((top_R[0] - top_L[0]) ** 2) + ((top_R[1] - top_L[1]) ** 2))
     maxWidth = max(int(widthA), int(widthB))
+    print("--maxWidth---",maxWidth)
 
-    heightA = np.sqrt(((top_right[0] - bottom_right[0]) ** 2) + ((top_right[1] - bottom_right[1]) ** 2))
-    heightB = np.sqrt(((top_left[0] - bottom_left[0]) ** 2) + ((top_left[1] - bottom_left[1]) ** 2))
-    maxHeight = max(int(heightA), int(heightB))    
+    heightA = np.sqrt(((top_R[0] - bot_R[0]) ** 2) + ((top_R[1] - bot_R[1]) ** 2))
+    heightB = np.sqrt(((top_L[0] - bot_L[0]) ** 2) + ((top_L[1] - bot_L[1]) ** 2))
+    maxHeight = max(int(heightA), int(heightB))
+    print("--maxHeight---",maxHeight)
 
-    destination = np.array([[0, 0], #top_left
-                [maxWidth - 1, 0],  #top_right
-                [maxWidth - 1, maxHeight - 1], #bottom_right
-                [0, maxHeight - 1]], #bottom_left
+
+    destination = np.array([[0, 0], #top_L
+                [maxWidth - 1, 0],  #top_R
+                [maxWidth - 1, maxHeight - 1], #bot_R
+                [0, maxHeight - 1]], #bot_L
                 dtype="float32") 
-    matrix_persp = cv2.getPerspectiveTransform(ls_rect_coords, destination)
-    warped_img = cv2.warpPerspective(img_init, matrix_persp, (maxWidth, maxHeight))
+
+    matrix_persp = cv2.getPerspectiveTransform(ls_rect_coords, destination) # perspective transform 
+    print("----get_warped_img----matrix_persp-",type(matrix_persp)) #<class 'numpy.ndarray'>
+    #print("----get_warped_img----matrix_persp-",matrix_persp)
+    print("-[INFO]--get_warped_img----matrix_persp-->",matrix_persp.shape) ##(3, 3)
+
+
+    warped_img = cv2.warpPerspective(img_init, matrix_persp, (maxWidth, maxHeight)) # warp perspective  
     cv2.imwrite("./data_dir/output_dir/img_skew/warped_img_"+str(img_name)+"_.png", warped_img)
     
     return warped_img
 
 
-def get_order_points(image_points):
-
-    # ls_rect_coords = top_left , top_right , bottom_right , bottom_left
+def get_order_points(img_init,image_points):
+    """
+    """
+    # ls_rect_coords = top_L , top_R , bot_R , bot_L
     ls_rect_coords = np.zeros((4, 2), dtype = "float32")
     print("---1_ls_rect_coords--",ls_rect_coords)
 
     # get Sum of the points
-    print("---image_points--",image_points) ## TODO -- Why String ? 
-    image_points = np.array(eval(image_points), dtype = "float32")
+    print("---image_points--",image_points) #TODO -- Why String ? 
     print("--TYPE-image_points-aaa-",type(image_points))
-    print("---image_points-aaa-",image_points)
+    image_points = np.array(eval(image_points), dtype = "float32")
+    print("--TYPE-image_points-bbb-",type(image_points))
+    print("---image_points-bbb-",image_points)
+
 
     sum_points = image_points.sum(axis = 1)
-    ls_rect_coords[0] = image_points[np.argmin(sum_points)] # top_left == smallest sum
-    ls_rect_coords[2] = image_points[np.argmax(sum_points)] # bottom_right == largest sum
-    print("---2_ls_rect_coords--",ls_rect_coords)
+    print("--get_order_points-sum_points--",sum_points)
+
+    ls_rect_coords[0] = image_points[np.argmin(sum_points)] # top_L == smallest sum
+    ls_rect_coords[2] = image_points[np.argmax(sum_points)] # bot_R == largest sum
+    print("--get_order_points-ls_rect_coords[0]--->",ls_rect_coords[0])
+    print("--get_order_points-ls_rect_coords[2]--->",ls_rect_coords[2])
 
     # get difference between the points
     diff = np.diff(image_points, axis = 1)
-    ls_rect_coords[1] = image_points[np.argmin(diff)] #top_right == SMALLEST DIFF 
-    ls_rect_coords[3] = image_points[np.argmax(diff)] #bottom_left == LARGEST DIFF 
+    ls_rect_coords[1] = image_points[np.argmin(diff)] #top_R == SMALLEST DIFF 
+    ls_rect_coords[3] = image_points[np.argmax(diff)] #bot_L == LARGEST DIFF 
 
+    print("---3_ls_rect_coords---type(ls_rect_coords)--->",type(ls_rect_coords))
     print("---3_ls_rect_coords--",ls_rect_coords)
+
+    img_points_ = img_init.copy()  
+    for (x, y) in ls_rect_coords.astype("int32"):
+        #print("--x,y---",(x,y))
+        cv2.circle(img_points_, (x, y), 5, (0,0,255), -1)
+    cv2.imwrite("./data_dir/output_dir/img_skew/img_points_"+str(img_name)+"_.png", img_points_)
+
     return ls_rect_coords
 
 
 
 if __name__ == "__main__":
-    path_img1 = "./data_dir/input_dir/img_skw_1.png"
-    path_img2 = "./data_dir/input_dir/img_skw_2.png"
-    path_img3 = "./data_dir/input_dir/img_skw_3.png"
+    # path_img1 = "./data_dir/input_dir/img_skw_1.png"
+    # path_img2 = "./data_dir/input_dir/img_skw_2.png"
+    # path_img3 = "./data_dir/input_dir/img_skw_3.png"
+
+    path_img1 = "./data_dir/input_dir/warped_img_img_skw_1_.png"
+    path_img2 = "./data_dir/input_dir/warped_img_img_skw_2_.png"
+    path_img3 = "./data_dir/input_dir/warped_img_img_skw_3_.png"
 
     ls_imgs = [path_img1,path_img2,path_img3]
 
     for iter_img in range(len(ls_imgs)):
         img_name = str(ls_imgs[iter_img]).rsplit("/",1)[1]
         img_name = str(img_name).rsplit(".png",1)[0]
-        print("--name ---",img_name)
+        print("-[INFO]--INIT_IMAGE_NAME--->>",img_name)
         image_init = cv2.imread(ls_imgs[iter_img])
-        correct_skew(image_init,img_name)   
-
-        img_init = boundary_draw(image_init,img_name)  
-        get_warped_img(img_init,img_name)
+        # correct_skew(image_init,img_name)  #Image Angle Rotation 
+        # img_init = boundary_draw(image_init,img_name)  
+        get_warped_img(image_init,img_name)
 
         # get_warped_image_1()
         # get_corners()
