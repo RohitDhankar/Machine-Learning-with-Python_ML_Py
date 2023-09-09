@@ -224,7 +224,7 @@ https://doi.org/10.48550/arXiv.1512.03385
 
 #### [TODO--List]
 
-- [todo_list_readme.md]()
-- [Education_Certificates]()
+- [todo_list_readme.md](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/blob/master/readme/todo_list_readme.md)
+- [Education_Certificates](https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/blob/master/readme/Grades%20for%20Rohit%20Dhankar_%202015SU_PRED_BUS_203-1_SEC57%20Advanced%20Modeling%20Methods(1).pdf)
 
 <br/>
