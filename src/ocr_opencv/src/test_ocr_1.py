@@ -405,6 +405,175 @@ def get_cropped_mask(image_init,crop_coord,img_name):
     mask_1 = np.zeros(image_init.shape[:2], np.uint8)
     pass
 
+
+
+
+
+
+
+
+
+def get_clahe(img_clahe,
+    clip_lim=3, #thresh>> contrast limiting - RANGE-->> 2 to 5 (5 will max local contrast --> maximize noise) 
+    t_grid_size=8, #Split input image -->> K x K tiles , then apply Hist-Equal to each tile
+    eros_iter=1,
+    dil_iter=2,
+    ):
+    """
+    CLAHE -->> Contrast Limited Adaptive Histogram Equalization - Increase Contrast of INIT_IAMGES
+    Basic INIT Option >> cv2.equalizeHist
+    Better Option >> cv2.createCLAHE
+    """
+    #img_num_pl = cv2.resize(img_num_plate, (800, 200))
+    img_num_pl = cv2.fastNlMeansDenoisingColored(img_clahe, None, 10, 10, 7, 15)
+    img_num_pl_gry = cv2.cvtColor(img_num_pl, cv2.COLOR_BGR2GRAY)
+    clahe = cv2.createCLAHE(clipLimit=clip_lim, tileGridSize=(t_grid_size,t_grid_size))
+    img_num_pl_gry = clahe.apply(img_num_pl_gry)
+    img_num_pl_bin = cv2.threshold(img_num_pl_gry,0,255,cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+    # img_num_pl_er = cv2.erode(img_num_pl_bin, (3, 3), iterations=eros_iter)
+    # img_num_pl_dil = cv2.dilate(img_num_pl_er, (3, 3), iterations=dil_iter)
+
+    return img_num_pl_bin
+
+
+def get_contours_main(img_clahe_1,img_contrs,img_name,dict_colors):
+    """
+    TODO - experiment with various possible methods of Contour Extraction 
+    RETR_EXTERNAL -- all_contours_RETR_EXTERNAL >> only PARENT Contours
+    RETR_CCOMP
+    RETR_LIST -- No hierarchy - flat LIST of all CNTRS
+    
+    TODO - experiment with Other OPTIONS for PARAMS --
+    cv2.CHAIN_APPROX_SIMPLE (DONE)
+    cv2.CHAIN_APPROX_NONE (TODO)
+
+    """
+    img_contrs_1 = img_contrs.copy()
+    img_contrs_2 = img_contrs.copy()
+    yellow = dict_colors["color_yellow"] 
+    green = dict_colors["color_green"] 
+    white = dict_colors["color_white"] 
+    red = dict_colors["color_red"] 
+    #invert  image
+    #img_inverse_1 = cv2.bitwise_not(img_contrs, img_contrs)
+    edged = cv2.Canny(img_clahe_1,100,200)
+    cv2.imwrite("./data_dir/output_dir/img_skew/img_cntr_clahe_edged_"+str(img_name)+"_.png", edged)
+    
+    #TODO -- argparse >> Contour Retrieval Modes
+    contrs_external, hierarchy_external = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE) # all_contours_RETR_EXTERNAL >> only PARENT Contours
+    contrs_ccomp, hierarchy_ccomp = cv2.findContours(edged, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE) # all_contours_RETR_CCOMP
+    contours_list, hierarchy_list = cv2.findContours(edged, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE) # all_contours_RETR_LIST >> No hierarchy - flat LIST of all CNTRS
+    print("----type(contours_list----",type(contours_list)) #    print("----contours_list----",contours_list)
+    print("----type(contrs_external----",type(contrs_external)) #    print("----contrs_external----",contrs_external)
+    
+    # dim_contrs = np.ndim(contrs_external)
+    # print("----contrs_external--dim_contrs--",dim_contrs)
+    # if dim_contrs >=1:
+    #     print("-contrs_external[0]--",type(contrs_external[0]))
+    #     print("-contrs_external[1]--",type(contrs_external[1]))
+    # else:
+    #     pass
+    
+    #invert  image again
+    #img_inverse_2 = cv2.bitwise_not(img_inverse_1, img_inverse_1)
+    #img_inverse_2 = cv2.cvtColor(img_clahe_1, cv2.COLOR_GRAY2RGB) #TODO - check
+    
+    cont_image_1 = cv2.drawContours(img_contrs, contrs_external,-1,yellow,1)
+    cont_image_2 = cv2.drawContours(img_contrs_1, contrs_ccomp,-1,green,1)
+    cont_image_3 = cv2.drawContours(img_contrs_2, contours_list,-1,red,1)
+    
+    cv2.imwrite("./data_dir/output_dir/img_skew/img_cntr_EXT_"+str(img_name)+"_.png", cont_image_1)
+    cv2.imwrite("./data_dir/output_dir/img_skew/img_cntr_CCOMP_"+str(img_name)+"_.png", cont_image_2)
+    cv2.imwrite("./data_dir/output_dir/img_skew/img_cntr_CON_LS_"+str(img_name)+"_.png", cont_image_3)
+
+    return cont_image_1 , contrs_external, cont_image_2, contrs_ccomp ,cont_image_3, contours_list
+
+
+def get_corners_1(img_corners,contours_list,img_name,dict_colors):
+    """
+    # TODO -- Whats VALUE for the -- key=cv2.contourArea
+    # TODO -- SO -- https://stackoverflow.com/questions/44588279/find-and-draw-the-largest-contour-in-opencv-on-a-specific-color-python
+    """
+ 
+    contours_all_sorted = sorted(contours_list, key=cv2.contourArea)
+    # TODO -- Whats VALUE for the -- key=cv2.contourArea
+    print("--contours_all_sorted--type(contours_all_sorted--\n",type(contours_all_sorted))
+    #print("--contours_all_sorted--> contours_all_sorted--> \n",contours_all_sorted) # LIST of ndArrays -- Dimensions etc ? 
+
+    box = contours_all_sorted[-2] 
+    """
+    # TODO - Now we know from experiment that this CONTOUR BBOX 
+    Which is the 2nd LARGEST CONTOUR's BBOX 
+    Has the DESIRED OBJECT for now -- the NUMBER PLATE 
+    But how to Rule out the - NUMBER PLATE -- being within the 3rd LARGEST CONTOUR's BBOX , which is the box1 = contours_all_sorted[-3] below 
+    """
+    
+    print("--contours_all_sorted--type(box--",type(box)) #<class 'numpy.ndarray'>
+    box1 = contours_all_sorted[-3] 
+    print("--contours_all_sorted--type(box1---",type(box1)) #<class 'numpy.ndarray'>
+
+    def get_ele_1(input_x):
+        # print("----input_x----ele_1",input_x)
+        # print("----x----ele_1",input_x[1])
+        return input_x[1]
+
+    bottom_right, _ = max(enumerate([pt[0][0] + pt[0][1] for pt in box]), key=get_ele_1)
+    top_left, _ = min(enumerate([pt[0][0] + pt[0][1] for pt in box]), key=get_ele_1)
+    bottom_left, _ = min(enumerate([pt[0][0] - pt[0][1] for pt in box]), key=get_ele_1)
+    top_right, _ = max(enumerate([pt[0][0] - pt[0][1] for pt in box]), key=get_ele_1)
+
+    bottom_right1, _ = max(enumerate([pt[0][0] + pt[0][1] for pt in box1]), key=get_ele_1)
+    top_left1, _ = min(enumerate([pt[0][0] + pt[0][1] for pt in box1]), key=get_ele_1)
+    bottom_left1, _ = min(enumerate([pt[0][0] - pt[0][1] for pt in box1]), key=get_ele_1)
+    top_right1, _ = max(enumerate([pt[0][0] - pt[0][1] for pt in box1]), key=get_ele_1)
+    
+    bottom_right = box[bottom_right][0]
+    top_left = box[top_left][0]
+    bottom_left = box[bottom_left][0]
+    top_right = box[top_right][0]
+
+    bottom_right1 = box1[bottom_right1][0]
+    top_left1 = box1[top_left1][0]
+    bottom_left1 = box1[bottom_left1][0]
+    top_right1 = box1[top_right1][0]
+
+    corners = (top_left, top_right, bottom_left, bottom_right)
+    corners1 = (top_left1, top_right1, bottom_left1, bottom_right1)
+
+    circle_radius = 4
+    for corner in corners:
+        print("-aa---corner---",corner) #[109 215]
+        cornr_image = cv2.circle(img_corners, tuple(corner), circle_radius,dict_colors["color_red"], -1)
+        cv2.imwrite("./data_dir/output_dir/img_skew/img_cornr__"+str(img_name)+"_.png", cornr_image)
+
+    for corner1 in corners1:
+        print("-aa---corner1---",corner1)
+        cornr_image1 = cv2.circle(img_corners, tuple(corner1), circle_radius,dict_colors["color_green"], -1)
+        cv2.imwrite("./data_dir/output_dir/img_skew/img_cornr_1_"+str(img_name)+"_.png", cornr_image1)
+
+    return corners
+
+
+
+def pre_process_1(image_init,img_name):
+    """
+    pre_process_1
+
+    """
+    img_clahe = image_init.copy()
+    img_contrs = image_init.copy()
+    img_corners = image_init.copy()
+    # hardCoded for now 
+    clip_lim=3
+    t_grid_size=8
+    eros_iter=1
+    dil_iter=2
+    img_clahe_1 = get_clahe(img_clahe,clip_lim,t_grid_size,eros_iter,dil_iter)
+    #cv2.imwrite(
+    cont_image_1,contrs_external,cont_image_2,contrs_ccomp,cont_image_3,contours_list = get_contours_main(img_clahe_1,img_contrs,img_name,dict_colors)
+    corners = get_corners_1(img_corners,contours_list,img_name,dict_colors)
+
+
 if __name__ == "__main__":
     # path_img1 = "./data_dir/input_dir/img_skw_1.png"
     # path_img2 = "./data_dir/input_dir/img_skw_2.png"
@@ -427,9 +596,12 @@ if __name__ == "__main__":
         image_init = cv2.imread(ls_imgs[iter_img])
         # correct_skew(image_init,img_name)  #Image Angle Rotation 
         # img_init = boundary_draw(image_init,img_name) 
-        img_edged = init_img_transforms(image_init,img_name)
-        get_contours(image_init,img_edged,img_name) 
+        # img_edged = init_img_transforms(image_init,img_name)
+        # get_contours(image_init,img_edged,img_name) 
         #get_warped_img(image_init,img_name)
+
+        #MAIN 
+        pre_process_1(image_init,img_name)
 
         # get_warped_image_1()
         # get_corners()
