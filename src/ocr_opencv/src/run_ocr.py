@@ -1,15 +1,7 @@
 # conda activate env_tf2
-
-# TODO -- get_img_blur( # get the VALUE of Image BLUR -- categorize as too_blurred ( reject ) or ok_blurred ( can be used in data)
-
 # DATA_1 -- https://www.inf.ufpr.br/vri/databases/vehicle-reid/data.tgz
-
 # TODO - https://pyimagesearch.com/2020/09/21/opencv-automatic-license-number-plate-recognition-anpr-with-python/
 # TODO - https://github.com/icarofua/vehicle-rear
-
-# SOURCE -- https://pyimagesearch.com/2016/03/21/ordering-coordinates-clockwise-with-python-and-opencv/
-# Source -- https://pyimagesearch.com/2017/07/10/using-tesseract-ocr-python/
-# SOURCE -- https://pyimagesearch.com/2017/02/20/text-skew-correction-opencv-python/
 
 from PIL import Image
 import pytesseract
@@ -17,6 +9,7 @@ import argparse , cv2 , os
 import numpy as np
 import imutils
 from imutils import perspective , contours
+from utils_ocr import util_get_corners
 
 # WRITE TEXT 
 dict_colors ={
@@ -161,8 +154,10 @@ def boundary_draw(img_init,img_name):
     return img_init
 
 
-def get_warped_img(img_init,img_name):
+def get_warped_img(img_init,img_name,corners_calc):
     """
+    corners_calc -- corners which have been Pre Calculated at the Method -- 
+
     perspective transform 
     warp perspective  
 
@@ -170,23 +165,29 @@ def get_warped_img(img_init,img_name):
     TODO -- https://stackoverflow.com/questions/42262198/4-point-persective-transform-failure
     TODO -- https://pyimagesearch.com/2014/08/25/4-point-opencv-getperspective-transform-example/
     https://stackoverflow.com/questions/42262198/4-point-persective-transform-failure
-    https://stackoverflow.com/users/2393191/micka
+    
 
     """
-    height_init = image_init.shape[0] #print("-[INFO]--IMAGE_INIT__Height , Width--->",image_init.shape)
-    width_init = image_init.shape[1]
-    count_channels = image_init.shape[2]
-    print("---height_init,width_init,count_channels--->",height_init,width_init,count_channels)
+    #print("---CORNRS_CALC---->",corners_calc)
+    #
+    list1 = [*corners_calc,]
+    list1_array = np.array(list1, dtype=np.float64)
+       
+    # height_init = image_init.shape[0] #print("-[INFO]--IMAGE_INIT__Height , Width--->",image_init.shape)
+    # width_init = image_init.shape[1]
+    # count_channels = image_init.shape[2]
+    # print("---height_init,width_init,count_channels--->",height_init,width_init,count_channels)
     
     # image_points = "[(100,150),(200,250),(250,280),(300,350)]"
     # image_points = "[(73, 239), (356, 117), (475, 265), (187, 443)]"
-    image_points = "[(0, 0), ("+str(width_init)+",0), ("+str(width_init)+", "+str(height_init)+"), (0,"+str(width_init)+")]"
+    # image_points = "[(0, 0), ("+str(width_init)+",0), ("+str(width_init)+", "+str(height_init)+"), (0,"+str(width_init)+")]"
 
-    print("----get_warped_img-------TYPE-image_points-aaa-",type(image_points))
-    print("----get_warped_img-------TYPE-image_points-aaa-",image_points)
+    # print("----get_warped_img-------TYPE-image_points-aaa-",type(image_points))
+    # print("----get_warped_img-------TYPE-image_points-aaa-",image_points)
 
-    ls_rect_coords = get_order_points(img_init,image_points)
-    (top_L, top_R, bot_R, bot_L) = ls_rect_coords     #(top_left, top_right, bottom_right, bottom_left) = ls_rect_coords
+    ls_rect_coords = get_order_points(img_init,list1_array) #corners_calc ##image_points
+
+    (top_L, top_R, bot_R, bot_L) = ls_rect_coords #(top_left, top_right, bottom_right, bottom_left) = ls_rect_coords
     #[(0, 0), (width, 0), (0, height), (width, height)] ## THIS IS ==  bot_L >> bot_R
 
     # def get_euler_distance(pt1, pt2):
@@ -222,9 +223,8 @@ def get_warped_img(img_init,img_name):
     #print("----get_warped_img----matrix_persp-",matrix_persp)
     print("-[INFO]--get_warped_img----matrix_persp-->",matrix_persp.shape) ##(3, 3)
 
-
     warped_img = cv2.warpPerspective(img_init, matrix_persp, (maxWidth, maxHeight)) # warp perspective  
-    cv2.imwrite("./data_dir/output_dir/img_skew/warped_img_"+str(img_name)+"_.png", warped_img)
+    cv2.imwrite("./data_dir/output_dir/img_skew/warped_img_1_"+str(img_name)+"_.png", warped_img)
     
     return warped_img
 
@@ -237,11 +237,13 @@ def get_order_points(img_init,image_points):
     print("---1_ls_rect_coords--",ls_rect_coords)
 
     # get Sum of the points
-    print("---image_points--",image_points) #TODO -- Why String ? 
-    print("--TYPE-image_points-aaa-",type(image_points))
-    image_points = np.array(eval(image_points), dtype = "float32")
-    print("--TYPE-image_points-bbb-",type(image_points))
-    print("---image_points-bbb-",image_points)
+    print("---image_points--",image_points) #TODO -- Why String ? ## OK getting - ndArray from above 
+    print("--TYPE-image_points-aaa-",type(image_points)) ## OK getting - ndArray from above 
+
+
+    # image_points = np.array(eval(image_points), dtype = "float32")
+    # print("--TYPE-image_points-bbb-",type(image_points))
+    # print("---image_points-bbb-",image_points)
 
 
     sum_points = image_points.sum(axis = 1)
@@ -381,7 +383,7 @@ def get_img_hsv():
 
 def plot_hsv_histograms():
     """
-    # TODO -- get_img_blur( # get the VALUE of Image BLUR -- 
+    # TODO -- plot the Histograms of HSV colorspace 
     """
     import matplotlib.gridspec as plt_gridspec  #print("---TYPE----",type(plt_gridspec))
     img_hsv_h = img_hsv[:,:,0]
@@ -404,12 +406,6 @@ def get_cropped_mask(image_init,crop_coord,img_name):
     #init a mask 
     mask_1 = np.zeros(image_init.shape[:2], np.uint8)
     pass
-
-
-
-
-
-
 
 
 
@@ -442,6 +438,7 @@ def get_contours_main(img_clahe_1,img_contrs,img_name,dict_colors):
     RETR_EXTERNAL -- all_contours_RETR_EXTERNAL >> only PARENT Contours
     RETR_CCOMP
     RETR_LIST -- No hierarchy - flat LIST of all CNTRS
+    RETR_TREE -- 
     
     TODO - experiment with Other OPTIONS for PARAMS --
     cv2.CHAIN_APPROX_SIMPLE (DONE)
@@ -488,70 +485,212 @@ def get_contours_main(img_clahe_1,img_contrs,img_name,dict_colors):
 
     return cont_image_1 , contrs_external, cont_image_2, contrs_ccomp ,cont_image_3, contours_list
 
+    
+def get_contours_internal(frame_to_write,dict_colors,ls_x_coord):
+    """ 
+    TODO -- HSV -- Comparing the Performance of L*A*B* and HSV Color Spaces with Respect to Color Image Segmentation --- 
+    ARXIV Link -
+    - https://arxiv.org/abs/1506.01472
+    
+    TODO - for the issue - #100
+    - https://github.com/RohitDhankar/Machine-Learning-with-Python_ML_Py/issues/100
 
-def get_corners_1(img_corners,contours_list,img_name,dict_colors):
+
     """
-    # TODO -- Whats VALUE for the -- key=cv2.contourArea
-    # TODO -- SO -- https://stackoverflow.com/questions/44588279/find-and-draw-the-largest-contour-in-opencv-on-a-specific-color-python
-    """
+    ls_write_frame_name = []
+    dict_get_frames = {}
+    dict_result_frames = {}
+
+    frame_to_write_bbox_init = frame_to_write.copy()
+    frame_to_write_retree = frame_to_write.copy()
+
+    # yellow = dict_colors["color_yellow"] 
+    # green = dict_colors["color_green"] 
+    # white = dict_colors["color_white"] 
+    # red = dict_colors["color_red"] 
+
+    #
+    lower_green_1 = np.array([36, 25, 25])
+    lower_green = np.array([25, 50, 50])
+    upper_green_1 = np.array([86,255,255])
+    upper_green = np.array([100,255,255])
+    #
+    # Convert the FRAME ColorSpace from - BGR to HSV
+    img_hsv = cv2.cvtColor(frame_to_write,cv2.COLOR_BGR2HSV)
+    sum_hsv_v = np.sum(img_hsv[:,:,2])# SUM of - HSV - VALUE
+    sum_hsv_h = np.sum(img_hsv[:,:,0])# SUM of - HSV - HUE 
+    sum_hsv_s = np.sum(img_hsv[:,:,1])# SUM of - HSV - SATURATION 
+    
+    img_area = img_hsv.shape[0] * img_hsv.shape[1]
+    avg_hue = sum_hsv_h / img_area 
+    avg_saturation = sum_hsv_s / img_area 
+    #alt_avg_saturation = img_hsv[:,:,1].mean() ##average_hsv = cv2.mean(hsv,  mask)[:3]
+    
+    #mask_blue = cv2.inRange(img_hsv, lower_blue, upper_blue)
+    mask_green = cv2.inRange(img_hsv, lower_green, upper_green) ## init_maskGREEN
+
+    open_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (9,9)) #_9,9___BEST____ TODO # 7,7 -- better | 5,5 -- bad
+    close_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7,7)) #_7,7__BEST_____ TODO # 5,5 -- better | 3,3 -- bad 
+
+    mask_green_open = cv2.morphologyEx(mask_green, cv2.MORPH_OPEN, open_kernel, iterations=1)
+    mask_green_close = cv2.morphologyEx(mask_green_open, cv2.MORPH_CLOSE, close_kernel, iterations=5)
+    mask_green_blurred = cv2.GaussianBlur(mask_green_close, (11, 11), 0) 
+    # GAUSSIAN BLUR to get RID of NOISE -- remove high frequency edges
+    
+    ## FIND_CONTOURS
+    img_height, img_width , channels = frame_to_write.shape
+    #cntrs_mask_green_blurred = cv2.findContours(mask_green_blurred, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours_RETR_TREE, hierarchy = cv2.findContours(mask_green_blurred, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    sorted_contours_boundingRECT = sorted(contours_RETR_TREE, key=lambda ctr: cv2.boundingRect(ctr)[0]) 
+    
+
+    for contour in sorted_contours_boundingRECT:
+        x_coord,y_coord,contour_width,contour_height = cv2.boundingRect(contour)
+        height_ratio = img_height / contour_height
+        width_ratio = img_width / contour_width
+        contour_area = contour_width*contour_height
+
+        x_coord_cntr_width = x_coord+contour_width  ## THRESH_630
+        y_coord_cntr_height = y_coord+contour_height
+
+        dict_get_frames["dict_colors"] = dict_colors
+        dict_get_frames["y_coord_cntr_height"] = y_coord_cntr_height
+        dict_get_frames["x_coord_cntr_width"] = x_coord_cntr_width
+
+        dict_get_frames["height_ratio"] = height_ratio
+        dict_get_frames["width_ratio"] = width_ratio
+
+        dict_get_frames["x_coord"] = x_coord
+        dict_get_frames["y_coord"] = y_coord
+
+        dict_get_frames["ls_x_coord"] = ls_x_coord
+        dict_get_frames["frame_to_write_bbox_init"] = frame_to_write_bbox_init
+
+        dict_get_frames["contour_width"] = contour_width
+        dict_get_frames["contour_height"] = contour_height
+
+        dict_get_frames["contours_RETR_TREE"] = contours_RETR_TREE
+        dict_get_frames["frame_to_write_retree"] = frame_to_write_retree
+
+        if height_ratio < 3 and width_ratio < 3:
+            if height_ratio > 1 and width_ratio > 1:
+                #print("--[INFO]---NOT_IN_COORD_RANGE__x_coord,y_coord_,.......",x_coord,y_coord,"___",.......) 
+
+                if x_coord >= 0 and x_coord <= 200: 
+                    if (y_coord > 150 and y_coord < 290) or (y_coord >= 0 and y_coord < 290) and x_coord_cntr_width < 630:
+
+                        frame_name_x_coord_200 = get_x_coord_200(dict_get_frames)
+
+                        if isinstance(frame_name_x_coord_200,str):                        
+                            dict_result_frames["frame_name_x_coord_200"] = frame_name_x_coord_200
+                        else:
+                            dict_result_frames["frame_name_x_coord_200"] = "NONE_frame_name"
+
+                elif x_coord > 200 and x_coord <= 300:
+                    if y_coord > 150 and y_coord < 350 and x_coord_cntr_width < 630:
+                        frame_name_x_coord_300 =  get_x_coord_300(dict_get_frames)
+                        print("--frame_name_x_coord_300--",frame_name_x_coord_300)
+                        print("--type(frame_name_x_coord_300--",type(frame_name_x_coord_300))
+                        if isinstance(frame_name_x_coord_300,str):                        
+                            dict_result_frames["frame_name_x_coord_300"] = frame_name_x_coord_300
+                        else:
+                            dict_result_frames["frame_name_x_coord_300"] = "NONE_frame_name"
+                
+                elif x_coord > 300 and x_coord <= 500:
+                    if y_coord > 150 and y_coord < 350 and x_coord_cntr_width < 630:
+                        frame_name_x_coord_500 =  get_x_coord_500(dict_get_frames)
+                        print("--frame_name_x_coord_500--",frame_name_x_coord_500)
+                        print("--type(frame_name_x_coord_500--",type(frame_name_x_coord_500))
+                        if isinstance(frame_name_x_coord_500,str):                        
+                            dict_result_frames["frame_name_x_coord_500"] = frame_name_x_coord_500
+                        else:
+                            dict_result_frames["frame_name_x_coord_500"] = "NONE_frame_name"
+                        ## TODO -- y_coord < 350 == AWTI_VIN_2022_02_23_14_56_40_180748_c4
+                
+                elif x_coord > 500 and x_coord <= 700:
+                    if y_coord > 150 and y_coord < 350  and x_coord_cntr_width < 630:
+                        frame_name_x_coord_700 = get_x_coord_700(dict_get_frames)
+                        print("--frame_name_x_coord_700--",frame_name_x_coord_700)
+                        print("--type(frame_name_x_coord_700--",type(frame_name_x_coord_700))
+                        if isinstance(frame_name_x_coord_700,str):                        
+                            dict_result_frames["frame_name_x_coord_700"] = frame_name_x_coord_700
+                        else:
+                            dict_result_frames["frame_name_x_coord_700"] = "NONE_frame_name"
+
+    return dict_result_frames
+
+
+
+# def get_corners_1(img_corners,contours_list,img_name,dict_colors):
+#     """
+#     # TODO -- Whats VALUE for the -- key=cv2.contourArea
+#     # TODO -- SO -- https://stackoverflow.com/questions/44588279/find-and-draw-the-largest-contour-in-opencv-on-a-specific-color-python
+#     """
  
-    contours_all_sorted = sorted(contours_list, key=cv2.contourArea)
-    # TODO -- Whats VALUE for the -- key=cv2.contourArea
-    print("--contours_all_sorted--type(contours_all_sorted--\n",type(contours_all_sorted))
-    #print("--contours_all_sorted--> contours_all_sorted--> \n",contours_all_sorted) # LIST of ndArrays -- Dimensions etc ? 
+#     contours_all_sorted = sorted(contours_list, key=cv2.contourArea)
+#     # TODO -- Whats VALUE for the -- key=cv2.contourArea
+#     print("--contours_all_sorted--type(contours_all_sorted--\n",type(contours_all_sorted))
+#     #print("--contours_all_sorted--> contours_all_sorted--> \n",contours_all_sorted) # LIST of ndArrays -- Dimensions etc ? 
 
-    box = contours_all_sorted[-2] 
-    """
-    # TODO - Now we know from experiment that this CONTOUR BBOX 
-    Which is the 2nd LARGEST CONTOUR's BBOX 
-    Has the DESIRED OBJECT for now -- the NUMBER PLATE 
-    But how to Rule out the - NUMBER PLATE -- being within the 3rd LARGEST CONTOUR's BBOX , which is the box1 = contours_all_sorted[-3] below 
-    """
+#     box = contours_all_sorted[-2] 
+#     """
+#     # TODO - Now we know from experiment that this CONTOUR BBOX 
+#     Which is the 2nd LARGEST CONTOUR's BBOX 
+#     Has the DESIRED OBJECT for now -- the NUMBER PLATE 
+#     But how to Rule out the - NUMBER PLATE -- being within the 3rd LARGEST CONTOUR's BBOX , which is the box1 = contours_all_sorted[-3] below 
+#     """
+
+#     #Crop ROI of BOX -- or dont crop just search within ROI 
+#     # Within this ROI of BOX
+#     # get CONTRS 
+#     # get RATIO of CONTRS -- height with this BOX ROI 
+#     boundingRect(
+
     
-    print("--contours_all_sorted--type(box--",type(box)) #<class 'numpy.ndarray'>
-    box1 = contours_all_sorted[-3] 
-    print("--contours_all_sorted--type(box1---",type(box1)) #<class 'numpy.ndarray'>
+#     print("--contours_all_sorted--type(box--",type(box)) #<class 'numpy.ndarray'>
+#     box1 = contours_all_sorted[-3] 
+#     print("--contours_all_sorted--type(box1---",type(box1)) #<class 'numpy.ndarray'>
 
-    def get_ele_1(input_x):
-        # print("----input_x----ele_1",input_x)
-        # print("----x----ele_1",input_x[1])
-        return input_x[1]
+#     def get_ele_1(input_x):
+#         # print("----input_x----ele_1",input_x)
+#         # print("----x----ele_1",input_x[1])
+#         return input_x[1]
 
-    bottom_right, _ = max(enumerate([pt[0][0] + pt[0][1] for pt in box]), key=get_ele_1)
-    top_left, _ = min(enumerate([pt[0][0] + pt[0][1] for pt in box]), key=get_ele_1)
-    bottom_left, _ = min(enumerate([pt[0][0] - pt[0][1] for pt in box]), key=get_ele_1)
-    top_right, _ = max(enumerate([pt[0][0] - pt[0][1] for pt in box]), key=get_ele_1)
+#     bottom_right, _ = max(enumerate([pt[0][0] + pt[0][1] for pt in box]), key=get_ele_1)
+#     top_left, _ = min(enumerate([pt[0][0] + pt[0][1] for pt in box]), key=get_ele_1)
+#     bottom_left, _ = min(enumerate([pt[0][0] - pt[0][1] for pt in box]), key=get_ele_1)
+#     top_right, _ = max(enumerate([pt[0][0] - pt[0][1] for pt in box]), key=get_ele_1)
 
-    bottom_right1, _ = max(enumerate([pt[0][0] + pt[0][1] for pt in box1]), key=get_ele_1)
-    top_left1, _ = min(enumerate([pt[0][0] + pt[0][1] for pt in box1]), key=get_ele_1)
-    bottom_left1, _ = min(enumerate([pt[0][0] - pt[0][1] for pt in box1]), key=get_ele_1)
-    top_right1, _ = max(enumerate([pt[0][0] - pt[0][1] for pt in box1]), key=get_ele_1)
+#     bottom_right1, _ = max(enumerate([pt[0][0] + pt[0][1] for pt in box1]), key=get_ele_1)
+#     top_left1, _ = min(enumerate([pt[0][0] + pt[0][1] for pt in box1]), key=get_ele_1)
+#     bottom_left1, _ = min(enumerate([pt[0][0] - pt[0][1] for pt in box1]), key=get_ele_1)
+#     top_right1, _ = max(enumerate([pt[0][0] - pt[0][1] for pt in box1]), key=get_ele_1)
     
-    bottom_right = box[bottom_right][0]
-    top_left = box[top_left][0]
-    bottom_left = box[bottom_left][0]
-    top_right = box[top_right][0]
+#     bottom_right = box[bottom_right][0]
+#     top_left = box[top_left][0]
+#     bottom_left = box[bottom_left][0]
+#     top_right = box[top_right][0]
 
-    bottom_right1 = box1[bottom_right1][0]
-    top_left1 = box1[top_left1][0]
-    bottom_left1 = box1[bottom_left1][0]
-    top_right1 = box1[top_right1][0]
+#     bottom_right1 = box1[bottom_right1][0]
+#     top_left1 = box1[top_left1][0]
+#     bottom_left1 = box1[bottom_left1][0]
+#     top_right1 = box1[top_right1][0]
 
-    corners = (top_left, top_right, bottom_left, bottom_right)
-    corners1 = (top_left1, top_right1, bottom_left1, bottom_right1)
+#     corners = (top_left, top_right, bottom_left, bottom_right)
+#     corners1 = (top_left1, top_right1, bottom_left1, bottom_right1)
 
-    circle_radius = 4
-    for corner in corners:
-        print("-aa---corner---",corner) #[109 215]
-        cornr_image = cv2.circle(img_corners, tuple(corner), circle_radius,dict_colors["color_red"], -1)
-        cv2.imwrite("./data_dir/output_dir/img_skew/img_cornr__"+str(img_name)+"_.png", cornr_image)
+#     circle_radius = 4
+#     for corner in corners:
+#         print("-aa---corner---",corner) #[109 215]
+#         cornr_image = cv2.circle(img_corners, tuple(corner), circle_radius,dict_colors["color_red"], -1)
+#         cv2.imwrite("./data_dir/output_dir/img_skew/img_cornr__"+str(img_name)+"_.png", cornr_image)
 
-    for corner1 in corners1:
-        print("-aa---corner1---",corner1)
-        cornr_image1 = cv2.circle(img_corners, tuple(corner1), circle_radius,dict_colors["color_green"], -1)
-        cv2.imwrite("./data_dir/output_dir/img_skew/img_cornr_1_"+str(img_name)+"_.png", cornr_image1)
+#     for corner1 in corners1:
+#         print("-aa---corner1---",corner1)
+#         cornr_image1 = cv2.circle(img_corners, tuple(corner1), circle_radius,dict_colors["color_green"], -1)
+#         cv2.imwrite("./data_dir/output_dir/img_skew/img_cornr_1_"+str(img_name)+"_.png", cornr_image1)
 
-    return corners
+#     return corners
 
 
 
@@ -571,7 +710,10 @@ def pre_process_1(image_init,img_name):
     img_clahe_1 = get_clahe(img_clahe,clip_lim,t_grid_size,eros_iter,dil_iter)
     #cv2.imwrite(
     cont_image_1,contrs_external,cont_image_2,contrs_ccomp,cont_image_3,contours_list = get_contours_main(img_clahe_1,img_contrs,img_name,dict_colors)
-    corners = get_corners_1(img_corners,contours_list,img_name,dict_colors)
+    #corners = get_corners_1(img_corners,contours_list,img_name,dict_colors) # Code Refactor to - utils
+    corners_calc = util_get_corners(img_corners,contours_list,img_name,dict_colors)
+
+    return corners_calc
 
 
 if __name__ == "__main__":
@@ -601,7 +743,8 @@ if __name__ == "__main__":
         #get_warped_img(image_init,img_name)
 
         #MAIN 
-        pre_process_1(image_init,img_name)
+        corners_calc = pre_process_1(image_init,img_name)
+        get_warped_img(image_init,img_name,corners_calc)
 
         # get_warped_image_1()
         # get_corners()

@@ -1,6 +1,12 @@
+from PIL import Image
+import pytesseract
+import argparse , cv2 , os 
+import numpy as np
+import imutils
+from imutils import perspective , contours
 
 
-def get_corners_1(img_corners,contours_list,img_name,dict_colors):
+def util_get_corners(img_corners,contours_list,img_name,dict_colors):
     """
     # TODO -- Whats VALUE for the -- key=cv2.contourArea
     # TODO -- SO -- https://stackoverflow.com/questions/44588279/find-and-draw-the-largest-contour-in-opencv-on-a-specific-color-python
@@ -23,7 +29,12 @@ def get_corners_1(img_corners,contours_list,img_name,dict_colors):
     # Within this ROI of BOX
     # get CONTRS 
     # get RATIO of CONTRS -- height with this BOX ROI 
-    boundingRect(
+    
+    
+    
+    
+    
+    #boundingRect(
 
     
     print("--contours_all_sorted--type(box--",type(box)) #<class 'numpy.ndarray'>
