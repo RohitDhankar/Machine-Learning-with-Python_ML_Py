@@ -1,0 +1,139 @@
+
+/src/term_log_autoencoder_1.log
+
+2023-09-12 22:07:19.989922: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-09-12 22:07:20.474719: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-09-12 22:07:21.297792: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.316412: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.316686: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.317386: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.317615: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.317832: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.727511: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.727772: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.727977: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:995] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-09-12 22:07:21.728168: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2237 MB memory:  -> device: 0, name: GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5
+1 Physical GPUs, 1 Logical GPUs
+/home/dhankar/anaconda3/envs/env_tf2/lib/python3.9/site-packages/nvidia/cudnn/__init__.py
+Unique TRAIN DATA Labels and IMAGE Counts:  {0: 5923, 1: 6742, 2: 5958, 3: 6131, 4: 5842, 5: 5421, 6: 5918, 7: 6265, 8: 5851, 9: 5949}
+Unique TEST DATA Labels and IMAGE Counts:  {0: 980, 1: 1135, 2: 1032, 3: 1010, 4: 982, 5: 892, 6: 958, 7: 1028, 8: 974, 9: 1009}
+Shape--> x_train , y_train--, x_test, y_test---> 60000 60000 10000 10000
+--- 28
+--- 28
+---x_train.shape--- (60000, 28, 28)
+---x_train.shape, x_train_noise.shape---> (60000, 28, 28, 1) (60000, 28, 28, 1)
+Model: "Denoising_autoencoder"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 28, 28, 1)]       0         
+                                                                 
+ conv2d (Conv2D)             (None, 28, 28, 32)        320       
+                                                                 
+ batch_normalization (Batch  (None, 28, 28, 32)        128       
+ Normalization)                                                  
+                                                                 
+ max_pooling2d (MaxPooling2  (None, 14, 14, 32)        0         
+ D)                                                              
+                                                                 
+ conv2d_1 (Conv2D)           (None, 14, 14, 32)        9248      
+                                                                 
+ batch_normalization_1 (Bat  (None, 14, 14, 32)        128       
+ chNormalization)                                                
+                                                                 
+ max_pooling2d_1 (MaxPoolin  (None, 7, 7, 32)          0         
+ g2D)                                                            
+                                                                 
+ conv2d_2 (Conv2D)           (None, 7, 7, 32)          9248      
+                                                                 
+ batch_normalization_2 (Bat  (None, 7, 7, 32)          128       
+ chNormalization)                                                
+                                                                 
+ up_sampling2d (UpSampling2  (None, 14, 14, 32)        0         
+ D)                                                              
+                                                                 
+ conv2d_3 (Conv2D)           (None, 14, 14, 32)        9248      
+                                                                 
+ batch_normalization_3 (Bat  (None, 14, 14, 32)        128       
+ chNormalization)                                                
+                                                                 
+ up_sampling2d_1 (UpSamplin  (None, 28, 28, 32)        0         
+ g2D)                                                            
+                                                                 
+ conv2d_4 (Conv2D)           (None, 28, 28, 1)         289       
+                                                                 
+=================================================================
+Total params: 28865 (112.75 KB)
+Trainable params: 28609 (111.75 KB)
+Non-trainable params: 256 (1.00 KB)
+_________________________________________________________________
+None
+===== autoencoder ======
+--layer.name- input_1
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc3522e0>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc2ccf40>]
+===== autoencoder ======
+--layer.name- conv2d
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc2ccf40>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc2424f0>]
+===== autoencoder ======
+--layer.name- batch_normalization
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc2424f0>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc224bb0>]
+===== autoencoder ======
+--layer.name- max_pooling2d
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc224bb0>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc224b50>]
+===== autoencoder ======
+--layer.name- conv2d_1
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc224b50>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc1e1580>]
+===== autoencoder ======
+--layer.name- batch_normalization_1
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc1e1580>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc1f31c0>]
+===== autoencoder ======
+--layer.name- max_pooling2d_1
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc1f31c0>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc1eea90>]
+===== autoencoder ======
+--layer.name- conv2d_2
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc1eea90>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc17d400>]
+===== autoencoder ======
+--layer.name- batch_normalization_2
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc17d400>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc17d640>]
+===== autoencoder ======
+--layer.name- up_sampling2d
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc17d640>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc1ee1f0>]
+===== autoencoder ======
+--layer.name- conv2d_3
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc1ee1f0>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc224490>]
+===== autoencoder ======
+--layer.name- batch_normalization_3
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc224490>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc188fa0>]
+===== autoencoder ======
+--layer.name- up_sampling2d_1
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc188fa0>]
+--layer.outbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc188d30>]
+===== autoencoder ======
+--layer.name- conv2d_4
+--layer.inbound_nodes- [<keras.src.engine.node.Node object at 0x7ff5dc188d30>]
+--layer.outbound_nodes- []
+Epoch 1/5
+2023-09-12 22:07:25.789057: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:432] Loaded cuDNN version 8600
+2023-09-12 22:07:26.147469: E tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:114] *** WARNING *** You are using ptxas 11.0.194, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+2023-09-12 22:07:26.445899: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7ff404fc9670 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-09-12 22:07:26.445928: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1650, Compute Capability 7.5
+2023-09-12 22:07:26.449108: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:255] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-09-12 22:07:26.492713: E tensorflow/compiler/xla/stream_executor/gpu/asm_compiler.cc:114] *** WARNING *** You are using ptxas 11.0.194, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+2023-09-12 22:07:26.524036: F tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc:492] ptxas returned an error during compilation of ptx to sass: 'INTERNAL: ptxas exited with non-zero error code 65280, output: ptxas /tmp/tempfile-dhankar-1-74bb1998-9107-6052c0edf8252, line 5; fatal   : Unsupported .version 7.1; current version is '7.0'
+ptxas fatal   : Ptx assembly aborted due to errors
+'  If the error message indicates that a file could not be written, please verify that sufficient filesystem space is provided.
