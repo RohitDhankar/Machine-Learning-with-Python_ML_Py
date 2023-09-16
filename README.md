@@ -31,6 +31,9 @@
 - [1.5b-PyTorch_normalization_SOUMITH_CHINTALA_reply_for_transform.Normalize](https://github.com/RohitDhankar/obj_det/blob/e4042d8c88ec00c8df2f36f2bd7b61acd2d3bce0/_book_17/ownNotes_PyTorch_transform.Normalize_NORMALIZE_1.log#L265)
 - [SOUMITH_CHINTALA](https://www.youtube.com/watch?v=2wprKvXnErE)
 
+- [pytorch_CycleGAN_and_pix2pix_Test](https://www.youtube.com/watch?v=sIt_judPLp0)
+> Absolutely excellent code and documentation , could get the Test - Inference running within an hour on own local system Own Video initial experiment -- YouTube Link - [pytorch_CycleGAN_and_pix2pix_Test](https://www.youtube.com/watch?v=sIt_judPLp0)
+
 - [2] `Diffusers - Text to Image ` 
 - [2.1-Create-own-pipeline](https://www.youtube.com/watch?v=TVZLk7CPKcI)
 - [3] `detectron2 from Facebook AI Research- for Object Detection` 

@@ -1,3 +1,8 @@
+- [CycleGAN-pix2pix--pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
+> Absolutely excellent code and documentation , could get the Test - Inference running within an hour on own local system 
+- Own Video initial experiment -- YouTube Link - [pytorch_CycleGAN_and_pix2pix_Test](https://www.youtube.com/watch?v=sIt_judPLp0)
+
+
 
 - [ADVERSARIAL_AutoEncoder]
 
@@ -85,3 +90,25 @@ with open("logreg_iris.onnx", "wb") as f:
 - [TensorRt](https://github.com/NVIDIA/TensorRT)
 - 
 
+#
+- [APPLE-CoreML](https://github.com/apple/coremltools)
+> Core ML -- Core ML is an Apple framework to integrate machine learning models into your app. Core ML provides a unified representation for all models. Your app uses Core ML APIs and user data to make predictions, and to fine-tune models, all on the user’s device. 
+
+- coremltools/docs-guides/source/comparing-ml-programs-and-neural-networks.md
+- https://github.com/apple/coremltools/blob/d7a1479de970692b54c5ae5bcdd9ac1f57070fb1/docs-guides/source/model-tracing.md?plain=1#L42
+
+
+```python
+# A simple network consisting of several base layers.
+	class SimpleNet(nn.Module):
+		def __init__(self):
+			super(SimpleNet, self).__init__()
+			self.layer1 = Layer((3, 6, 3))
+			self.layer2 = Layer((6, 16, 1))
+
+		def forward(self, x):
+			x = self.layer1(x)
+			x = self.layer2(x)
+			return x
+
+```
