@@ -1,3 +1,7 @@
+
+-[pytorch_unet](https://github.com/RohitDhankar/PyTorch_1/blob/master/src/unet_pytorch_2.py)
+
+
 - [CycleGAN-pix2pix--pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
 > Absolutely excellent code and documentation , could get the Test - Inference running within an hour on own local system 
 - Own Video initial experiment -- YouTube Link - [pytorch_CycleGAN_and_pix2pix_Test](https://www.youtube.com/watch?v=sIt_judPLp0)
@@ -112,3 +116,8 @@ with open("logreg_iris.onnx", "wb") as f:
 			return x
 
 ```
+
+- [GEO_GIS_Intro_Init_UCLA](https://www.youtube.com/watch?v=gi4UdFsayoM)
+- [GEO_GIS__Census_Data_Analysis_Mapping](https://www.youtube.com/watch?v=rrGw6ct-Cbw)
+- [GEO_GIS__Spatial_Statistics_with_Python](https://www.youtube.com/watch?v=B_LHPRVEOvs)
+- 
