@@ -169,3 +169,5 @@ These q-distributions are normally parameterized for each individual data point 
 However, variational autoencoders use a neural network as an amortized approach to jointly optimize across data points. This neural network takes as input the data points themselves, and outputs parameters for the variational distribution. As it maps from a known input space to the low-dimensional latent space, it is called the encoder. 
 
 ```
+
+
