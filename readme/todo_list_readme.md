@@ -1,5 +1,17 @@
 
 -[pytorch_unet](https://github.com/RohitDhankar/PyTorch_1/blob/master/src/unet_pytorch_2.py)
+-[pytorch_unet_1](https://cs231n.github.io/convolutional-networks/)
+-[input_and_output_volume](https://cs231n.github.io/convolutional-networks/)
+-[receptive_field_OR_context](https://cs231n.github.io/convolutional-networks/)
+-[VISUALIZE_Network](https://github.com/microsoft/tensorwatch)
+-[VISUALIZE_receptive_field_OR_context](https://github.com/shelfwise/receptivefield)
+
+-[VISUALIZE_NEURALNET_LAYER_OUTPUTS] 
+-[XAI_Explainable_AI_HuggingFaceModels](https://jacobgil.github.io/pytorch-gradcam-book/HuggingFace.html)
+-[Class_Activation_Maps](https://jacobgil.github.io/pytorch-gradcam-book/Class%20Activation%20Maps%20for%20Object%20Detection%20With%20Faster%20RCNN.html)
+-[Gradient_Class_Activation_Maps](https://jacobgil.github.io/pytorch-gradcam-book/Class%20Activation%20Maps%20for%20Object%20Detection%20With%20Faster%20RCNN.html)
+
+- https://jacobgil.github.io/pytorch-gradcam-book/Class%20Activation%20Maps%20for%20Object%20Detection%20With%20Faster%20RCNN.html
 
 
 - [CycleGAN-pix2pix--pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
@@ -117,7 +129,23 @@ with open("logreg_iris.onnx", "wb") as f:
 
 ```
 
+#
+
+
 - [GEO_GIS_Intro_Init_UCLA](https://www.youtube.com/watch?v=gi4UdFsayoM)
 - [GEO_GIS__Census_Data_Analysis_Mapping](https://www.youtube.com/watch?v=rrGw6ct-Cbw)
 - [GEO_GIS__Spatial_Statistics_with_Python](https://www.youtube.com/watch?v=B_LHPRVEOvs)
+- 
+
+#
+
+- [Forecasting_TimeSeries_LinearModels]
+- [Forecasting_TimeSeries_SARIMAX]
+- 
+
+#
+
+- [Forecasting_TimeSeries_DeepLearning]
+- [Corrformer_PyTorch](https://github.com/thuml/Corrformer)
+- [Anomaly_Transformer_Time_Series_Anomaly_Detection](https://github.com/thuml/Anomaly-Transformer)
 - 
