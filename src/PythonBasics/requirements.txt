@@ -14,7 +14,7 @@ cffi==1.14.2
 chardet==3.0.4
 ConfigArgParse==1.2.3
 coursera-dl==0.11.5
-cryptography==2.9.2
+cryptography==41.0.4
 cycler==0.10.0
 Cython==0.29.21
 decorator==4.4.2
