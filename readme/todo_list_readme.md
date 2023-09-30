@@ -2,6 +2,17 @@
 - [HuggingFace_Diffusion](https://github.com/SongweiGe/rich-text-to-image)
 - [HuggingFace_Diffusion_text_to_image](https://github.com/SongweiGe/rich-text-to-image)
 - [junyanz_Jun_Yan_Zhu](https://github.com/junyanz)
+- [Original_GURU's__CompVis_latent_diffusion](https://github.com/CompVis/latent-diffusion)
+- [Original_GURU's__DDPM_DENOISING_DIFFUSION_PROBABILISTIC_MODELS](https://arxiv.org/abs/2006.11239)
+- [Original_GURU's__DDPM_DENOISING_DIFFUSION_PROBABILISTIC_MODELS](https://hojonathanho.github.io/diffusion/)
+- [Original_GURU's__DDPM_DENOISING_DIFFUSION_PROBABILISTIC_MODELS](https://github.com/hojonathanho/diffusion)
+> Denoising Diffusion Probabilistic Models - Jonathan Ho, Ajay Jain, Pieter Abbeel --- We present high quality image synthesis results using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics.
+
+> diffusers/src/diffusers/pipelines/ddpm/pipeline_ddpm.py
+- https://github.com/huggingface/diffusers/blob/c78ee143e9d3cb52147cbdcda13707d02f96961c/src/diffusers/pipelines/ddpm/pipeline_ddpm.py#L24
+> diffusers/scripts/convert_ddpm_original_checkpoint_to_diffusers.py
+- https://github.com/huggingface/diffusers/blob/c78ee143e9d3cb52147cbdcda13707d02f96961c/scripts/convert_ddpm_original_checkpoint_to_diffusers.py#L99
+
 
 
 - [HuggingFace_Diffusion_text_to_image]()
@@ -280,7 +291,7 @@ with open("logreg_iris.onnx", "wb") as f:
 #
 
 
-
+[Chip_Huyen--ML_InterViews_Book](https://github.com/chiphuyen/ml-interviews-book/blob/cc4d44336d4eddaccda99ca4377be7ec59280fef/contents/8.3-training-neural-networks.md?plain=1#L11)
 
 
 #
