@@ -1,3 +1,36 @@
+Additionally, please carry the following mandatory documents as applicable:
+
+
+
+Form 11 – Employees’ Provident Fund Organization Composite Declaration Form
+Nomination Form - Employees Provident Funds and Employees’ Pension Schemes
+Nomination Form - Other Benefits
+Gratuity Nomination - Form F
+Declaration Form – Employees’ State Insurance Corporation (if applicable)
+Aadhaar card & PAN Copy.
+ 
+
+Request you to upload the following documents/share required details on the Countdown to Accenture and VOB (as per list below):
+
+
+Passport size photographs
+ID/DOB proof
+Aadhaar card
+Relieving letter (if applicable)
+Declaration – Mandatory Documents submission
+PF passbook (if applicable)
+Bank details for disbursement of ESIC benefits (if applicable)
+PAN card
+Offer Letter
+Terms Of Employment
+Self-Declaration
+
+
+
+
+
+
+
 #
 
 <br/>

@@ -1,3 +1,11 @@
+- ViT -- 
+> Input image ImageNet -- 224 X 224 
+- split into 16 X 16 Blocks 
+- get a FLAT Vector with -- 796 Dimensions 
+- Linear Projection of Flattened Patches 
+- 
+
+
 #
 
 <br/>
