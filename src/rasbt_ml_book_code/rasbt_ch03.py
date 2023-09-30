@@ -16,6 +16,10 @@ print("--[INFO]--iris.keys()--",iris.keys()) # - dict_keys(['data', 'target', 'f
  
 print("--[INFO]--type(iris.data)--",type(iris.data)) #-- <class 'numpy.ndarray'>
 print("--[INFO]--type(iris.target)--",type(iris.target)) #-- <class 'numpy.ndarray'>
+print("--[INFO]--type(iris.target_names)--",type(iris.target_names)) #
+print("--[INFO]--iris.target_names--",iris.target_names) # - ['setosa' 'versicolor' 'virginica']
+print("--[INFO]--iris.frame--",iris.frame) # None
+print("--[INFO]--iris.data_module--",iris.data_module) # sklearn.datasets.data
 print('Class labels:', np.unique(y))
 
 
