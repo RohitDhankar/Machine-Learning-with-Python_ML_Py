@@ -5,12 +5,14 @@
 - more importantly, they can degrade the predictive performance of many machine learning algorithms. Unscaled data can also slow down or even prevent the convergence of many gradient-based estimators.
 - more importantly that all features vary on comparable scales. 
 - 
-https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html
-https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html#plot-all-scaling-standard-scaler-section
+- https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html
+- https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html#plot-all-scaling-standard-scaler-section
 
-https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.transform
+- https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.transform
+```
 transform(X[, copy])
 Perform standardization by centering and scaling.
+```
 """
 #
 """
