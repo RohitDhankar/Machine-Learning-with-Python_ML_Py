@@ -124,9 +124,9 @@ def create_axes(title, figsize=(16, 6)):
     left = width + left + 0.2
     left_h = left + width + 0.02
 
-    # rect_scatter = [left, bottom, width, height]
-    # rect_histx = [left, bottom_h, width, 0.1]
-    # rect_histy = [left_h, bottom, 0.05, height]
+    rect_scatter = [left, bottom, width, height]
+    rect_histx = [left, bottom_h, width, 0.1]
+    rect_histy = [left_h, bottom, 0.05, height]
 
     ax_scatter_zoom = plt.axes(rect_scatter)
     ax_histx_zoom = plt.axes(rect_histx)
@@ -245,9 +245,9 @@ def make_plot(item_idx):
     
 
 if __name__ == "__main__":
-    #make_plot(0)
+    make_plot(0)
     #plt.show() #OK_1
     make_plot(1)
-    plt.show() # OK_2
-    # make_plot(2)
-    # plt.show() # OK_2
+    #plt.show() # OK_2
+    make_plot(2)
+    plt.show() # OK_3 -- 
