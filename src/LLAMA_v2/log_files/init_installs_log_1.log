@@ -2,6 +2,8 @@
 
 conda activate env_hface
 
+https://huggingface.co/abhishek/llama-2-7b-hf-small-shards
+
 
 https://github.com/huggingface/autotrain-advanced
 /home/dhankar/temp/08_23/a___main_tutes_DL/a__LLM/Abhi_Thakur/orig_auto_train/autotrain-advanced

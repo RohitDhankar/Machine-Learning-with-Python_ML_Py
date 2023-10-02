@@ -1,0 +1,48 @@
+> INFO    Running LLM
+> INFO    Params: Namespace(version=False, train=True, deploy=False, inference=False, data_path='.', train_split='train', valid_split=None, text_column='text', model='abhishek/llama-2-7b-hf-small-shards', learning_rate=0.0002, num_train_epochs=3, train_batch_size=3, warmup_ratio=0.1, gradient_accumulation_steps=1, optimizer='adamw_torch', scheduler='linear', weight_decay=0.0, max_grad_norm=1.0, seed=42, add_eos_token=False, block_size=-1, use_peft=True, lora_r=16, lora_alpha=32, lora_dropout=0.05, logging_steps=-1, project_name='llm_1a', evaluation_strategy='epoch', save_total_limit=1, save_strategy='epoch', auto_find_batch_size=False, fp16=False, push_to_hub=False, use_int8=False, model_max_length=1024, repo_id=None, use_int4=True, trainer='sft', target_modules=None, merge_adapter=False, token=None, backend='default', username=None, use_flash_attention_2=False, func=<function run_llm_command_factory at 0x7f2efba84c20>)
+> INFO    loading dataset from csv
+Loading the tokenizer from the `special_tokens_map.json` and the `added_tokens.json` will be removed in `transformers 5`,  it is kept for forward compatibility, but it is recommended to update your `tokenizer_config.json` by uploading it again. You will see the new `added_tokens_decoder` attribute that will store the relevant information.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+
+Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]
+Loading checkpoint shards:  10%|█         | 1/10 [00:28<04:15, 28.35s/it]
+Loading checkpoint shards:  20%|██        | 2/10 [00:54<03:36, 27.11s/it]
+Loading checkpoint shards:  30%|███       | 3/10 [01:21<03:07, 26.85s/it]
+Loading checkpoint shards:  40%|████      | 4/10 [01:47<02:39, 26.63s/it]
+Loading checkpoint shards:  50%|█████     | 5/10 [02:13<02:11, 26.37s/it]
+Loading checkpoint shards:  60%|██████    | 6/10 [02:39<01:45, 26.37s/it]
+Loading checkpoint shards:  70%|███████   | 7/10 [03:20<01:33, 31.24s/it]
+Loading checkpoint shards:  70%|███████   | 7/10 [03:54<01:40, 33.44s/it]
+> ERROR   train has failed due to an exception:
+> ERROR   Traceback (most recent call last):
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/autotrain/utils.py", line 280, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/autotrain/trainers/clm/__main__.py", line 122, in train
+    model = AutoModelForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 565, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/transformers/modeling_utils.py", line 3303, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/transformers/modeling_utils.py", line 3691, in _load_pretrained_model
+    new_error_msgs, offload_index, state_dict_index = _load_state_dict_into_meta_model(
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/transformers/modeling_utils.py", line 749, in _load_state_dict_into_meta_model
+    set_module_quantized_tensor_to_device(
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/transformers/integrations/bitsandbytes.py", line 98, in set_module_quantized_tensor_to_device
+    new_value = bnb.nn.Params4bit(new_value, requires_grad=False, **kwargs).to(device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/bitsandbytes/nn/modules.py", line 179, in to
+    return self.cuda(device)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/bitsandbytes/nn/modules.py", line 157, in cuda
+    w_4bit, quant_state = bnb.functional.quantize_4bit(w, blocksize=self.blocksize, compress_statistics=self.compress_statistics, quant_type=self.quant_type)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/bitsandbytes/functional.py", line 816, in quantize_4bit
+    out = torch.zeros(((n+1)//2, 1), dtype=torch.uint8, device=A.device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 22.00 MiB (GPU 0; 3.82 GiB total capacity; 2.98 GiB already allocated; 20.50 MiB free; 3.05 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+

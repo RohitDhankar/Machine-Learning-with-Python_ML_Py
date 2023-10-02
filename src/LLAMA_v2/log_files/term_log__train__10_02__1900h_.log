@@ -1,0 +1,27 @@
+> INFO    Running LLM
+> INFO    Params: Namespace(version=False, train=True, deploy=False, inference=False, data_path='.', train_split='train', 
+valid_split=None, text_column='text', model='abhishek/llama-2-7b-hf-small-shards', learning_rate=0.0002, 
+num_train_epochs=3, train_batch_size=12, warmup_ratio=0.1, gradient_accumulation_steps=1, 
+optimizer='adamw_torch', scheduler='linear', weight_decay=0.0, max_grad_norm=1.0, seed=42, 
+add_eos_token=False, block_size=-1, use_peft=True, lora_r=16, lora_alpha=32, lora_dropout=0.05, 
+logging_steps=-1, project_name='llm_1a', evaluation_strategy='epoch', save_total_limit=1, 
+save_strategy='epoch', auto_find_batch_size=False, fp16=False, push_to_hub=False, use_int8=False, model_max_length=1024, 
+repo_id=None, use_int4=True, trainer='sft', target_modules=None, merge_adapter=False, token=None, 
+backend='default', username=None, use_flash_attention_2=False, func=<function run_llm_command_factory at 0x7fa70ed86520>)
+> INFO    loading dataset from csv
+> ERROR   train has failed due to an exception:
+> ERROR   Traceback (most recent call last):
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/autotrain/utils.py", line 280, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/autotrain/trainers/clm/__main__.py", line 122, in train
+    model = AutoModelForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 493, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2700, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LlamaForCausalLM.__init__() got an unexpected keyword argument 'use_flash_attention_2'
+
