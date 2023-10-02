@@ -1,0 +1,401 @@
+
+
+conda activate env_hface
+
+
+https://github.com/huggingface/autotrain-advanced
+/home/dhankar/temp/08_23/a___main_tutes_DL/a__LLM/Abhi_Thakur/orig_auto_train/autotrain-advanced
+
+
+Title 	Link
+How to Finetune LLMs 	https://youtu.be/3fsn19OI_C8
+https://www.youtube.com/watch?v=3fsn19OI_C8
+DATA -- PARQUET 
+https://huggingface.co/datasets/tatsu-lab/alpaca/tree/main/data
+
+
+How to Train SDXL Dreambooth 	https://youtu.be/gF078Lhnr94
+
+
+https://www.youtube.com/watch?v=3fsn19OI_C8
+autotrain llm --train --project_name my-llm 
+--model meta-llama/Llama-2-7b-hf 
+--data_path . 
+--use_peft 
+--use_int4 
+--learning_rate 2e-4 
+--train_batch_size 12 
+--num_train_epochs 3 
+--trainer sft
+
+autotrain llm --train --project_name llm_1a 
+
+
+
+## FOOBAR_step_into_AutoTrainCode
+
+-1.7.6
+(env_hface) dhankar@dhankar-1:~/.../a__LLM$ 
+(env_hface) dhankar@dhankar-1:~/.../a__LLM$ autotrain llm --train --project_name llm_1a 
+Traceback (most recent call last):
+  File "/home/dhankar/anaconda3/envs/env_hface/bin/autotrain", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/autotrain/cli/autotrain.py", line 45, in main
+    command = args.func(args)
+              ^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/autotrain/cli/run_llm.py", line 14, in run_llm_command_factory
+    return RunAutoTrainLLMCommand(args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages/autotrain/cli/run_llm.py", line 384, in __init__
+    raise ValueError("Data path must be specified")
+ValueError: Data path must be specified
+
+
+from .run_llm import RunAutoTrainLLMCommand
+
+
+
+## FOOBAR__autotrain pip install autotrain-advanced
+
+(env_hface) dhankar@dhankar-1:~/.../a__LLM$ pip freeze > reqmts_env_hface.log
+(env_hface) dhankar@dhankar-1:~/.../a__LLM$ 
+(env_hface) dhankar@dhankar-1:~/.../a__LLM$ pip install autotrain-advanced
+Collecting autotrain-advanced
+  Obtaining dependency information for autotrain-advanced from https://files.pythonhosted.org/packages/0d/45/4cbe638430e408c483e66fb204706e7da4bdbdc9b82a6aec46cfd4ada452/autotrain_advanced-0.6.34-py3-none-any.whl.metadata
+  Downloading autotrain_advanced-0.6.34-py3-none-any.whl.metadata (9.2 kB)
+Requirement already satisfied: albumentations==1.3.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (1.3.1)
+Collecting codecarbon==2.2.3 (from autotrain-advanced)
+  Obtaining dependency information for codecarbon==2.2.3 from https://files.pythonhosted.org/packages/91/21/aefc136fa14595668f62c3008789555a4de900f3e23cbf7214743e6c728a/codecarbon-2.2.3-py3-none-any.whl.metadata
+  Downloading codecarbon-2.2.3-py3-none-any.whl.metadata (6.5 kB)
+Requirement already satisfied: datasets[vision]~=2.14.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (2.14.3)
+Collecting evaluate==0.3.0 (from autotrain-advanced)
+  Downloading evaluate-0.3.0-py3-none-any.whl (72 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.9/72.9 kB 856.9 kB/s eta 0:00:00
+Collecting ipadic==1.0.0 (from autotrain-advanced)
+  Downloading ipadic-1.0.0.tar.gz (13.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.4/13.4 MB 10.1 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Collecting jiwer==3.0.2 (from autotrain-advanced)
+  Obtaining dependency information for jiwer==3.0.2 from https://files.pythonhosted.org/packages/23/a3/92c29a5e422acd87e3b4f2e6dc0ce877070cc9b2f81d30fe84122032338a/jiwer-3.0.2-py3-none-any.whl.metadata
+  Downloading jiwer-3.0.2-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: joblib==1.3.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (1.3.1)
+Collecting loguru==0.7.0 (from autotrain-advanced)
+  Downloading loguru-0.7.0-py3-none-any.whl (59 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.0/60.0 kB 796.9 kB/s eta 0:00:00
+Requirement already satisfied: pandas>=1.4 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (2.0.3)
+Collecting optuna==3.3.0 (from autotrain-advanced)
+  Obtaining dependency information for optuna==3.3.0 from https://files.pythonhosted.org/packages/69/60/87a06ef66b34cbe2f2eb0ab66f003664404a7f40c21403a69fad7e28a82b/optuna-3.3.0-py3-none-any.whl.metadata
+  Downloading optuna-3.3.0-py3-none-any.whl.metadata (17 kB)
+Collecting Pillow==10.0.0 (from autotrain-advanced)
+  Obtaining dependency information for Pillow==10.0.0 from https://files.pythonhosted.org/packages/45/de/b07418f00cd78af292ceb4e2855c158ef8477dc1cbcdac3e1f32eb4e53b6/Pillow-10.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Using cached Pillow-10.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.5 kB)
+Requirement already satisfied: protobuf==4.23.4 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (4.23.4)
+Collecting pydantic==1.10.11 (from autotrain-advanced)
+  Obtaining dependency information for pydantic==1.10.11 from https://files.pythonhosted.org/packages/af/c3/216d527637fb6de1d2c08f870a094f239f8e5a127b9693835cedc29616f7/pydantic-1.10.11-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading pydantic-1.10.11-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (148 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 149.0/149.0 kB 1.6 MB/s eta 0:00:00
+Collecting sacremoses==0.0.53 (from autotrain-advanced)
+  Downloading sacremoses-0.0.53.tar.gz (880 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 880.6/880.6 kB 7.2 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: scikit-learn==1.3.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (1.3.0)
+Collecting sentencepiece==0.1.99 (from autotrain-advanced)
+  Downloading sentencepiece-0.1.99-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 9.9 MB/s eta 0:00:00
+Requirement already satisfied: tqdm==4.65.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (4.65.0)
+Requirement already satisfied: werkzeug==2.3.6 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (2.3.6)
+Collecting xgboost==1.7.6 (from autotrain-advanced)
+  Obtaining dependency information for xgboost==1.7.6 from https://files.pythonhosted.org/packages/8c/3a/c9c5d4d5c49b132ef15ac7b5ccf56ef1c82efe36cd19414771762e97c00e/xgboost-1.7.6-py3-none-manylinux2014_x86_64.whl.metadata
+  Downloading xgboost-1.7.6-py3-none-manylinux2014_x86_64.whl.metadata (1.9 kB)
+Requirement already satisfied: huggingface-hub>=0.16.4 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (0.16.4)
+Requirement already satisfied: requests==2.31.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (2.31.0)
+Collecting gradio==3.41.0 (from autotrain-advanced)
+  Obtaining dependency information for gradio==3.41.0 from https://files.pythonhosted.org/packages/70/38/4fb11e6ddf8ecc77717389b553ea8dedca1a0574eee4fcbaf943e7dc34df/gradio-3.41.0-py3-none-any.whl.metadata
+  Downloading gradio-3.41.0-py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: einops==0.6.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (0.6.1)
+Requirement already satisfied: invisible-watermark==0.2.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (0.2.0)
+Requirement already satisfied: packaging==23.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (23.1)
+Requirement already satisfied: tensorboard in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (2.13.0)
+Collecting peft (from autotrain-advanced)
+  Obtaining dependency information for peft from https://files.pythonhosted.org/packages/37/1a/8d20e8704da9fa070eb909265584b960da57be1d833d550c59f50906dc5c/peft-0.5.0-py3-none-any.whl.metadata
+  Downloading peft-0.5.0-py3-none-any.whl.metadata (22 kB)
+Collecting trl (from autotrain-advanced)
+  Obtaining dependency information for trl from https://files.pythonhosted.org/packages/99/ac/84511f8ac36cab782bafa1b188169146d7b2a2ce63868315722cdd746038/trl-0.7.1-py3-none-any.whl.metadata
+  Downloading trl-0.7.1-py3-none-any.whl.metadata (9.8 kB)
+Collecting tiktoken (from autotrain-advanced)
+  Obtaining dependency information for tiktoken from https://files.pythonhosted.org/packages/94/2f/0cc8fb3436d421d8fa2da370aca0283201f1b99e88a0f6e742bd8eef397d/tiktoken-0.5.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading tiktoken-0.5.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Requirement already satisfied: transformers in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (4.31.0)
+Requirement already satisfied: accelerate in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (0.21.0)
+Requirement already satisfied: diffusers in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from autotrain-advanced) (0.20.0.dev0)
+Collecting bitsandbytes (from autotrain-advanced)
+  Obtaining dependency information for bitsandbytes from https://files.pythonhosted.org/packages/1e/2c/af22cd797fc368a9f098ed03015730e6568b884fe67f9940793d944a4b7b/bitsandbytes-0.41.1-py3-none-any.whl.metadata
+  Downloading bitsandbytes-0.41.1-py3-none-any.whl.metadata (9.8 kB)
+Requirement already satisfied: numpy>=1.11.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from albumentations==1.3.1->autotrain-advanced) (1.25.2)
+Requirement already satisfied: scipy>=1.1.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from albumentations==1.3.1->autotrain-advanced) (1.11.1)
+Requirement already satisfied: scikit-image>=0.16.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from albumentations==1.3.1->autotrain-advanced) (0.21.0)
+Requirement already satisfied: PyYAML in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from albumentations==1.3.1->autotrain-advanced) (6.0.1)
+Requirement already satisfied: qudida>=0.0.4 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from albumentations==1.3.1->autotrain-advanced) (0.0.4)
+Requirement already satisfied: opencv-python-headless>=4.1.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from albumentations==1.3.1->autotrain-advanced) (4.8.0.74)
+Collecting arrow (from codecarbon==2.2.3->autotrain-advanced)
+  Obtaining dependency information for arrow from https://files.pythonhosted.org/packages/f8/ed/e97229a566617f2ae958a6b13e7cc0f585470eac730a73e9e82c32a3cdd2/arrow-1.3.0-py3-none-any.whl.metadata
+  Downloading arrow-1.3.0-py3-none-any.whl.metadata (7.5 kB)
+Collecting pynvml (from codecarbon==2.2.3->autotrain-advanced)
+  Downloading pynvml-11.5.0-py3-none-any.whl (53 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.1/53.1 kB 843.2 kB/s eta 0:00:00
+Requirement already satisfied: psutil in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from codecarbon==2.2.3->autotrain-advanced) (5.9.5)
+Collecting py-cpuinfo (from codecarbon==2.2.3->autotrain-advanced)
+  Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Collecting fuzzywuzzy (from codecarbon==2.2.3->autotrain-advanced)
+  Downloading fuzzywuzzy-0.18.0-py2.py3-none-any.whl (18 kB)
+Requirement already satisfied: click in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from codecarbon==2.2.3->autotrain-advanced) (8.1.6)
+Requirement already satisfied: dill in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from evaluate==0.3.0->autotrain-advanced) (0.3.7)
+Requirement already satisfied: xxhash in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from evaluate==0.3.0->autotrain-advanced) (3.3.0)
+Requirement already satisfied: multiprocess in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from evaluate==0.3.0->autotrain-advanced) (0.70.15)
+Requirement already satisfied: fsspec[http]>=2021.05.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from evaluate==0.3.0->autotrain-advanced) (2023.6.0)
+Requirement already satisfied: responses<0.19 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from evaluate==0.3.0->autotrain-advanced) (0.18.0)
+Collecting aiofiles<24.0,>=22.0 (from gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for aiofiles<24.0,>=22.0 from https://files.pythonhosted.org/packages/c5/19/5af6804c4cc0fed83f47bff6e413a98a36618e7d40185cd36e69737f3b0e/aiofiles-23.2.1-py3-none-any.whl.metadata
+  Downloading aiofiles-23.2.1-py3-none-any.whl.metadata (9.7 kB)
+Requirement already satisfied: altair<6.0,>=4.2.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from gradio==3.41.0->autotrain-advanced) (5.0.1)
+Collecting fastapi (from gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for fastapi from https://files.pythonhosted.org/packages/4d/d2/3ad038a2365fefbac19d9a046cab7ce45f4c7bfa81d877cbece9707de9ce/fastapi-0.103.2-py3-none-any.whl.metadata
+  Downloading fastapi-0.103.2-py3-none-any.whl.metadata (24 kB)
+Collecting ffmpy (from gradio==3.41.0->autotrain-advanced)
+  Downloading ffmpy-0.3.1.tar.gz (5.5 kB)
+  Preparing metadata (setup.py) ... done
+Collecting gradio-client==0.5.0 (from gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for gradio-client==0.5.0 from https://files.pythonhosted.org/packages/fe/85/ec0323f39192c4bee04e8e06e64213aff816b9d1b61c3c8367e75b1c7e10/gradio_client-0.5.0-py3-none-any.whl.metadata
+  Downloading gradio_client-0.5.0-py3-none-any.whl.metadata (7.1 kB)
+Collecting httpx (from gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for httpx from https://files.pythonhosted.org/packages/33/0d/d9ce469af019741c8999711d36b270ff992ceb1a0293f73f9f34fdf131e9/httpx-0.25.0-py3-none-any.whl.metadata
+  Downloading httpx-0.25.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting importlib-resources<7.0,>=1.3 (from gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for importlib-resources<7.0,>=1.3 from https://files.pythonhosted.org/packages/65/6e/09d8816b5cb7a4006ef8ad1717a2703ad9f331dae9717d9f22488a2d6469/importlib_resources-6.1.0-py3-none-any.whl.metadata
+  Using cached importlib_resources-6.1.0-py3-none-any.whl.metadata (4.1 kB)
+Requirement already satisfied: jinja2<4.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from gradio==3.41.0->autotrain-advanced) (3.1.2)
+Requirement already satisfied: markupsafe~=2.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from gradio==3.41.0->autotrain-advanced) (2.1.3)
+Collecting matplotlib~=3.0 (from gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for matplotlib~=3.0 from https://files.pythonhosted.org/packages/65/5b/3b8fd7d66043f0638a35fa650570cbe69efd42fe169e5024f9307598b47e/matplotlib-3.8.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading matplotlib-3.8.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.8 kB)
+Collecting orjson~=3.0 (from gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for orjson~=3.0 from https://files.pythonhosted.org/packages/0b/e1/2c6e894de23c1bb5c76eff087c99fc3c7ce8f317a793f8c80767f4225733/orjson-3.9.7-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading orjson-3.9.7-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (49 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.2/49.2 kB 551.5 kB/s eta 0:00:00
+Collecting pydub (from gradio==3.41.0->autotrain-advanced)
+  Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Collecting python-multipart (from gradio==3.41.0->autotrain-advanced)
+  Downloading python_multipart-0.0.6-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.7/45.7 kB 596.3 kB/s eta 0:00:00
+Collecting semantic-version~=2.0 (from gradio==3.41.0->autotrain-advanced)
+  Downloading semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+Requirement already satisfied: typing-extensions~=4.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from gradio==3.41.0->autotrain-advanced) (4.7.1)
+Collecting uvicorn>=0.14.0 (from gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for uvicorn>=0.14.0 from https://files.pythonhosted.org/packages/79/96/b0882a1c3f7ef3dd86879e041212ae5b62b4bd352320889231cc735a8e8f/uvicorn-0.23.2-py3-none-any.whl.metadata
+  Downloading uvicorn-0.23.2-py3-none-any.whl.metadata (6.2 kB)
+Collecting websockets<12.0,>=10.0 (from gradio==3.41.0->autotrain-advanced)
+  Downloading websockets-11.0.3-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.6/130.6 kB 1.6 MB/s eta 0:00:00
+Requirement already satisfied: PyWavelets>=1.1.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from invisible-watermark==0.2.0->autotrain-advanced) (1.4.1)
+Requirement already satisfied: opencv-python>=4.1.0.25 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from invisible-watermark==0.2.0->autotrain-advanced) (4.8.0.74)
+Requirement already satisfied: torch in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from invisible-watermark==0.2.0->autotrain-advanced) (2.0.1)
+Collecting rapidfuzz==2.13.7 (from jiwer==3.0.2->autotrain-advanced)
+  Downloading rapidfuzz-2.13.7-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 10.0 MB/s eta 0:00:00
+Collecting alembic>=1.5.0 (from optuna==3.3.0->autotrain-advanced)
+  Obtaining dependency information for alembic>=1.5.0 from https://files.pythonhosted.org/packages/a2/8b/46919127496036c8e990b2b236454a0d8655fd46e1df2fd35610a9cbc842/alembic-1.12.0-py3-none-any.whl.metadata
+  Downloading alembic-1.12.0-py3-none-any.whl.metadata (7.2 kB)
+Collecting cmaes>=0.10.0 (from optuna==3.3.0->autotrain-advanced)
+  Obtaining dependency information for cmaes>=0.10.0 from https://files.pythonhosted.org/packages/f7/46/7d9544d453346f6c0c405916c95fdb653491ea2e9976cabb810ba2fe8cd4/cmaes-0.10.0-py3-none-any.whl.metadata
+  Downloading cmaes-0.10.0-py3-none-any.whl.metadata (19 kB)
+Collecting colorlog (from optuna==3.3.0->autotrain-advanced)
+  Downloading colorlog-6.7.0-py2.py3-none-any.whl (11 kB)
+Collecting sqlalchemy>=1.3.0 (from optuna==3.3.0->autotrain-advanced)
+  Obtaining dependency information for sqlalchemy>=1.3.0 from https://files.pythonhosted.org/packages/54/c2/c51f040038859732f781f25907e01ee980987d24fa0747884e6073363a14/SQLAlchemy-2.0.21-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading SQLAlchemy-2.0.21-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.4 kB)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from requests==2.31.0->autotrain-advanced) (3.2.0)
+Requirement already satisfied: idna<4,>=2.5 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from requests==2.31.0->autotrain-advanced) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from requests==2.31.0->autotrain-advanced) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from requests==2.31.0->autotrain-advanced) (2023.7.22)
+Requirement already satisfied: regex in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from sacremoses==0.0.53->autotrain-advanced) (2023.6.3)
+Requirement already satisfied: six in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from sacremoses==0.0.53->autotrain-advanced) (1.16.0)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from scikit-learn==1.3.0->autotrain-advanced) (3.2.0)
+Requirement already satisfied: pyarrow>=8.0.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from datasets[vision]~=2.14.0->autotrain-advanced) (12.0.1)
+Requirement already satisfied: aiohttp in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from datasets[vision]~=2.14.0->autotrain-advanced) (3.8.5)
+Requirement already satisfied: filelock in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from huggingface-hub>=0.16.4->autotrain-advanced) (3.12.2)
+Requirement already satisfied: python-dateutil>=2.8.2 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from pandas>=1.4->autotrain-advanced) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from pandas>=1.4->autotrain-advanced) (2023.3)
+Requirement already satisfied: tzdata>=2022.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from pandas>=1.4->autotrain-advanced) (2023.3)
+Requirement already satisfied: importlib-metadata in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from diffusers->autotrain-advanced) (6.8.0)
+Requirement already satisfied: safetensors>=0.3.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from diffusers->autotrain-advanced) (0.3.1)
+Requirement already satisfied: absl-py>=0.4 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from tensorboard->autotrain-advanced) (1.4.0)
+Requirement already satisfied: grpcio>=1.48.2 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from tensorboard->autotrain-advanced) (1.56.2)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from tensorboard->autotrain-advanced) (2.22.0)
+Requirement already satisfied: google-auth-oauthlib<1.1,>=0.5 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from tensorboard->autotrain-advanced) (1.0.0)
+Requirement already satisfied: markdown>=2.6.8 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from tensorboard->autotrain-advanced) (3.4.4)
+Requirement already satisfied: setuptools>=41.0.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from tensorboard->autotrain-advanced) (68.0.0)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from tensorboard->autotrain-advanced) (0.7.1)
+Requirement already satisfied: wheel>=0.26 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from tensorboard->autotrain-advanced) (0.38.4)
+Requirement already satisfied: tokenizers!=0.11.3,<0.14,>=0.11.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from transformers->autotrain-advanced) (0.13.3)
+Collecting Mako (from alembic>=1.5.0->optuna==3.3.0->autotrain-advanced)
+  Downloading Mako-1.2.4-py3-none-any.whl (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.7/78.7 kB 928.8 kB/s eta 0:00:00
+Requirement already satisfied: jsonschema>=3.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from altair<6.0,>=4.2.0->gradio==3.41.0->autotrain-advanced) (4.18.6)
+Requirement already satisfied: toolz in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from altair<6.0,>=4.2.0->gradio==3.41.0->autotrain-advanced) (0.12.0)
+Requirement already satisfied: attrs>=17.3.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from aiohttp->datasets[vision]~=2.14.0->autotrain-advanced) (23.1.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from aiohttp->datasets[vision]~=2.14.0->autotrain-advanced) (6.0.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0.0a3 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from aiohttp->datasets[vision]~=2.14.0->autotrain-advanced) (4.0.2)
+Requirement already satisfied: yarl<2.0,>=1.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from aiohttp->datasets[vision]~=2.14.0->autotrain-advanced) (1.9.2)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from aiohttp->datasets[vision]~=2.14.0->autotrain-advanced) (1.4.0)
+Requirement already satisfied: aiosignal>=1.1.2 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from aiohttp->datasets[vision]~=2.14.0->autotrain-advanced) (1.3.1)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from google-auth<3,>=1.6.3->tensorboard->autotrain-advanced) (5.3.1)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from google-auth<3,>=1.6.3->tensorboard->autotrain-advanced) (0.3.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from google-auth<3,>=1.6.3->tensorboard->autotrain-advanced) (4.9)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from google-auth-oauthlib<1.1,>=0.5->tensorboard->autotrain-advanced) (1.3.1)
+Collecting contourpy>=1.0.1 (from matplotlib~=3.0->gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for contourpy>=1.0.1 from https://files.pythonhosted.org/packages/b7/f6/78f60fa0b6ae64971178e2542e8b3ad3ba5f4f379b918ab7b18038a3f897/contourpy-1.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading contourpy-1.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.9 kB)
+Collecting cycler>=0.10 (from matplotlib~=3.0->gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for cycler>=0.10 from https://files.pythonhosted.org/packages/2b/b3/70c33027c4918c10ccf176014b38f8b91cb18ac018a78854543a4fc72609/cycler-0.12.0-py3-none-any.whl.metadata
+  Downloading cycler-0.12.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib~=3.0->gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for fonttools>=4.22.0 from https://files.pythonhosted.org/packages/ca/3b/9554bcd5005f994ab65e8238c713e62ddfd30e1d003a0b8e77193a0c2356/fonttools-4.43.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading fonttools-4.43.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (151 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.9/151.9 kB 2.8 MB/s eta 0:00:00
+Collecting kiwisolver>=1.0.1 (from matplotlib~=3.0->gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for kiwisolver>=1.0.1 from https://files.pythonhosted.org/packages/17/ba/17a706b232308e65f57deeccae503c268292e6a091313f6ce833a23093ea/kiwisolver-1.4.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading kiwisolver-1.4.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+Collecting pyparsing>=2.3.1 (from matplotlib~=3.0->gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for pyparsing>=2.3.1 from https://files.pythonhosted.org/packages/39/92/8486ede85fcc088f1b3dba4ce92dd29d126fd96b0008ea213167940a2475/pyparsing-3.1.1-py3-none-any.whl.metadata
+  Using cached pyparsing-3.1.1-py3-none-any.whl.metadata (5.1 kB)
+Requirement already satisfied: networkx>=2.8 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from scikit-image>=0.16.1->albumentations==1.3.1->autotrain-advanced) (3.1)
+Requirement already satisfied: imageio>=2.27 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from scikit-image>=0.16.1->albumentations==1.3.1->autotrain-advanced) (2.31.1)
+Requirement already satisfied: tifffile>=2022.8.12 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from scikit-image>=0.16.1->albumentations==1.3.1->autotrain-advanced) (2023.7.18)
+Requirement already satisfied: lazy_loader>=0.2 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from scikit-image>=0.16.1->albumentations==1.3.1->autotrain-advanced) (0.3)
+Collecting greenlet!=0.4.17 (from sqlalchemy>=1.3.0->optuna==3.3.0->autotrain-advanced)
+  Downloading greenlet-2.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (618 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 618.8/618.8 kB 7.5 MB/s eta 0:00:00
+Requirement already satisfied: sympy in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (1.12)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.7.99 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (11.7.99)
+Requirement already satisfied: nvidia-cuda-runtime-cu11==11.7.99 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (11.7.99)
+Requirement already satisfied: nvidia-cuda-cupti-cu11==11.7.101 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (11.7.101)
+Requirement already satisfied: nvidia-cudnn-cu11==8.5.0.96 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (8.5.0.96)
+Requirement already satisfied: nvidia-cublas-cu11==11.10.3.66 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (11.10.3.66)
+Requirement already satisfied: nvidia-cufft-cu11==10.9.0.58 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (10.9.0.58)
+Requirement already satisfied: nvidia-curand-cu11==10.2.10.91 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (10.2.10.91)
+Requirement already satisfied: nvidia-cusolver-cu11==11.4.0.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (11.4.0.1)
+Requirement already satisfied: nvidia-cusparse-cu11==11.7.4.91 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (11.7.4.91)
+Requirement already satisfied: nvidia-nccl-cu11==2.14.3 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (2.14.3)
+Requirement already satisfied: nvidia-nvtx-cu11==11.7.91 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (11.7.91)
+Requirement already satisfied: triton==2.0.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from torch->invisible-watermark==0.2.0->autotrain-advanced) (2.0.0)
+Requirement already satisfied: cmake in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from triton==2.0.0->torch->invisible-watermark==0.2.0->autotrain-advanced) (3.27.0)
+Requirement already satisfied: lit in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from triton==2.0.0->torch->invisible-watermark==0.2.0->autotrain-advanced) (16.0.6)
+Collecting h11>=0.8 (from uvicorn>=0.14.0->gradio==3.41.0->autotrain-advanced)
+  Using cached h11-0.14.0-py3-none-any.whl (58 kB)
+Collecting types-python-dateutil>=2.8.10 (from arrow->codecarbon==2.2.3->autotrain-advanced)
+  Obtaining dependency information for types-python-dateutil>=2.8.10 from https://files.pythonhosted.org/packages/1c/af/5af2e2a02bc464c1c7818c260606343020b96c0d5b64f637d9e91aee24fe/types_python_dateutil-2.8.19.14-py3-none-any.whl.metadata
+  Downloading types_python_dateutil-2.8.19.14-py3-none-any.whl.metadata (1.6 kB)
+Collecting anyio<4.0.0,>=3.7.1 (from fastapi->gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for anyio<4.0.0,>=3.7.1 from https://files.pythonhosted.org/packages/19/24/44299477fe7dcc9cb58d0a57d5a7588d6af2ff403fdd2d47a246c91a3246/anyio-3.7.1-py3-none-any.whl.metadata
+  Downloading anyio-3.7.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting starlette<0.28.0,>=0.27.0 (from fastapi->gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for starlette<0.28.0,>=0.27.0 from https://files.pythonhosted.org/packages/58/f8/e2cca22387965584a409795913b774235752be4176d276714e15e1a58884/starlette-0.27.0-py3-none-any.whl.metadata
+  Downloading starlette-0.27.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting httpcore<0.19.0,>=0.18.0 (from httpx->gradio==3.41.0->autotrain-advanced)
+  Obtaining dependency information for httpcore<0.19.0,>=0.18.0 from https://files.pythonhosted.org/packages/ac/97/724afbb7925339f6214bf1fdb5714d1a462690466832bf8fb3fd497649f1/httpcore-0.18.0-py3-none-any.whl.metadata
+  Downloading httpcore-0.18.0-py3-none-any.whl.metadata (18 kB)
+Collecting sniffio (from httpx->gradio==3.41.0->autotrain-advanced)
+  Using cached sniffio-1.3.0-py3-none-any.whl (10 kB)
+Requirement already satisfied: zipp>=0.5 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from importlib-metadata->diffusers->autotrain-advanced) (3.16.2)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from jsonschema>=3.0->altair<6.0,>=4.2.0->gradio==3.41.0->autotrain-advanced) (2023.7.1)
+Requirement already satisfied: referencing>=0.28.4 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from jsonschema>=3.0->altair<6.0,>=4.2.0->gradio==3.41.0->autotrain-advanced) (0.30.2)
+Requirement already satisfied: rpds-py>=0.7.1 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from jsonschema>=3.0->altair<6.0,>=4.2.0->gradio==3.41.0->autotrain-advanced) (0.9.2)
+Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard->autotrain-advanced) (0.5.0)
+Requirement already satisfied: oauthlib>=3.0.0 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<1.1,>=0.5->tensorboard->autotrain-advanced) (3.2.2)
+Requirement already satisfied: mpmath>=0.19 in /home/dhankar/anaconda3/envs/env_hface/lib/python3.11/site-packages (from sympy->torch->invisible-watermark==0.2.0->autotrain-advanced) (1.3.0)
+Downloading autotrain_advanced-0.6.34-py3-none-any.whl (129 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.5/129.5 kB 953.2 kB/s eta 0:00:00
+Downloading codecarbon-2.2.3-py3-none-any.whl (174 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 174.1/174.1 kB 2.8 MB/s eta 0:00:00
+Downloading gradio-3.41.0-py3-none-any.whl (20.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.1/20.1 MB 11.5 MB/s eta 0:00:00
+Downloading jiwer-3.0.2-py3-none-any.whl (21 kB)
+Downloading optuna-3.3.0-py3-none-any.whl (404 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 404.2/404.2 kB 5.2 MB/s eta 0:00:00
+Using cached Pillow-10.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+Downloading pydantic-1.10.11-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 19.7 MB/s eta 0:00:00
+Downloading xgboost-1.7.6-py3-none-manylinux2014_x86_64.whl (200.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.3/200.3 MB 1.9 MB/s eta 0:00:00
+Downloading gradio_client-0.5.0-py3-none-any.whl (298 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 298.2/298.2 kB 1.1 MB/s eta 0:00:00
+Downloading bitsandbytes-0.41.1-py3-none-any.whl (92.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.6/92.6 MB 8.3 MB/s eta 0:00:00
+Downloading peft-0.5.0-py3-none-any.whl (85 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.6/85.6 kB 1.5 MB/s eta 0:00:00
+Downloading tiktoken-0.5.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 12.6 MB/s eta 0:00:00
+Downloading trl-0.7.1-py3-none-any.whl (117 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.0/118.0 kB 2.1 MB/s eta 0:00:00
+Downloading aiofiles-23.2.1-py3-none-any.whl (15 kB)
+Downloading alembic-1.12.0-py3-none-any.whl (226 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.0/226.0 kB 2.5 MB/s eta 0:00:00
+Downloading cmaes-0.10.0-py3-none-any.whl (29 kB)
+Using cached importlib_resources-6.1.0-py3-none-any.whl (33 kB)
+Downloading matplotlib-3.8.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.6/11.6 MB 18.9 MB/s eta 0:00:00
+Downloading orjson-3.9.7-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (138 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 138.7/138.7 kB 2.0 MB/s eta 0:00:00
+Downloading SQLAlchemy-2.0.21-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 16.5 MB/s eta 0:00:00
+Downloading uvicorn-0.23.2-py3-none-any.whl (59 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.5/59.5 kB 1.1 MB/s eta 0:00:00
+Downloading arrow-1.3.0-py3-none-any.whl (66 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 kB 1.0 MB/s eta 0:00:00
+Downloading fastapi-0.103.2-py3-none-any.whl (66 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.3/66.3 kB 725.9 kB/s eta 0:00:00
+Downloading httpx-0.25.0-py3-none-any.whl (75 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 75.7/75.7 kB 1.1 MB/s eta 0:00:00
+Downloading anyio-3.7.1-py3-none-any.whl (80 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.9/80.9 kB 1.2 MB/s eta 0:00:00
+Downloading contourpy-1.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (302 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 302.8/302.8 kB 4.8 MB/s eta 0:00:00
+Downloading cycler-0.12.0-py3-none-any.whl (8.2 kB)
+Downloading fonttools-4.43.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 20.1 MB/s eta 0:00:00
+Downloading httpcore-0.18.0-py3-none-any.whl (76 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.0/76.0 kB 1.1 MB/s eta 0:00:00
+Downloading kiwisolver-1.4.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 14.9 MB/s eta 0:00:00
+Using cached pyparsing-3.1.1-py3-none-any.whl (103 kB)
+Downloading starlette-0.27.0-py3-none-any.whl (66 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.0/67.0 kB 1.1 MB/s eta 0:00:00
+Downloading types_python_dateutil-2.8.19.14-py3-none-any.whl (9.4 kB)
+Building wheels for collected packages: ipadic, sacremoses, ffmpy
+  Building wheel for ipadic (setup.py) ... done
+  Created wheel for ipadic: filename=ipadic-1.0.0-py3-none-any.whl size=13556703 sha256=0b58b40363b7d219318a18a60d7f2ed489114e6d7d17bdd02226780a3101cbc7
+  Stored in directory: /home/dhankar/.cache/pip/wheels/44/56/37/f543963822b85260c9f948df8fac8c20169c80dc71b24dc407
+  Building wheel for sacremoses (setup.py) ... done
+  Created wheel for sacremoses: filename=sacremoses-0.0.53-py3-none-any.whl size=895241 sha256=d2453090f431e9a1003534f1f2768bc0b5204f26da34d36df018dd7551e6212f
+  Stored in directory: /home/dhankar/.cache/pip/wheels/11/75/c6/a82d827a00df823caf211262900d2c024f5b3a775b82b45230
+  Building wheel for ffmpy (setup.py) ... done
+  Created wheel for ffmpy: filename=ffmpy-0.3.1-py3-none-any.whl size=5580 sha256=5678d8ec527098057bc7d902393fc503e5b68d1a3373607c775188fea7376875
+  Stored in directory: /home/dhankar/.cache/pip/wheels/99/3b/84/22ac1eab7a10222ac6bbc3f7e69b04f3980db328978c533a3f
+Successfully built ipadic sacremoses ffmpy
+Installing collected packages: types-python-dateutil, sentencepiece, pydub, py-cpuinfo, ipadic, fuzzywuzzy, ffmpy, bitsandbytes, websockets, sniffio, semantic-version, sacremoses, rapidfuzz, python-multipart, pyparsing, pynvml, pydantic, Pillow, orjson, Mako, loguru, kiwisolver, importlib-resources, h11, greenlet, fonttools, cycler, contourpy, colorlog, cmaes, aiofiles, xgboost, uvicorn, tiktoken, sqlalchemy, matplotlib, jiwer, arrow, anyio, starlette, httpcore, codecarbon, alembic, optuna, httpx, fastapi, gradio-client, evaluate, gradio, trl, peft, autotrain-advanced
+  Attempting uninstall: Pillow
+    Found existing installation: Pillow 9.5.0
+    Uninstalling Pillow-9.5.0:
+      Successfully uninstalled Pillow-9.5.0
+  Attempting uninstall: evaluate
+    Found existing installation: evaluate 0.4.0
+    Uninstalling evaluate-0.4.0:
+      Successfully uninstalled evaluate-0.4.0
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+streamlit 1.25.0 requires pillow<10,>=7.1.0, but you have pillow 10.0.0 which is incompatible.
+Successfully installed Mako-1.2.4 Pillow-10.0.0 aiofiles-23.2.1 alembic-1.12.0 anyio-3.7.1 arrow-1.3.0 autotrain-advanced-0.6.34 bitsandbytes-0.41.1 cmaes-0.10.0 codecarbon-2.2.3 colorlog-6.7.0 contourpy-1.1.1 cycler-0.12.0 evaluate-0.3.0 fastapi-0.103.2 ffmpy-0.3.1 fonttools-4.43.0 fuzzywuzzy-0.18.0 gradio-3.41.0 gradio-client-0.5.0 greenlet-2.0.2 h11-0.14.0 httpcore-0.18.0 httpx-0.25.0 importlib-resources-6.1.0 ipadic-1.0.0 jiwer-3.0.2 kiwisolver-1.4.5 loguru-0.7.0 matplotlib-3.8.0 optuna-3.3.0 orjson-3.9.7 peft-0.5.0 py-cpuinfo-9.0.0 pydantic-1.10.11 pydub-0.25.1 pynvml-11.5.0 pyparsing-3.1.1 python-multipart-0.0.6 rapidfuzz-2.13.7 sacremoses-0.0.53 semantic-version-2.10.0 sentencepiece-0.1.99 sniffio-1.3.0 sqlalchemy-2.0.21 starlette-0.27.0 tiktoken-0.5.1 trl-0.7.1 types-python-dateutil-2.8.19.14 uvicorn-0.23.2 websockets-11.0.3 xgboost-1.7.6
+(env_hface) dhankar@dhankar-1:~/.../a__LLM$ 
+(env_hface) dhankar@dhankar-1:~/.../a__LLM$ 
+
+
