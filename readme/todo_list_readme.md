@@ -19,6 +19,26 @@
 - [HuggingFace_Diffusion_text_to_image]()
 - [HuggingFace_Diffusion_text_to_image]()
 
+#
+
+<br/>
+
+#
+
+#### FOCUS ---> :star_struck:
+
+> QUANTIZATION 
+> FrostNet: Towards Quantization-Aware Network Architecture Search - AUTHORS -- Taehoon Kim1,2, YoungJoon Yoo1, Jihoon Yang2 | Paper | Pretrained Models -- COPYRIGHT -->> Clova AI Research, NAVER Corp. Sogang University Machine Learning Lab. 
+
+-  In this paper, we present a new network architecture search (NAS) procedure to find a network that guarantees both full-precision (FLOAT32) and quantized (INT8) performances. We first propose critical but straightforward optimization method which enables quantization-aware training (QAT) :
+- [quantization_within_pytorch_imageModels_](https://github.com/huggingface/pytorch-image-models/pull/240#event-9057874394)
+- 
+- 
+> QUANTIZATION -- Generative Pre-trained Transformer models
+
+> [Submitted on 31 Oct 2022 (v1), last revised 22 Mar 2023 (this version, v2)]
+> GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers -- AUTHORS -- Elias Frantar, Saleh Ashkboos, Torsten Hoefler, Dan Alistarh
+> ABSTRACT -- Generative Pre-trained Transformer models, known as GPT or OPT, set themselves apart through breakthrough performance across complex language modelling tasks, but also by their extremely high computational and storage costs. Specifically, due to their massive size, even inference for large, highly-accurate GPT models may require multiple performant GPUs, which limits the usability of such models. While there is emerging work on relieving this pressure via model compression, the applicability and performance of existing compression techniques is limited by the scale and complexity of GPT models. In this paper, we address this challenge, and propose GPTQ, a new one-shot weight quantization method based on approximate second-order information, that is both highly-accurate and highly-efficient.
 
 #
 
